@@ -13,6 +13,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postListTemplate = path.resolve('src/templates/index-template.js')
   const postTemplate = path.resolve('src/templates/post-template/post-template.js')
   const archivesTemplate = path.resolve('src/templates/archives-template/archives-template.js')
+  const categoriesTemplate = path.resolve('src/templates/categories-template/categories-template.js')
 
   const result = await graphql(`
     {
@@ -128,4 +129,37 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     })
   }
+
+  /**
+   * 生成分类页面
+   */
+  const categories = {}
+  result.data.allMarkdownRemark.nodes.forEach(item => {
+    (item.frontmatter.categories || []).forEach(c => {
+      if (!categories[c]) {
+        categories[c] = []
+      }
+      categories[c].push({
+        date: item.frontmatter.date,
+        title: item.frontmatter.title,
+        link: `/post/${path.basename(item.fileAbsolutePath, path.extname(item.fileAbsolutePath))}`
+      })
+    })
+  })
+
+  Object.keys(categories).forEach(k => {
+    const cat = categories[k]
+    const totalCatePage = Math.ceil(cat.length / 10)
+    for (let i = 0; i < totalCatePage; i++) {
+      createPage({
+        path: `/categories/${k}/${i === 0 ? '' : i}`,
+        component: categoriesTemplate,
+        context: {
+          categories,
+          totalPage: totalCatePage,
+          currentPage: i
+        }
+      })
+    }
+  })
 }
