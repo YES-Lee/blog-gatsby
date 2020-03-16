@@ -6,6 +6,20 @@
 
 // You can delete this file if you're not using it
 const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = createFilePath({ node, getNode, basePath: 'src/posts' })
+    createNodeField({
+      node,
+      name: 'slug',
+      value: `/post/${slug.split('/')[1]}`,
+      trailingSlash: false
+    })
+  }
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
@@ -20,23 +34,31 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       allMarkdownRemark (sort: {fields: frontmatter___date, order: DESC}) {
         edges {
           next {
+            fields {
+              slug
+            }
             frontmatter {
               title
             }
-            fileAbsolutePath
           }
           node {
-            fileAbsolutePath
+            fields {
+              slug
+            }
           }
           previous {
-            fileAbsolutePath
+            fields {
+              slug
+            }
             frontmatter {
               title
             }
           }
         }
         nodes {
-          fileAbsolutePath
+          fields {
+            slug
+          }
           frontmatter {
             title
             date
@@ -79,21 +101,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     if (item.previous) {
       prevAndNext.prev = {
         title: item.previous.frontmatter.title,
-        link: `/post/${path.basename(item.previous.fileAbsolutePath, path.extname(item.previous.fileAbsolutePath))}`
+        link: item.previous.fields.slug
       }
     }
     if (item.next) {
       prevAndNext.next = {
         title: item.next.frontmatter.title,
-        link: `/post/${path.basename(item.next.fileAbsolutePath, path.extname(item.next.fileAbsolutePath))}`
+        link: item.next.fields.slug
       }
     }
-    const ext = path.extname(item.node.fileAbsolutePath)
     createPage({
-      path: `/post/${path.basename(item.node.fileAbsolutePath, ext)}`,
+      path: item.node.fields.slug,
       component: postTemplate,
       context: {
-        filePath: item.node.fileAbsolutePath,
+        slug: item.node.fields.slug,
         ...prevAndNext
       }
     })
@@ -115,7 +136,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       archives[year][month] = archives[year][month] || []
       archives[year][month].push({
         date,
-        link: `/post/${path.basename(item.fileAbsolutePath, path.extname(item.fileAbsolutePath))}`,
+        link: item.fields.slug,
         title: item.frontmatter.title
       })
     })
@@ -142,7 +163,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       categories[c].push({
         date: item.frontmatter.date,
         title: item.frontmatter.title,
-        link: `/post/${path.basename(item.fileAbsolutePath, path.extname(item.fileAbsolutePath))}`
+        link: item.fields.slug
       })
     })
   })

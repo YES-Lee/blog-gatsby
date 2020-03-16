@@ -47,10 +47,9 @@ export default function PostTemplate (props) {
 }
 
 export const pageQuery = graphql`
-  query postInfo($filePath: String!){
-    post: markdownRemark(fileAbsolutePath: {eq: $filePath}) {
+  query postInfo($slug: String!){
+    post: markdownRemark(fields: {slug: {eq: $slug}}) {
       timeToRead
-      fileAbsolutePath
       id
       html
       excerpt(format: HTML)

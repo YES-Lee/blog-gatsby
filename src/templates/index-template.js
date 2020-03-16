@@ -20,7 +20,7 @@ const IndexPage = (props) => {
         (postList.rows || []).map(post => (
           <PostCard
             key={post.id}
-            url={`/post/${path.basename(post.fileAbsolutePath, path.extname(post.fileAbsolutePath))}`}
+            url={post.fields.slug}
             title={post.frontmatter.title}
             excerpt={post.excerpt}
             thumbnail={post.frontmatter.thumbnail ? post.frontmatter.thumbnail.childImageSharp.fluid : ''}
@@ -42,7 +42,6 @@ export const pageQuery = graphql`
       rows: nodes {
         id
         excerpt
-        fileAbsolutePath
         frontmatter {
           title
           date(formatString: "YYYY年MM月DD日")
@@ -54,7 +53,9 @@ export const pageQuery = graphql`
             }
           }
         }
-        excerpt
+        fields {
+          slug
+        }
       }
     }
   }
