@@ -31,7 +31,7 @@ html {
 
 #___gatsby {
   height: 100%;
-  > div[role="group"][tabindex] {
+  > div#gatsby-focus-wrapper {
     height: 100%;
   }
 }

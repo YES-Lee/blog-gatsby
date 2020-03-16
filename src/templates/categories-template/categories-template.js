@@ -13,7 +13,8 @@ export default function CategoryPage (props) {
     pageContext: {
       currentPage,
       totalPage,
-      categories
+      categories,
+      title
     }
   } = props
 
@@ -24,12 +25,12 @@ export default function CategoryPage (props) {
         <div className={styles.header}>
           <nav className={styles.tabList}>
             {
-              Object.keys(categories.data).map(k => (
+              Object.keys(categories).map(k => (
                 <Link
                   key={k}
                   to={`/categories/${k}`}
-                  count={categories.data[k].length}
-                  className={`${styles.tabItem} ${k === categories.title ? styles.active : ''}`}
+                  count={categories[k].length}
+                  className={`${styles.tabItem} ${k === title ? styles.active : ''}`}
                 >
                   {k}
                 </Link>
@@ -39,7 +40,7 @@ export default function CategoryPage (props) {
         </div>
         <article className={styles.main}>
           {
-            categories.data[categories.title].map((item, i) => (
+            categories[categories.title].map((item, i) => (
               <Link className={styles.item} to={item.link} key={i}>
                 <span className={styles.date}>{item.date}</span>
                 <span className={styles.title}>{item.title}</span>
