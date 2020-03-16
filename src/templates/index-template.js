@@ -4,7 +4,6 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { graphql } from 'gatsby'
 import PostCard from '../components/post-card'
-import * as path from 'path'
 import Pagination from '../components/pagination'
 
 const IndexPage = (props) => {
@@ -42,6 +41,9 @@ export const pageQuery = graphql`
       rows: nodes {
         id
         excerpt
+        fields {
+          slug
+        }
         frontmatter {
           title
           date(formatString: "YYYY年MM月DD日")
@@ -52,9 +54,6 @@ export const pageQuery = graphql`
               }
             }
           }
-        }
-        fields {
-          slug
         }
       }
     }
