@@ -112,7 +112,7 @@ export default function Sider (props) {
         <a href='mailto:598465252@qq.com' target='_blank' rel="noopener noreferrer" title='598465252@qq.com' className={styles.snsItem}>
           <Mail size={20} strokeWidth={3} />
         </a>
-        <a href='/atom.xml' target='_blank' rel="noopener noreferrer" className={styles.snsItem}>
+        <a href='/rss.xml' target='_blank' rel="noopener noreferrer" className={styles.snsItem}>
           <Rss size={20} strokeWidth={3} />
         </a>
         <a href='https://github.com/YES-Lee' target='_blank' rel="noopener noreferrer" className={styles.snsItem}>
