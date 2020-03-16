@@ -155,7 +155,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         path: `/categories/${k}/${i === 0 ? '' : i}`,
         component: categoriesTemplate,
         context: {
-          categories,
+          categories: {
+            title: k,
+            data: categories
+          },
           totalPage: totalCatePage,
           currentPage: i
         }

@@ -55,6 +55,7 @@ export default function Sider (props) {
 
   const [totalCategories, setTotalCategories] = useState(0)
   const [totalTags, setTotalTags] = useState(0)
+  const [firstCate, setFirstCate] = useState('')
 
   useEffect(() => {
     if (siderData) {
@@ -70,8 +71,9 @@ export default function Sider (props) {
       })
       setTotalCategories([...new Set(categories)].length)
       setTotalTags([...new Set(tags)].length)
+      setFirstCate(categories[0])
     }
-  }, [siderData, setTotalCategories, setTotalTags])
+  }, [siderData, setTotalCategories, setTotalTags, setFirstCate])
 
   return <aside className={styles.sider}>
     <header className={styles.profileCard}>
@@ -94,7 +96,7 @@ export default function Sider (props) {
           </Link>
         </li>
         <li className={`${styles.tabItem} ${active === '/categories' ? styles.active : ''}`}>
-          <Link to='/categories'>
+          <Link to={`/categories/${firstCate}`}>
             <div className={styles.count}>{totalCategories}</div>
             <div className={styles.title}>分类</div>
           </Link>

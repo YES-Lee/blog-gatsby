@@ -7,6 +7,10 @@ import { ChevronRight, ChevronLeft, MoreHorizontal } from 'react-feather'
 export default function Pagination (props) {
   const { current, total, renderPath = () => {} } = props
 
+  if (!total || total <= 1) {
+    return null
+  }
+
   const renderList = (total = 0) => {
     const list = []
     if (total <= 5) {
