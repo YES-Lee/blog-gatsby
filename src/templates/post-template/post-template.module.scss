@@ -1,0 +1,32 @@
+.header {
+  position: relative;
+  .infoPanel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    padding: 2.5rem 2.15rem 1rem;
+    background: linear-gradient(180deg,transparent,rgba(0,0,0,.75));
+    .meta {
+      .item {
+        margin-right: 1rem;
+      }
+    }
+    .line {
+      margin: .7rem 0 1rem;
+      height: 2px;
+      border: 0;
+      background: #fff;
+      opacity: .5;
+    }
+    .title {
+      line-height: 1.5;
+      font-size: 1.8rem;
+      font-weight: 400;
+    }
+  }
+}
+
+.content {
+  padding: 1rem 2rem;
+}

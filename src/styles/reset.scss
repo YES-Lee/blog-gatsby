@@ -1,0 +1,103 @@
+@import './variables.scss';
+
+* {
+  border-color: var(--color-gray);
+}
+
+html, body {
+  height: 100%;
+  @include print {
+    height: auto;
+  }
+}
+html {
+  font-size: $font-size;
+}
+@media screen and (max-width:359px) {
+  html {
+    font-size: 12px;
+  }
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  @include print {
+    background: none !important;
+    color: #000 !important;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1.5;
+}
+h1 {
+  font-size: $heading-1;
+}
+h2 {
+  font-size: $heading-2;
+}
+h3 {
+  font-size: $heading-3;
+}
+h4 {
+  font-size: $heading-4;
+}
+h5, h6 {
+  font-size: $heading-5;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+iframe, canvas, video {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+img {
+  max-width: 100%;
+}
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: inherit;
+}
+td, th {
+  padding: 0;
+}
+:focus {
+  outline: none;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 6px;
+
+  @include mobile {
+    width: 0;
+    height: 0;
+    background: none;
+  }
+}
+::-webkit-scrollbar-thumb {
+  border-radius: $radius-s;
+}
+input {
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  line-height: 1.4;
+  &::-webkit-input-placeholder {
+    color: inherit;
+    opacity: $opacity-3;
+  }
+}

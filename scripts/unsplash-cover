@@ -1,0 +1,45 @@
+#! /usr/bin/env node
+/**
+ * 从unsplash下载封面图片
+ */
+const https = require('https')
+const fs = require('fs')
+const path = require('path')
+const ora = require('ora')
+const program = require('commander')
+
+program
+  .command('cover <title> [cover]')
+  .description('download a cover image for draft article')
+  .action((title, cover = 'cover.jpeg') => {
+    downloadImage(path.resolve(__dirname, `../posts/${title}/${cover}`))
+  })
+
+program.parse(process.argv)
+
+function downloadImage (p) {
+  const spinner = ora('downloading cover image').start()
+  https.get('https://api.unsplash.com/photos/random?client_id=a1f60e020a3b027d487b3c24a60c3426dc47ebeed78a3b6384fb6cef6774e0d6&orientation=landscape', res => {
+    let str = ''
+    res.on('data', data => {
+      str += data
+    })
+    res.on('end', () => {
+      const result = JSON.parse(str)
+      const url = result.urls.regular
+      https.get(url, result => {
+        const stream = fs.createWriteStream(p)
+        result.on('data', data => {
+          stream.write(data)
+        })
+        result.on('end', () => {
+          stream.close()
+          spinner.succeed('cover image downloaded')
+          process.exit(0)
+        })
+      })
+    })
+  })
+}
+
+module.exports = downloadImage

@@ -1,0 +1,23 @@
+.pagination {
+  text-align: center;
+  .prev, .next, .list>.item {
+    display: inline-block;
+    cursor: pointer;
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    border-radius: 50%;
+    margin: 0 1px;
+    &:hover, &:active, &.active {
+      background-color: var(--color-light-dark);
+      color: #fff;
+    }
+  }
+  .list {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}

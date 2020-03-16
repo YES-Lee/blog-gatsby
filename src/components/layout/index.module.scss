@@ -1,0 +1,17 @@
+.layout {
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  color: var(--color-dark);
+}
+
+.mainContainer {
+  flex: auto;
+  height: 100%;
+  overflow: auto;
+
+  .main {
+    max-width: var(--width-main);
+    margin: auto;
+  }
+}

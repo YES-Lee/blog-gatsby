@@ -1,0 +1,227 @@
+$line-height: 1.8;
+$dropcap-lines: 2;
+
+.markdown__body {
+  word-wrap: break-word;
+  line-height: $line-height;
+
+  h2, h3, h4, h5, h6 {
+    margin: 2rem 0 1rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    a:last-child {
+      visibility: hidden;
+      border: 0;
+    }
+    &:hover, &:active, &:focus {
+      a {
+        visibility: visible;
+      }
+    }
+  }
+  > iframe, > video {
+    margin: 2em auto;
+  }
+  img {
+    vertical-align: text-bottom;
+  }
+  hr {
+    margin: 2.5em auto;
+    width: 4px;
+    height: 4px;
+    border: 0;
+    border-radius: $radius-s;
+    background-color: currentColor;
+    box-shadow: 1em 0 0 0 currentColor,-1em 0 0 0 currentColor;
+  }
+  blockquote {
+    position: relative;
+    margin: 2em 0;
+    padding-left: 24px;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      bottom: 0;
+      background-color: currentColor;
+      content: '';
+      opacity: .2;
+    }
+    footer cite {
+      word-break: break-all;
+      &:before {
+        padding: 0 .3em;
+        content: '—';
+      }
+    }
+    @include print {
+      margin: 2em 1em;
+      font-style: italic;
+      color: #555;
+    }
+  }
+  ul, ol {
+    padding-left: 2em;
+  }
+  ul {
+    >li[class^="task-list-item"] {
+      list-style: none;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        width: $font-size;
+        height: $font-size;
+        background-image: url('../images/check-circle.svg');
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        left: -1.5 * $font-size;
+        top: 0.45 * $font-size;
+      }
+    }
+  }
+  ol > li {
+    list-style-type: decimal;
+     > ol > li {
+      list-style-type: lower-alpha;
+       > ol > li {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+  a {
+    border-bottom: 1px dotted;
+    transition: color .15s, border-color .15s, opacity .15s;
+
+    &:hover, &:active, &:focus {
+      border-bottom-style: solid;
+    }
+  }
+  // indent with 4 spaces
+  > pre {
+    overflow-x: auto;
+    code {
+      color: inherit;
+      background-color: inherit;
+    }
+  }
+
+  table {
+    margin: auto;
+    width: 100%;
+    border-color: var(--color-gray);
+
+    th, td {
+      padding: .5em 1em;
+      border: 1px solid;
+      border-color: inherit;
+    }
+    th {
+      text-align: inherit;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+    td {
+      white-space: pre;
+    }
+    th[align="center"] {
+      text-align: center;
+    }
+    th[align="right"] {
+      text-align: right;
+    }
+  }
+
+  input[type^="checkbox"] {
+    display: none;
+  }
+
+  @include print {
+    line-height: 1.5;
+    a {
+      border-bottom: 0;
+      &[href^="http"],
+      &[href^="https"]
+      &[href^="//"] {
+        &::after {
+          content: #{'" ("attr(href)")"'};
+        }
+      }
+    }
+  }
+
+  &--dropcap::first-letter {
+    float: left;
+    margin: ($line-height - 1) / 2 * 1rem - .1rem .4rem 0 0;
+    // ($dropcap-lines + ($line-height - 1) * ($dropcap-lines - 1) + .2) * 1rem;
+    font-size: ($dropcap-lines * $line-height - ($line-height - 1) + .1) * 1rem;
+    line-height: 1;
+    @include print {
+      font-size: ($dropcap-lines * 1.5 - (1.5 - 1) + .1) * 1rem;
+    }
+  }
+}
+
+:global {
+  // block orphan img
+  .article-img {
+    display: block;
+    margin: auto;
+    cursor: zoom-in;
+
+    + figcaption {
+      display: block;
+      margin-top: .75em;
+      text-align: center;
+      font-size: .85em;
+      opacity: .63;
+    }
+  }
+  .article-bounded {
+    margin: 1.5em 0;
+    border-color: inherit;
+
+    > div {
+      overflow-x: auto;
+      @include print {
+        box-shadow: none !important;
+        overflow-x: visible;
+      }
+    }
+
+    // full width on mobile
+    @include mobile {
+      overflow-x: auto;
+      margin: 1.5em -#{$padding-mobile};
+
+       > div {
+        display: table;
+        overflow-x: inherit;
+        padding: 0 $padding-mobile;
+        min-width: 100%;
+        box-shadow: none !important;
+      }
+    }
+  }
+  
+  @include print {
+    text-align: center;
+    table {
+      display: inline-table;
+      min-width: auto;
+      border: 1px solid;
+      text-align: left;
+    }
+    td, th {
+      white-space: normal;
+      border: 1px solid;
+      padding: .5em;
+    }
+    tr:nth-child(2n) {
+      background: none !important;
+    }
+  }
+}

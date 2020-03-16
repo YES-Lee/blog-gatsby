@@ -1,0 +1,63 @@
+import React from 'react'
+
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { graphql } from 'gatsby'
+import PostCard from '../components/post-card'
+import * as path from 'path'
+import Pagination from '../components/pagination'
+
+const IndexPage = (props) => {
+
+  const { data: { postList }, pageContext: { currentPage, totalPage } } = props
+
+  return (
+    <Layout
+      active={currentPage === 0 ? '/' : ''}
+    >
+      <SEO title="Johnson" />
+      {
+        (postList.rows || []).map(post => (
+          <PostCard
+            key={post.id}
+            url={`/post/${path.basename(post.fileAbsolutePath, path.extname(post.fileAbsolutePath))}`}
+            title={post.frontmatter.title}
+            excerpt={post.excerpt}
+            thumbnail={post.frontmatter.thumbnail ? post.frontmatter.thumbnail.childImageSharp.fluid : ''}
+            date={post.frontmatter.date}
+          />
+        ))
+      }
+      <div style={{ marginBottom: '2rem' }}>
+        <Pagination current={currentPage} total={totalPage} renderPath={i => i === 0 ? '/' : `/${i}`} />
+      </div>
+    </Layout>
+  )
+}
+
+export const pageQuery = graphql`
+  query homePostList ($limit: Int!, $skip: Int!) {
+    postList: allMarkdownRemark(limit: $limit, skip: $skip, sort: {fields: [frontmatter___date], order: [DESC]}) {
+      count: totalCount
+      rows: nodes {
+        id
+        excerpt
+        fileAbsolutePath
+        frontmatter {
+          title
+          date(formatString: "YYYY年MM月DD日")
+          thumbnail {
+            childImageSharp {
+              fluid(maxWidth: 660) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        excerpt
+      }
+    }
+  }
+`
+
+export default IndexPage
