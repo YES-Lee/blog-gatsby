@@ -1,8 +1,8 @@
 import React from 'react'
 import MainPage from '../../components/main-page'
-import Pagination from '../../components/pagination'
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
+import Pagination from '../../components/pagination'
 import SEO from '../../components/seo'
 
 import styles from './archives-template.module.scss'

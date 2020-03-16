@@ -40,7 +40,7 @@ export default function CategoryPage (props) {
         </div>
         <article className={styles.main}>
           {
-            categories[categories.title].map((item, i) => (
+            categories[title].map((item, i) => (
               <Link className={styles.item} to={item.link} key={i}>
                 <span className={styles.date}>{moment(item.date).format('YYYY/MM/DD')}</span>
                 <span className={styles.title}>{item.title}</span>
