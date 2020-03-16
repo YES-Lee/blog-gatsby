@@ -13,5 +13,9 @@
   .main {
     max-width: var(--width-main);
     margin: auto;
+
+    @media screen and (max-width: 975px) {
+      padding: 0 1rem 1rem;
+    }
   }
 }
