@@ -4,8 +4,8 @@ import SEO from '../../components/seo'
 import styles from './categories-template.module.scss'
 import { Link } from 'gatsby'
 import Pagination from '../../components/pagination'
-import moment from 'moment'
-moment.locale('zh_CN')
+// import moment from 'moment'
+// moment.locale('zh_CN')
 
 export default function CategoryPage (props) {
 
@@ -41,7 +41,7 @@ export default function CategoryPage (props) {
           {
             categories.data[categories.title].map((item, i) => (
               <Link className={styles.item} to={item.link} key={i}>
-                <span className={styles.date}>{moment(item.date).format('YYYY/MM/DD')}</span>
+                <span className={styles.date}>{item.date}</span>
                 <span className={styles.title}>{item.title}</span>
               </Link>
             ))

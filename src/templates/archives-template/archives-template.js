@@ -1,10 +1,11 @@
 import React from 'react'
-import styles from './archives-template.module.scss'
+import MainPage from '../../components/main-page'
+import Pagination from '../../components/pagination'
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
-import MainPage from '../../components/main-page'
-import Pagination from '../../components/pagination'
+
+import styles from './archives-template.module.scss'
 
 export default function ArchivesTemplage (props) {
 

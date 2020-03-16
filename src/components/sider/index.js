@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -53,27 +53,18 @@ export default function Sider (props) {
     }
   `)
 
-  const [totalCategories, setTotalCategories] = useState(0)
-  const [totalTags, setTotalTags] = useState(0)
-  const [firstCate, setFirstCate] = useState('')
-
-  useEffect(() => {
-    if (siderData) {
-      const categories = []
-      const tags = []
-      siderData.nodes.forEach(item => {
-        if (item.frontmatter.tags) {
-          tags.push(...item.frontmatter.tags)
-        }
-        if (item.frontmatter.categories) {
-          categories.push(...item.frontmatter.categories)
-        }
-      })
-      setTotalCategories([...new Set(categories)].length)
-      setTotalTags([...new Set(tags)].length)
-      setFirstCate(categories[0])
+  let categories = []
+  let tags = []
+  siderData.nodes.forEach(item => {
+    if (item.frontmatter.tags) {
+      tags.push(...item.frontmatter.tags)
     }
-  }, [siderData, setTotalCategories, setTotalTags, setFirstCate])
+    if (item.frontmatter.categories) {
+      categories.push(...item.frontmatter.categories)
+    }
+  })
+  categories = [...new Set(categories)]
+  tags = [...new Set(tags)]
 
   return <aside className={styles.sider}>
     <header className={styles.profileCard}>
@@ -96,14 +87,14 @@ export default function Sider (props) {
           </Link>
         </li>
         <li className={`${styles.tabItem} ${active === '/categories' ? styles.active : ''}`}>
-          <Link to={`/categories/${firstCate}`}>
-            <div className={styles.count}>{totalCategories}</div>
+          <Link to={`/categories/${categories[0]}`}>
+            <div className={styles.count}>{categories.length}</div>
             <div className={styles.title}>分类</div>
           </Link>
         </li>
         <li className={`${styles.tabItem} ${active === '/tags' ? styles.active : ''}`}>
           <Link to='/tags'>
-            <div className={styles.count}>{totalTags}</div>
+            <div className={styles.count}>{tags.length}</div>
             <div className={styles.title}>标签</div>
           </Link>
         </li>
