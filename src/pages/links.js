@@ -30,7 +30,15 @@ export default function LinkPage () {
 
   return (
     <Layout>
-      <SEO title="友情链接-Johnson" />
+      <SEO
+        title="友情链接-Johnson"
+        meta={[
+          {
+            name: 'keywords',
+            content: links.map(item => item.title).concat([{ title: '友情链接' }]).join(',')
+          }
+        ]}
+      />
       <MainPage>
         <article className={styles.linksPage}>
           <h1 className={styles.pageTitle}>

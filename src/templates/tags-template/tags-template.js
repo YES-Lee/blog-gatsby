@@ -21,7 +21,15 @@ export default function CategoryPage (props) {
 
   return (
     <Layout active='/tags'>
-      <SEO title="标签-Johnson" />
+      <SEO
+        title="标签-Johnson"
+        meta={[
+          {
+            name: 'keywords',
+            content: tags[title].map(item => item.title).join(',')
+          }
+        ]}
+      />
       <MainPage>
         <article className={styles.tagsPage}>
           <h1 className={styles.pageTitle}>

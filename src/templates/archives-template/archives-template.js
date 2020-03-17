@@ -19,7 +19,9 @@ export default function ArchivesTemplage (props) {
 
   return (
     <Layout active='/archives'>
-      <SEO title="归档-Johnson" />
+      <SEO
+        title="归档-Johnson"
+      />
       <MainPage>
         <article className={styles.archives}>
           {

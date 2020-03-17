@@ -20,7 +20,15 @@ export default function CategoryPage (props) {
 
   return (
     <Layout active='/categories'>
-      <SEO title="分类-Johnson" />
+      <SEO
+        title="分类-Johnson"
+        meta={[
+          {
+            name: 'keywords',
+            content: categories[title].map(item => item.title).join(',')
+          }
+        ]}
+      />
       <div className={styles.categoriesPage}>
         <div className={styles.header}>
           <nav className={styles.tabList}>

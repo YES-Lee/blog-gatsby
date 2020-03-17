@@ -14,7 +14,16 @@ export default function PostTemplate (props) {
 
   return (
     <Layout>
-      <SEO title={`${post.frontmatter.title}-Johnson`} />
+      <SEO
+        title={`${post.frontmatter.title}-Johnson`}
+        description={post.plainExcerpt}
+        meta={[
+          {
+            name: 'keywords',
+            content: (post.frontmatter.tags || []).concat(post.frontmatter.categories || []).join(',')
+          }
+        ]}
+      />
       <MainPage>
         <header className={styles.header}>
           <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
@@ -53,6 +62,7 @@ export const pageQuery = graphql`
       id
       html
       excerpt(format: HTML)
+      plainExcerpt: excerpt
       tableOfContents(absolute: false)
       wordCount {
         words

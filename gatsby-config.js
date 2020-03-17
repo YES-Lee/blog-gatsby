@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Blog',
-    description: '折腾小王子',
-    author: '@Johnson',
+    description: '佛性程序员',
+    author: 'Johnson',
     siteUrl: 'https://johnsonlee.site'
   },
   plugins: [

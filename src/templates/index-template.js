@@ -14,7 +14,15 @@ const IndexPage = (props) => {
     <Layout
       active={currentPage === 0 ? '/' : ''}
     >
-      <SEO title="Johnson" />
+      <SEO
+        title="Johnson"
+        meta={[
+          {
+            name: 'keywords',
+            content: postList.rows.map(post => post.frontmatter.title).join(',')
+          }
+        ]}
+      />
       {
         (postList.rows || []).map(post => (
           <PostCard
