@@ -109,16 +109,16 @@ export default function Sider (props) {
     </nav>
     <footer className={styles.footer}>
       <div className={styles.snsList}>
-        <a href='mailto:598465252@qq.com' target='_blank' rel="noopener noreferrer" title='598465252@qq.com' className={styles.snsItem}>
+        <a href='mailto:598465252@qq.com' target='_blank' rel="noopener noreferrer nofollow" title='598465252@qq.com' className={styles.snsItem}>
           <Mail size={20} strokeWidth={3} />
         </a>
-        <a href='/rss.xml' target='_blank' rel="noopener noreferrer" className={styles.snsItem}>
+        <a href='/rss.xml' target='_blank' rel="noopener noreferrer nofollow" className={styles.snsItem}>
           <Rss size={20} strokeWidth={3} />
         </a>
-        <a href='https://github.com/YES-Lee' target='_blank' rel="noopener noreferrer" className={styles.snsItem}>
+        <a href='https://github.com/YES-Lee' target='_blank' rel="noopener noreferrer nofollow" className={styles.snsItem}>
           <GitHub size={20} strokeWidth={3} />
         </a>
-        <a href='https://t.me/JohnsonLe' target='_blank' rel="noopener noreferrer" className={styles.snsItem}>
+        <a href='https://t.me/JohnsonLe' target='_blank' rel="noopener noreferrer nofollow" className={styles.snsItem}>
           <Send size={20} strokeWidth={3} />
         </a>
       </div>
