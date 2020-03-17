@@ -68,7 +68,9 @@ export default function Sider (props) {
 
   return <aside className={styles.sider}>
     <header className={styles.profileCard}>
-      <Img className={styles.avatar} imgStyle={{ borderRadius: '50%', padding: '2px' }} fluid={avatarImage.childImageSharp.fluid} />
+      <div className={styles.avatarContainer}>
+        <Img className={styles.avatar} imgStyle={{ borderRadius: '50%' }} fluid={avatarImage.childImageSharp.fluid} />
+      </div>
       <h3 className={styles.name}>
         <Link to='/' className={styles.link}>
           Johnson

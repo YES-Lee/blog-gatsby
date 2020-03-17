@@ -12,14 +12,18 @@
     padding: 1rem;
     margin: 1rem;
 
-    .avatar {
-      display: block;
-      width: 118px;
-      height: 118px;
+    .avatarContainer {
       border: 1px solid var(--color-gray);
       padding: 2px;
       border-radius: 50%;
+      width: fit-content;
       margin: 1rem auto 0;
+      .avatar {
+        display: block;
+        width: 118px;
+        height: 118px;
+        border-radius: 50%;
+      }
     }
 
     .name {
