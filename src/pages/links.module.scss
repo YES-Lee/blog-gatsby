@@ -1,0 +1,14 @@
+.linksPage {
+  padding: 1rem 2rem 2rem;
+  .pageTitle {
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 3.8;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

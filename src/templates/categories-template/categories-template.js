@@ -19,7 +19,7 @@ export default function CategoryPage (props) {
   } = props
 
   return (
-    <Layout active='categories'>
+    <Layout active='/categories'>
       <SEO title="分类-Johnson" />
       <div className={styles.categoriesPage}>
         <div className={styles.header}>

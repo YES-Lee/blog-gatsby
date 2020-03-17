@@ -28,6 +28,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const postTemplate = path.resolve('src/templates/post-template/post-template.js')
   const archivesTemplate = path.resolve('src/templates/archives-template/archives-template.js')
   const categoriesTemplate = path.resolve('src/templates/categories-template/categories-template.js')
+  const tagsTemplate = path.resolve('src/templates/tags-template/tags-template.js')
 
   const result = await graphql(`
     {
@@ -152,15 +153,28 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   /**
-   * 生成分类页面
+   * 生成分类、标签页面
    */
   const categories = {}
+  const tags = {}
   result.data.allMarkdownRemark.nodes.forEach(item => {
-    (item.frontmatter.categories || []).forEach(c => {
+    const categoryList = item.frontmatter.categories || []
+    categoryList.forEach(c => {
       if (!categories[c]) {
         categories[c] = []
       }
       categories[c].push({
+        date: item.frontmatter.date,
+        title: item.frontmatter.title,
+        link: item.fields.slug
+      })
+    })
+    const tagList = item.frontmatter.tags || []
+    tagList.forEach(t => {
+      if (!tags[t]) {
+        tags[t] = []
+      }
+      tags[t].push({
         date: item.frontmatter.date,
         title: item.frontmatter.title,
         link: item.fields.slug
@@ -178,6 +192,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         context: {
           title: k,
           categories,
+          totalPage: totalCatePage,
+          currentPage: i
+        }
+      })
+    }
+  })
+  Object.keys(tags).forEach(k => {
+    const tag = tags[k]
+    const totalCatePage = Math.ceil(tag.length / 10)
+    for (let i = 0; i < totalCatePage; i++) {
+      createPage({
+        path: `/tags/${k}/${i === 0 ? '' : i}`,
+        component: tagsTemplate,
+        context: {
+          title: k,
+          tags,
           totalPage: totalCatePage,
           currentPage: i
         }

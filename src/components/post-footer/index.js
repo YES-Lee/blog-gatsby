@@ -27,18 +27,13 @@ export default function PostFooter (props) {
           <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>署名-非商业性使用-禁止演绎 4.0 国际</a>
         </li>
       </ul>
-      <ul className={styles.tags}>
+      <div className={styles.tags}>
         {
           (tags || []).map((item, i) => (
-            <li
-              className={styles.item}
-              key={i}
-            >
-              <Link to={`/tags/${item}`}># {item}</Link>
-            </li>
+            <Link to={`/tags/${item}`} key={i} className={styles.item}># {item}</Link>
           ))
         }
-      </ul>
+      </div>
       <div className={styles.line}></div>
       <div className={styles.pager}>
         {

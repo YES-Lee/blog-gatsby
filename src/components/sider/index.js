@@ -128,7 +128,7 @@ export default function Sider (props) {
         <Link to='/' className={styles.author}>Johnson</Link>
       </div>
       <p className={styles.beian}>
-        <a href='http://www.beian.miit.gov.cn/'>
+        <a href='http://www.beian.miit.gov.cn/' target='_blank' rel="noopener noreferrer">
           滇ICP备16003902号
         </a>
       </p>

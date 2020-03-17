@@ -18,23 +18,18 @@
     }
   }
   .tags {
-    list-style: none;
-    padding: 0;
     padding-bottom: 1rem;
     .item {
-      display: inline;
-      margin-right: 1rem;
-      >a {
-        padding: .5rem 1rem;
-        background-color: var(--color-light-gray);
-        border-radius: 3px;
-        transition: background-color .15s, color .15s;
-      }
+      display: inline-block;
+      margin: 0 .5rem .5rem 0;
+      padding: .5rem 1rem;
+      background-color: var(--color-light-gray);
+      border-radius: 3px;
+      transition: background-color .15s, color .15s;
+      line-height: 1.5;
       &:hover, &:active {
-        >a {
-          background-color: var(--color-light-dark);
-          color: var(--color-light-gray);
-        }
+        background-color: var(--color-light-dark);
+        color: var(--color-light-gray);
       }
     }
   }
