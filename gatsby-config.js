@@ -19,15 +19,16 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Johnson Blog',
+        short_name: 'Johnson',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/avatar.jpeg' // This path is relative to the root of the site.
+        background_color: '#ffffff',
+        theme_color: '#ffffff',
+        display: 'standalone',
+        icon: 'static/favicons/icon.png' // This path is relative to the root of the site.
       }
     },
+    'gatsby-plugin-offline',
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
@@ -192,8 +193,5 @@ module.exports = {
       }
     },
     'gatsby-plugin-sitemap'
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ]
 }
