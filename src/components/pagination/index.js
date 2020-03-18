@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { ChevronRight, ChevronLeft, MoreHorizontal } from 'react-feather'
 
 export default function Pagination (props) {
-  const { current, total, renderPath = () => {} } = props
+  const { current, total, renderPath = () => {}, className } = props
 
   if (!total || total <= 1) {
     return null
@@ -57,7 +57,7 @@ export default function Pagination (props) {
   }
 
   return (
-    <div className={styles.pagination}>
+    <div className={`${styles.pagination} ${className}`}>
       {
         current > 0 && (
           <Link className={styles.prev} to={renderPath(current - 1)}>

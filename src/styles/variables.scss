@@ -1,20 +1,29 @@
 
+
 $font-size: 14px;
-$sidebar-width: 20 * $font-size;
-$toc-width: 18 * $font-size;
-$shadow-offset: 1.6rem;
+$layout-width: 960px; // 布局区宽度
+$main-width: 690px; // 主要内容区宽度
+$sider-width: $layout-width - $font-size * 2 - $main-width; // 侧边栏宽度
+$footer-height: 6rem;
 
-$mobile-width: 660px;
-$tablet-width: 976px;
+// 全局字体
+$font-family: 'Josefin Sans','PingFang SC','Microsoft YaHei';
+// Johnson标题字体
+$font-family-title: 'Lobster', 'cursive', 'Josefin Sans','PingFang SC','Microsoft YaHei';
+// 数字字体
+$font-family-number: 'Sarpanch', 'Josefin Sans';
+// 代码字体
+$font-family-code: 'Fira Code', 'Consolas', 'monospace';
 
-$radius-s: 3px;
-$radius-m: 6px;
-$radius-l: .85rem;
+$margin-1: .5rem;
+$margin-2: 1rem;
+$margin-3: 1.5rem;
+$margin-4: 2rem;
 
-$padding: 2.15rem;
-$padding-mobile: 1.5rem;
-
-$archive-anchor-height: 3rem;
+$padding-1: .5rem;
+$padding-2: 1rem;
+$padding-3: 1.5rem;
+$padding-4: 2rem;
 
 $heading-1: 1.785714rem;
 $heading-2: 1.428571rem;
@@ -26,61 +35,15 @@ $opacity-1: .8;
 $opacity-2: .63;
 $opacity-3: .5;
 
-@mixin shadow($level) {
-  @if $level == 1 {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
-  } @else if $level == 2 {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
-  } @else if $level == 3 {
-    box-shadow: 0 3px 12px rgba(0, 0, 0, .15);
-  } @else if $level == 4 {
+@mixin card {
+  background-color: #fff;
+  overflow: hidden;
+  height: fit-content;
+  box-sizing: border-box;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+  transition: box-shadow .15s;
+  &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
-  } @else {
-    box-shadow: none;
-  }
-}
-@mixin card($radius: $radius-m, $padding: $padding) {
-  @if $radius != 0 {
-    border-radius: $radius;
-  }
-  @if $padding != 0 {
-    padding: $padding;
-  }
-
-  @include mobile {
-    @if $radius != 0 {
-      border-radius: 0;
-    }
-    @if $padding != 0 {
-      padding: $padding-mobile;
-    }
-  }
-}
-@mixin mobile {
-  @media (max-width: #{$mobile-width + 14px + 2px}) {
-    @content;
-  }
-}
-@mixin tablet {
-  @media (max-width: #{$tablet-width - 1px}) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media (min-width: #{$tablet-width}) {
-    @content;
-  }
-}
-@mixin print {
-  @media print {
-    @content;
-  }
-}
-@mixin code {
-  pre {
-    border: 0;
-  }
-  code {
-    background: none;
   }
 }

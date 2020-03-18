@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import { graphql } from 'gatsby'
 import PostCard from '../components/post-card'
 import Pagination from '../components/pagination'
+import styles from './index.module.scss'
 
 const IndexPage = (props) => {
 
@@ -35,9 +36,7 @@ const IndexPage = (props) => {
           />
         ))
       }
-      <div style={{ marginBottom: '2rem' }}>
-        <Pagination current={currentPage} total={totalPage} renderPath={i => i === 0 ? '/' : `/${i}`} />
-      </div>
+      <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => i === 0 ? '/' : `/${i}`} />
     </Layout>
   )
 }

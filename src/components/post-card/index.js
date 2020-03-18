@@ -3,12 +3,13 @@ import styles from './index.module.scss'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Calendar } from 'react-feather'
+import Card from '../card/card'
 
 export default function PostCard (props) {
   const { title, excerpt, url, thumbnail, date } = props
 
   return (
-    <section className={styles.postCard}>
+    <Card className={styles.postCard}>
       <Link to={url}>
         {
           thumbnail && (
@@ -29,6 +30,6 @@ export default function PostCard (props) {
       <div className={styles.date}>
         <Calendar size={14} /> {date}
       </div>
-    </section>
+    </Card>
   )
 }

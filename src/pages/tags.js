@@ -1,5 +1,5 @@
 import React from 'react'
-import MainPage from '../components/main-page'
+import Card from '../components/card/card'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import styles from './tags.module.scss'
@@ -50,7 +50,7 @@ export default function LinkPage () {
           }
         ]}
       />
-      <MainPage>
+      <Card>
         <article className={styles.tagsPage}>
           <h1 className={styles.pageTitle}>
             目前共计35个标签
@@ -71,7 +71,7 @@ export default function LinkPage () {
             }
           </section>
         </article>
-      </MainPage>
+      </Card>
     </Layout>
   )
 }

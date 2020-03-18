@@ -1,15 +1,17 @@
+@import '../../styles/variables.scss';
+
 .archives {
-  padding: 2rem;
+  padding: $padding-4;
 
   .yearSection {
-    margin-top: -2rem;
+    margin-top: -$padding-4;
     position: relative;
-    padding: 2rem 0;
+    padding: $padding-4 0;
 
     &::before {
       position: absolute;
       top: 0;
-      left: 1.5rem;
+      left: $margin-3;
       height: 100%;
       border-left: 1px solid;
       border-color: var(--color-gray);
@@ -17,8 +19,8 @@
     }
 
     &:last-of-type {
-      margin-bottom: -2.15rem;
-      padding-bottom: 6rem;
+      margin-bottom: -$margin-4;
+      padding-bottom: 3 * $padding-4;
     }
 
     .year {
@@ -27,19 +29,19 @@
       line-height: 2.4;
       font-size: 1.8rem;
       font-weight: 400;
-      margin-block-start: 1rem;
-      margin-block-end: 1rem;
+      margin-block-start: $margin-2;
+      margin-block-end: $margin-2;
       position: relative;
     }
 
     .monthSection {
-      padding-left: 3rem;
+      padding-left: $margin-2 + $margin-4;
       position: relative;
       .month {
         position: absolute;
         background-color: #fff;
-        top: 1.5rem;
-        left: 1.5rem;
+        top: $margin-3;
+        left: $margin-3;
         padding: 0 .6em;
         border-radius: 2em;
         color: #fff;
@@ -66,16 +68,16 @@
         >.item {
           position: relative;
           display: block;
-          margin-left: 1.5rem;
-          padding: .5rem 0;
+          margin-left: $margin-3;
+          padding: $padding-1 0;
           line-height: 2rem;
           transition: color .15s;
           line-height: 2rem;
 
           &::before {
             position: absolute;
-            top: 1.5rem;
-            left: -1rem;
+            top: $margin-3;
+            left: -$margin-2;
             content: "-";
             opacity: .63;
             transform: translateY(-50%);
@@ -83,7 +85,7 @@
 
           .date {
             float: left;
-            padding-right: .5rem;
+            padding-right: $padding-1;
             white-space: nowrap;
             letter-spacing: 1px;
             font-size: .85rem;
@@ -98,4 +100,8 @@
       }
     }
   }
+}
+
+.pager {
+  margin-top: $margin-3;
 }

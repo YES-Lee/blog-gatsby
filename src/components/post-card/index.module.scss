@@ -1,35 +1,30 @@
 @import '../../styles/variables.scss';
 
 .postCard {
-  background-color: #fff;
-  border-radius: 6px;
-  margin: 1.75rem auto;
-  display: block;
+  margin: 0 auto $margin-3;
   overflow: hidden;
-  height: fit-content;
 
   .body {
     .title {
       margin: 0;
       .text {
-        padding: 1rem 1rem 0;
+        padding: $padding-2 $padding-2 0;
         display: block;
         line-height: 1.5;
         font-weight: 400;
         text-decoration: none;
         color: var(--color-dark);
-        font-size: 1.3rem;
-        border: none;
+        font-size: $heading-3;
       }
     }
     .excerpt {
-      margin: 1rem 0;
-      padding: 0 1rem;
+      margin: $margin-2 0;
+      padding: 0 $padding-2;
       line-height: 1.8;
     }
   }
   .date {
-    padding: 0 1rem 1rem;
+    padding: 0 $padding-2 $padding-2;
     opacity: $opacity-1;
   }
 }

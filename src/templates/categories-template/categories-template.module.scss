@@ -1,10 +1,9 @@
+@import '../../styles/variables.scss';
+
 .categoriesPage {
-  margin: 1.75rem auto;
 
   .header {
-    background-color: #fff;
-    border-radius: 6px;
-    margin-bottom: .4rem;
+    margin-bottom: $margin-1;
     .tabList {
       display: block;
       overflow-x: auto;
@@ -13,7 +12,7 @@
   
       .tabItem {
         position: relative;
-        padding: 0 2rem;
+        padding: 0 $padding-4;
         display: inline-block;
         font-size: 1.2rem;
         line-height: 3.8;
@@ -42,36 +41,34 @@
         }
 
         &::after {
-          margin-left: .5rem;
+          margin-left: $margin-1;
           padding: 2px 5px;
           border-radius: 3px;
           border: 1px solid;
           border-color: var(--color-gray);
           content: attr(count);
           font-size: .85rem;
-          font-family: Montserrat,'Josefin Sans','PingFang SC';
+          font-family: $font-family-number;
         }
       }
     }
   }
 
   .main {
-    background-color: #fff;
-    border-radius: 6px;
-    padding: 2rem;
+    padding: $padding-4;
 
     .item {
       position: relative;
       display: block;
-      margin-left: 1.5rem;
-      padding: .5rem 0;
+      margin-left: $margin-3;
+      padding: $padding-1 0;
       line-height: 2rem;
       transition: color .15s;
 
       &::before {
         position: absolute;
-        top: 1.5rem;
-        left: -1rem;
+        top: $margin-3;
+        left: -$margin-2;
         content: "-";
         opacity: .63;
         transform: translateY(-50%);
@@ -79,7 +76,7 @@
 
       .date {
         float: left;
-        padding-right: .5rem;
+        padding-right: $padding-1;
         white-space: nowrap;
         letter-spacing: 1px;
         font-size: .85rem;
@@ -96,6 +93,6 @@
   }
 
   .pager {
-    margin-top: 1.75rem;
+    margin-top: $margin-3;
   }
 }

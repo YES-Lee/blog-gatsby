@@ -5,6 +5,7 @@ import styles from './categories-template.module.scss'
 import { Link } from 'gatsby'
 import Pagination from '../../components/pagination'
 import moment from 'moment'
+import Card from '../../components/card/card'
 moment.locale('zh_CN')
 
 export default function CategoryPage (props) {
@@ -30,7 +31,7 @@ export default function CategoryPage (props) {
         ]}
       />
       <div className={styles.categoriesPage}>
-        <div className={styles.header}>
+        <Card className={styles.header}>
           <nav className={styles.tabList}>
             {
               Object.keys(categories).map(k => (
@@ -45,8 +46,8 @@ export default function CategoryPage (props) {
               ))
             }
           </nav>
-        </div>
-        <article className={styles.main}>
+        </Card>
+        <Card className={styles.main}>
           {
             categories[title].map((item, i) => (
               <Link className={styles.item} to={item.link} key={i}>
@@ -55,10 +56,8 @@ export default function CategoryPage (props) {
               </Link>
             ))
           }
-        </article>
-        <div className={styles.pager}>
-          <Pagination current={currentPage} total={totalPage} renderPath={i => `/categories/${categories.title}/${i === 0 ? '' : i}`} />
-        </div>
+        </Card>
+        <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => `/categories/${categories.title}/${i === 0 ? '' : i}`} />
       </div>
     </Layout>
   )

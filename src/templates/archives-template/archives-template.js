@@ -1,6 +1,6 @@
 import React from 'react'
-import MainPage from '../../components/main-page'
 import { Link } from 'gatsby'
+import Card from '../../components/card/card'
 import Layout from '../../components/layout'
 import Pagination from '../../components/pagination'
 import SEO from '../../components/seo'
@@ -22,7 +22,7 @@ export default function ArchivesTemplage (props) {
       <SEO
         title="归档-Johnson"
       />
-      <MainPage>
+      <Card>
         <article className={styles.archives}>
           {
             archives && (
@@ -51,8 +51,8 @@ export default function ArchivesTemplage (props) {
             )
           }
         </article>
-      </MainPage>
-      <Pagination current={currentPage} total={totalPage} renderPath={i => `/archives/${i === 0 ? '' : i}`} />
+      </Card>
+      <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => `/archives/${i === 0 ? '' : i}`} />
     </Layout>
   )
 }

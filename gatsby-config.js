@@ -128,7 +128,13 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Josefin Sans', 'Baloo Bhaijaan', 'Montserrat', 'Inconsolata']
+          families: [
+            'Josefin Sans', // 正文字体
+            'Fira Code', // 代码字体
+            'Lobster', // Johnson标题字体
+            'cursive', // 英文草书
+            'Sarpanch' // 数字字体
+          ]
         }
       }
     },

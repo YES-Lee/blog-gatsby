@@ -1,35 +1,34 @@
+/**
+ * 重置样式，对全局元素进行样式重置
+ *
+ */
 @import './variables.scss';
 
 * {
   border-color: var(--color-gray);
 }
 
-html, body {
+#___gatsby {
   height: 100%;
-  @include print {
-    height: auto;
+  > div#gatsby-focus-wrapper {
+    height: 100%;
   }
 }
+
 html {
   font-size: $font-size;
+  height: 100%;
 }
-@media screen and (max-width:359px) {
-  html {
-    font-size: 12px;
-  }
-}
+
 body {
   margin: 0;
-  font-family: sans-serif;
-
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  @include print {
-    background: none !important;
-    color: #000 !important;
-  }
+  padding: 0;
+  height: 100%;
+  background-color: var(--color-light-gray);
+  font-family: $font-family;
+  color: var(--color-dark);
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   line-height: 1.5;
@@ -54,50 +53,7 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-iframe, canvas, video {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-}
-img {
-  max-width: 100%;
-}
-blockquote {
-  margin: 0;
-  padding: 0;
-}
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-  font-size: inherit;
-}
-td, th {
-  padding: 0;
-}
-:focus {
-  outline: none;
-}
-::-webkit-scrollbar {
-  width: 8px;
-  height: 6px;
 
-  @include mobile {
-    width: 0;
-    height: 0;
-    background: none;
-  }
-}
-::-webkit-scrollbar-thumb {
-  border-radius: $radius-s;
-}
-input {
-  border: 0;
-  background: none;
-  color: inherit;
-  font-family: inherit;
-  line-height: 1.4;
-  &::-webkit-input-placeholder {
-    color: inherit;
-    opacity: $opacity-3;
-  }
+code {
+  font-family: $font-family-code !important;
 }

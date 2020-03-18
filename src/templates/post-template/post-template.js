@@ -4,9 +4,9 @@ import styles from './post-template.module.scss'
 import Img from 'gatsby-image'
 import { Calendar, Folder } from 'react-feather'
 import PostFooter from '../../components/post-footer'
-import MainPage from '../../components/main-page'
 import Layout from '../../components/layout'
 import SEO from '../../components/seo'
+import Card from '../../components/card/card'
 
 export default function PostTemplate (props) {
 
@@ -24,7 +24,7 @@ export default function PostTemplate (props) {
           }
         ]}
       />
-      <MainPage>
+      <Card>
         <header className={styles.header}>
           <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
           <div className={styles.infoPanel}>
@@ -50,7 +50,7 @@ export default function PostTemplate (props) {
           prev={pageContext.prev}
           next={pageContext.next}
         />
-      </MainPage>
+      </Card>
     </Layout>
   )
 }

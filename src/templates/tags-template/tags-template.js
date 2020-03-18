@@ -1,8 +1,8 @@
 import React from 'react'
 import SEO from '../../components/seo'
 import styles from './tags-template.module.scss'
+import Card from '../../components/card/card'
 import { Link } from 'gatsby'
-import MainPage from '../../components/main-page'
 import Layout from '../../components/layout'
 import Pagination from '../../components/pagination'
 import moment from 'moment'
@@ -30,7 +30,7 @@ export default function CategoryPage (props) {
           }
         ]}
       />
-      <MainPage>
+      <Card>
         <article className={styles.tagsPage}>
           <h1 className={styles.pageTitle}>
             # {title}
@@ -45,11 +45,9 @@ export default function CategoryPage (props) {
               ))
             }
           </section>
-          <div className={styles.pager}>
-            <Pagination current={currentPage} total={totalPage} renderPath={i => `/tags/${tags.title}/${i === 0 ? '' : i}`} />
-          </div>
+          <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => `/tags/${tags.title}/${i === 0 ? '' : i}`} />
         </article>
-      </MainPage>
+      </Card>
     </Layout>
   )
 }

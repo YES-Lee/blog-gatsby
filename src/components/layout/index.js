@@ -9,14 +9,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './index.module.scss'
 import Sider from '../sider'
+import { Link } from 'gatsby'
 
 const Layout = ({ children, active }) => {
   return (
     <div className={styles.layout}>
       <Sider active={active} />
-      <div className={styles.mainContainer}>
-        <main className={styles.main}>{children}</main>
-      </div>
+      <main className={styles.main}>
+        {children}
+        <footer className={styles.footer}>
+          <div className={styles.copyright}>
+            <span>©️{ new Date().getFullYear() }</span>
+            ❤️
+            <Link to='/' className={styles.author}>Johnson</Link>
+          </div>
+          <p className={styles.beian}>
+            <a href='http://www.beian.miit.gov.cn/' target='_blank' rel="noopener noreferrer">
+              滇ICP备16003902号
+            </a>
+          </p>
+        </footer>
+      </main>
     </div>
   )
 }
