@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from './f-link.module.scss'
 
-console.log(styles)
-
 export default function FLink ({ data, className }) {
 
   return (

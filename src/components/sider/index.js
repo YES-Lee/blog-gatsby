@@ -1,10 +1,11 @@
 import React from 'react'
-import styles from './index.module.scss'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Mail, Rss, GitHub, Send } from 'react-feather'
 import Card from '../card/card'
 import FLink from '../f-link'
+
+import styles from './sider.module.scss'
 
 export default function Sider (props) {
 
@@ -12,20 +13,20 @@ export default function Sider (props) {
     {
       title: '轶哥博客',
       motto: '妄图改变世界的全栈程序员',
-      avatar: 'https://data.sercretcore.cn/new_avatar.jpeg',
-      link: 'https://www.wyr.me/'
+      avatar: '//data.sercretcore.cn/new_avatar.jpeg',
+      link: '//www.wyr.me/'
     },
     {
       title: '木马tc个人博客',
       motto: '想把代码写成诗的未知名作家',
-      avatar: 'http://file.wintc.top/4a79f0e2f0f4468ea76ca68fa169e673',
-      link: 'http://wintc.top/'
+      avatar: '//file.wintc.top/4a79f0e2f0f4468ea76ca68fa169e673',
+      link: '//wintc.top/'
     },
     {
       title: 'Mind Spark',
       motto: '',
-      avatar: 'https://wivwiv.com/avatar.png',
-      link: 'https://wivwiv.com/'
+      avatar: '//wivwiv.com/avatar.png',
+      link: '//wivwiv.com/'
     }
   ]
 

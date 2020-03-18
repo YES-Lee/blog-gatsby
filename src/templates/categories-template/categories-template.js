@@ -1,11 +1,12 @@
 import React from 'react'
-import Layout from '../../components/layout'
 import SEO from '../../components/seo'
-import styles from './categories-template.module.scss'
 import { Link } from 'gatsby'
-import Pagination from '../../components/pagination'
 import moment from 'moment'
+import Layout from '../../components/layout'
 import Card from '../../components/card/card'
+import Pagination from '../../components/pagination'
+
+import styles from './categories-template.module.scss'
 moment.locale('zh_CN')
 
 export default function CategoryPage (props) {

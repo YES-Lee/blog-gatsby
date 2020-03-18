@@ -7,11 +7,12 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './index.module.scss'
 import Sider from '../sider'
 import { Link } from 'gatsby'
+import styles from './sider.module.scss'
 
-const Layout = ({ children, active }) => {
+export default function Layout (props) {
+  const { children, active } = props
   return (
     <div className={styles.layout}>
       <Sider active={active} />
@@ -37,5 +38,3 @@ const Layout = ({ children, active }) => {
 Layout.propTypes = {
   children: PropTypes.node.isRequired
 }
-
-export default Layout

@@ -1,9 +1,10 @@
 import React from 'react'
-import styles from './index.module.scss'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Calendar } from 'react-feather'
 import Card from '../card/card'
+
+import styles from './index.module.scss'
 
 export default function PostCard (props) {
   const { title, excerpt, url, thumbnail, date } = props

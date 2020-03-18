@@ -1,8 +1,9 @@
 import React from 'react'
-import styles from './index.module.scss'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import { ChevronRight, ChevronLeft, MoreHorizontal } from 'react-feather'
+
+import styles from './index.module.scss'
 
 export default function Pagination (props) {
   const { current, total, renderPath = () => {}, className } = props

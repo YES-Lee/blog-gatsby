@@ -1,11 +1,12 @@
 import React from 'react'
 import SEO from '../../components/seo'
-import styles from './tags-template.module.scss'
-import Card from '../../components/card/card'
 import { Link } from 'gatsby'
 import Layout from '../../components/layout'
+import Card from '../../components/card/card'
 import Pagination from '../../components/pagination'
 import moment from 'moment'
+
+import styles from './tags-template.module.scss'
 moment.locale('zh_CN')
 
 export default function CategoryPage (props) {

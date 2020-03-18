@@ -1,12 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styles from './post-template.module.scss'
 import Img from 'gatsby-image'
 import { Calendar, Folder } from 'react-feather'
 import PostFooter from '../../components/post-footer'
-import Layout from '../../components/layout'
 import SEO from '../../components/seo'
+import Layout from '../../components/layout'
 import Card from '../../components/card/card'
+
+import styles from './post-template.module.scss'
 
 export default function PostTemplate (props) {
 

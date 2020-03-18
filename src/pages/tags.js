@@ -1,9 +1,10 @@
 import React from 'react'
-import Card from '../components/card/card'
-import Layout from '../components/layout'
 import SEO from '../components/seo'
-import styles from './tags.module.scss'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import Layout from '../components/layout'
+import Card from '../components/card/card'
+
+import styles from './tags.module.scss'
 
 export default function LinkPage () {
 

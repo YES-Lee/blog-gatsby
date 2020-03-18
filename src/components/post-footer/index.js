@@ -1,7 +1,8 @@
 import React from 'react'
-import styles from './index.module.scss'
 import { Link } from 'gatsby'
 import { ChevronLeft, ChevronRight } from 'react-feather'
+
+import styles from './index.module.scss'
 
 export default function PostFooter (props) {
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Card from '../../components/card/card'
 import Layout from '../../components/layout'
+import Card from '../../components/card/card'
 import Pagination from '../../components/pagination'
 import SEO from '../../components/seo'
 
