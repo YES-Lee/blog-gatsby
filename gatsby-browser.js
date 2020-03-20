@@ -26,16 +26,16 @@ export function onRouteUpdate () {
     window.document.body.appendChild(bp)
   }
 
-  const adsense = document.createElement('script')
-  adsense.id = 'adsense'
-  adsense.async = true
-  adsense.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?t=' + new Date().getTime()
-  adsense.setAttribute('data-ad-client', 'ca-pub-1108685461241651')
+  // const adsense = document.createElement('script')
+  // adsense.id = 'adsense'
+  // adsense.async = true
+  // adsense.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?t=' + new Date().getTime()
+  // adsense.setAttribute('data-ad-client', 'ca-pub-1108685461241651')
 
-  const oldAd = document.getElementById('adsense')
-  if (oldAd) {
-    oldAd.src = adsense.src
-  } else {
-    window.document.head.appendChild(adsense)
-  }
+  // const oldAd = document.getElementById('adsense')
+  // if (oldAd) {
+  //   oldAd.src = adsense.src
+  // } else {
+  //   window.document.head.appendChild(adsense)
+  // }
 }
