@@ -9,7 +9,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Sider from '../sider'
 import { Link } from 'gatsby'
+import { Fab, Action } from 'react-tiny-fab'
 import styles from './sider.module.scss'
+import 'react-tiny-fab/dist/styles.css'
+import { Plus, Sidebar } from 'react-feather'
 
 export default function Layout (props) {
   const { children, active } = props
@@ -31,6 +34,14 @@ export default function Layout (props) {
           </p>
         </footer>
       </main>
+      {/* <Fab
+        icon={<Plus />}
+        event='click'
+      >
+        <Action text="目录">
+          <Sidebar />
+        </Action>
+      </Fab> */}
     </div>
   )
 }

@@ -5825,6 +5825,11 @@ gatsby-plugin-page-creator@^2.1.38:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-page-progress@^2.0.16:
+  version "2.0.16"
+  resolved "https://registry.npm.taobao.org/gatsby-plugin-page-progress/download/gatsby-plugin-page-progress-2.0.16.tgz#cb1b392490d5ee0be4cbe3dce1db2d24c888e430"
+  integrity sha1-yxs5JJDV7gvky+Pc4dstJMiI5DA=
+
 gatsby-plugin-react-helmet@^3.1.21:
   version "3.1.21"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.1.21.tgz#659f31020295f42d017e2eb03175d73516ab824d"
@@ -5902,6 +5907,13 @@ gatsby-remark-autolink-headers@^2.1.25:
     lodash "^4.17.15"
     mdast-util-to-string "^1.0.7"
     unist-util-visit "^1.4.1"
+
+gatsby-remark-images-medium-zoom@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npm.taobao.org/gatsby-remark-images-medium-zoom/download/gatsby-remark-images-medium-zoom-1.4.0.tgz#6becf8c34382391b59da26530e65cb19fea401d6"
+  integrity sha1-a+z4w0OCORtZ2iZTDmXLGf6kAdY=
+  dependencies:
+    medium-zoom "^1.0.4"
 
 gatsby-remark-images@^3.1.49:
   version "3.1.49"
@@ -8749,6 +8761,11 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
+medium-zoom@^1.0.4:
+  version "1.0.5"
+  resolved "https://registry.npm.taobao.org/medium-zoom/download/medium-zoom-1.0.5.tgz#81413dda20ccdd857141ff420cfab788dd32e20e"
+  integrity sha1-gUE92iDM3YVxQf9CDPq3iN0y4g4=
+
 mem@^4.0.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/mem/-/mem-4.3.0.tgz#461af497bc4ae09608cdb2e60eefb69bff744178"
@@ -11039,6 +11056,11 @@ react-side-effect@^1.1.0:
   dependencies:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
+
+react-tiny-fab@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/react-tiny-fab/-/react-tiny-fab-3.4.0.tgz#65edafa65826aaab8da8cca5f6e099ee81c52eaa"
+  integrity sha512-8R1z0k5I/tcQFDDJHGRycyiAm991htdvgpaSgT1dB83SiG89L1VQJE7TVEaoDng8R50+fxLZaoOCUkNFmZBKgA==
 
 react@^16.12.0:
   version "16.12.0"

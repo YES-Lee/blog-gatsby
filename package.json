@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "johnson-blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Johnson Blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Johnson",
   "dependencies": {
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
@@ -13,6 +13,7 @@
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-mdx": "^1.0.82",
     "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-plugin-page-progress": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.30",
     "gatsby-plugin-sharp": "^2.4.3",
@@ -20,6 +21,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-autolink-headers": "^2.1.25",
     "gatsby-remark-images": "^3.1.49",
+    "gatsby-remark-images-medium-zoom": "^1.4.0",
     "gatsby-remark-prismjs": "^3.3.35",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-remark": "^2.6.58",
@@ -32,6 +34,7 @@
     "react-dom": "^16.12.0",
     "react-feather": "^2.0.3",
     "react-helmet": "^5.2.1",
+    "react-tiny-fab": "^3.4.0",
     "upath": "^1.2.0"
   },
   "devDependencies": {

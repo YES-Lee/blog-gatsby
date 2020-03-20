@@ -15,9 +15,7 @@ date: 2020-02-28 12:09:40
 
 <!-- more -->
 
-<!-- ![issues](https://img.shields.io/github/issues/YES-Lee/cov-comment) ![license](https://img.shields.io/github/license/YES-Lee/cov-comment) ![stars](https://img.shields.io/github/stars/YES-Lee/cov-comment) ![release](https://img.shields.io/github/v/release/YES-Lee/cov-comment) ![david](https://img.shields.io/david/YES-Lee/cov-comment) -->
-
-<p><img src="https://img.shields.io/github/issues/YES-Lee/cov-comment"> <img src="https://img.shields.io/github/license/YES-Lee/cov-comment"> <img src="https://img.shields.io/github/stars/YES-Lee/cov-comment"> <img src="https://img.shields.io/github/v/release/YES-Lee/cov-comment"> <img src="https://img.shields.io/david/YES-Lee/cov-comment"></p>
+![issue](https://img.shields.io/github/issues/YES-Lee/cov-comment) ![license](https://img.shields.io/github/license/YES-Lee/cov-comment) ![stars](https://img.shields.io/github/stars/YES-Lee/cov-comment) ![release](https://img.shields.io/github/v/release/YES-Lee/cov-comment) ![david](https://img.shields.io/david/YES-Lee/cov-comment)
 
 > 仓库地址：[https://github.com/YES-Lee/cov-comment](https://github.com/YES-Lee/cov-comment)
 
