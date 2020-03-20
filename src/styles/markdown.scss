@@ -1,5 +1,11 @@
+@import './variables.scss';
+
 $line-height: 1.8;
-$dropcap-lines: 2;
 
 .markdown__body {
+  line-height: $line-height;
+
+  h1, h2, h3, h4 {
+    font-weight: 700;
+  }
 }
