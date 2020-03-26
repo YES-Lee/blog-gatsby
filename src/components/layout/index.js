@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import Sider from '../sider'
 import { Link } from 'gatsby'
 import { Fab, Action } from 'react-tiny-fab'
-import styles from './sider.module.scss'
+import styles from './layout.module.scss'
 import 'react-tiny-fab/dist/styles.css'
 import { Plus, Sidebar } from 'react-feather'
 

@@ -13,6 +13,7 @@
     max-width: $main-width;
     margin-left: 2 * $font-size + $sider-width;
     padding-bottom: $footer-height;
+    box-sizing: border-box;
 
     @media screen and (max-width: 960px) {
       padding: 0 $padding-2 $footer-height;
