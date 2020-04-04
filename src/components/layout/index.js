@@ -27,6 +27,9 @@ export default function Layout (props) {
             ❤️
             <Link to='/' className={styles.author}>Johnson</Link>
           </div>
+          <p className={styles.visit}>
+            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+          </p>
           <p className={styles.beian}>
             <a href='http://www.beian.miit.gov.cn/' target='_blank' rel="noopener noreferrer">
               滇ICP备16003902号
