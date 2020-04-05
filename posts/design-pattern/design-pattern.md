@@ -9,6 +9,8 @@ tags:
 - 六大原则
 ---
 
+<!-- more -->
+
 ## 单一职责原则（Single Responsibility Principle）
 
 ### 定义

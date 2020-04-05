@@ -11,20 +11,20 @@ import 'prismjs/themes/prism.css'
 import './src/styles/global.scss'
 
 export function onRouteUpdate () {
-  const bp = document.createElement('script')
-  bp.id = 'baidu-push'
-  const curProtocol = window.location.protocol.split(':')[0]
-  if (curProtocol === 'https') {
-    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js?t=' + new Date().getTime()
-  } else {
-    bp.src = 'http://push.zhanzhang.baidu.com/push.js?t=' + new Date().getTime()
-  }
-  const old = document.getElementById('baidu-push')
-  if (old) {
-    old.src = bp.src
-  } else {
-    window.document.body.appendChild(bp)
-  }
+  // const bp = document.createElement('script')
+  // bp.id = 'baidu-push'
+  // const curProtocol = window.location.protocol.split(':')[0]
+  // if (curProtocol === 'https') {
+  //   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js?t=' + new Date().getTime()
+  // } else {
+  //   bp.src = 'http://push.zhanzhang.baidu.com/push.js?t=' + new Date().getTime()
+  // }
+  // const old = document.getElementById('baidu-push')
+  // if (old) {
+  //   old.src = bp.src
+  // } else {
+  //   window.document.body.appendChild(bp)
+  // }
 
   // const adsense = document.createElement('script')
   // adsense.id = 'adsense'

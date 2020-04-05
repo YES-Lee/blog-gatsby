@@ -1,0 +1,27 @@
+#! /usr/bin/env node
+
+/**
+ * 从scaffold创建一篇文章
+ * new <post|draft> <filename>
+ */
+
+const commander = require('commander')
+const path = require('path')
+const fs = require('fs')
+const exec = require('child_process').execFileSync
+
+commander
+  .version('0.0.1')
+  .arguments('<type> <filename>')
+  .description('新建一篇博客')
+  .action((type, filename) => {
+    const postDir = path.resolve(process.cwd(), `posts/${filename}`)
+    const scaffold = path.resolve(process.cwd(), `scaffold/${type}.md`)
+    const destination = path.join(postDir, `${filename}.md`)
+    if (!fs.existsSync(postDir)) {
+      fs.mkdirSync(postDir)
+    }
+    fs.copyFileSync(scaffold, destination)
+    exec('./unsplash-cover', ['cover', 'filename'])
+  })
+  .parse(process.argv)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Calendar, Folder } from 'react-feather'
 import PostFooter from '../../components/post-footer'
@@ -26,25 +26,49 @@ export default function PostTemplate (props) {
         ]}
       />
       <Card>
-        <header className={styles.header}>
-          <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
-          <div className={styles.infoPanel}>
-            <div className={styles.meta}>
-              <span className={styles.item}>
-                <Calendar size={14} /> {post.frontmatter.date}
-              </span>
-              {
-                post.frontmatter.categories.map(c => (
-                  <span className={styles.item} key={c}>
-                    <Folder size={14} /> {c}
+        {
+          post.frontmatter.thumbnail ? (
+            <header className={styles.headerWidthCover}>
+              <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
+              <div className={`${styles.infoPanel}`}>
+                <div className={styles.meta}>
+                  <span className={styles.item}>
+                    <Calendar size={14} /> {post.frontmatter.date}
                   </span>
-                ))
-              }
-            </div>
-            <div className={styles.line}></div>
-            <div className={styles.title}>{post.frontmatter.title}</div>
-          </div>
-        </header>
+                  {
+                    post.frontmatter.categories.map(c => (
+                      <Link key={c} to={`/categories/${c}`}>
+                        <span className={styles.item}>
+                          <Folder size={14} /> {c}
+                        </span>
+                      </Link>
+                    ))
+                  }
+                </div>
+                <div className={styles.line}></div>
+                <div className={styles.title}>{post.frontmatter.title}</div>
+              </div>
+            </header>
+          ) : (
+            <header className={styles.header}>
+              <div className={styles.title}>{post.frontmatter.title}</div>
+              <div className={styles.meta}>
+                <span className={styles.item}>
+                  <Calendar size={14} /> {post.frontmatter.date}
+                </span>
+                {
+                  post.frontmatter.categories.map(c => (
+                    <Link key={c} to={`/categories/${c}`}>
+                      <span className={styles.item}>
+                        <Folder size={14} /> {c}
+                      </span>
+                    </Link>
+                  ))
+                }
+              </div>
+            </header>
+          )
+        }
         <article dangerouslySetInnerHTML={{ __html: post.html }} className={`${styles.content} markdown__body`}></article>
         <PostFooter
           tags={post.frontmatter.tags}

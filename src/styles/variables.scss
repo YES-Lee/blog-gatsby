@@ -4,7 +4,7 @@ $font-size: 14px;
 $layout-width: 960px; // 布局区宽度
 $main-width: 690px; // 主要内容区宽度
 $sider-width: $layout-width - $font-size * 2 - $main-width; // 侧边栏宽度
-$footer-height: 6rem;
+$footer-height: 8rem;
 
 // 全局字体
 $font-family: 'Josefin Sans','PingFang SC','Microsoft YaHei';
@@ -36,14 +36,11 @@ $opacity-2: .63;
 $opacity-3: .5;
 
 @mixin card {
-  background-color: #fff;
+  background-color: var(--color-background-block);
   overflow: hidden;
   height: fit-content;
   box-sizing: border-box;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
   transition: box-shadow .15s;
-  &:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
-  }
 }

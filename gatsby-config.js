@@ -40,6 +40,7 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        excerpt_separator: '<!-- more -->',
         plugins: [
           {
             resolve: 'gatsby-remark-images',
@@ -210,6 +211,12 @@ module.exports = {
         height: 3,
         prependToBody: false,
         color: '#363636'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-urls',
+      options: {
+        domain: 'https://johnsonlee.site/'
       }
     }
   ]

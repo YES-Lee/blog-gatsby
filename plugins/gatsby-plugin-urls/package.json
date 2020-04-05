@@ -1,0 +1,16 @@
+{
+  "name": "gatsby-plugin-urls",
+  "version": "1.0.0",
+  "description": "gatsby plugin for generate urls",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gatsby",
+    "plugin",
+    "urls"
+  ],
+  "author": "Johnson",
+  "license": "MIT"
+}

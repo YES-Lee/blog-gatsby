@@ -1,4 +1,21 @@
 .header {
+  padding: 2.5rem 0 1rem;
+  .title {
+    padding: 0 2.15rem;
+    line-height: 1.5;
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+  .meta {
+    margin: 1rem 0;
+    padding: 1rem 2.15rem;
+    background-color: var(--color-background-main);
+    .item {
+      margin-right: 1rem;
+    }
+  }
+}
+.headerWidthCover {
   position: relative;
   .infoPanel {
     position: absolute;

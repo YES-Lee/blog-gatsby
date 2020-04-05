@@ -8,25 +8,16 @@
   border-color: var(--color-gray);
 }
 
-#___gatsby {
-  height: 100%;
-  > div#gatsby-focus-wrapper {
-    height: 100%;
-  }
-}
-
 html {
   font-size: $font-size;
-  height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background-color: var(--color-light-gray);
+  background-color: var(--color-background-main);
   font-family: $font-family;
-  color: var(--color-dark);
+  color: var(--color-font);
   text-rendering: geometricPrecision;
 }
 

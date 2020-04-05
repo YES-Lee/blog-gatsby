@@ -12,7 +12,7 @@ program
   .command('cover <title> [cover]')
   .description('download a cover image for draft article')
   .action((title, cover = 'cover.jpeg') => {
-    downloadImage(path.resolve(__dirname, `../posts/${title}/${cover}`))
+    downloadImage(path.resolve(process.cwd(), `posts/${title}/${cover}`))
   })
 
 program.parse(process.argv)
