@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .header {
   padding: 2.5rem 0 1rem;
   .title {
@@ -42,6 +44,16 @@
       font-size: 1.8rem;
       font-weight: 400;
     }
+  }
+}
+
+.toc {
+  position: sticky;
+  top: $margin-4;
+  padding: $padding-2 $padding-4;
+  margin-bottom: $margin-2;
+  ul {
+    padding-left: 1rem;
   }
 }
 

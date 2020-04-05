@@ -57,4 +57,12 @@ $line-height: 1.8;
       padding: .5rem;
     }
   }
+
+  p {
+    >code {
+      background-color: var(--color-border);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  }
 }

@@ -1,9 +1,10 @@
 @import '../../styles/variables.scss';
 
 .sider {
-  position: fixed;
+  position: absolute;
   top: $margin-4;
   width: $sider-width;
+  height: 100%;
 
   .profileCard {
     padding: $padding-2;
@@ -85,15 +86,6 @@
         .count {
           font-family: $font-family-number;
         }
-      }
-    }
-  }
-
-  .linksCard {
-    .linkItem {
-      padding: $padding-2;
-      &:not(:last-child) {
-        border-bottom: 1px solid var(--color-light-gray);
       }
     }
   }

@@ -14,7 +14,14 @@ export default function PostTemplate (props) {
   const { data: { post }, pageContext } = props
 
   return (
-    <Layout>
+    <Layout
+      siderFixed={false}
+      plugins={[
+        <Card key='toc' className={styles.toc}>
+          <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }}></div>
+        </Card>
+      ]}
+    >
       <SEO
         title={`${post.frontmatter.title}-Johnson`}
         description={post.plainExcerpt}

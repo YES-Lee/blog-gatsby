@@ -3,32 +3,12 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Mail, Rss, GitHub, Send } from 'react-feather'
 import Card from '../card/card'
-import FLink from '../f-link'
 
 import styles from './sider.module.scss'
 
 export default function Sider (props) {
 
-  const links = [
-    {
-      title: '轶哥博客',
-      motto: '妄图改变世界的全栈程序员',
-      avatar: '//data.sercretcore.cn/new_avatar.jpeg',
-      link: '//www.wyr.me/'
-    },
-    {
-      title: '木马tc个人博客',
-      motto: '想把代码写成诗的未知名作家',
-      avatar: '//file.wintc.top/4a79f0e2f0f4468ea76ca68fa169e673',
-      link: '//wintc.top/'
-    },
-    {
-      title: 'Mind Spark',
-      motto: '',
-      avatar: '//wivwiv.com/avatar.png',
-      link: '//wivwiv.com/'
-    }
-  ]
+  const { plugins, fixed = true } = props
 
   const { active } = props
 
@@ -67,7 +47,7 @@ export default function Sider (props) {
   categories = [...new Set(categories)]
   tags = [...new Set(tags)]
 
-  return <aside className={styles.sider}>
+  return <aside className={styles.sider} style={{ position: fixed ? 'fixed' : 'absolute' }}>
     <Card className={styles.profileCard}>
       <div className={styles.avatarContainer}>
         <Img className={styles.avatar} imgStyle={{ borderRadius: '50%' }} fluid={avatarImage.childImageSharp.fluid} />
@@ -117,12 +97,8 @@ export default function Sider (props) {
         </li>
       </ul>
     </Card>
-    <Card className={styles.linksCard}>
-      {
-        links.map((item, i) => (
-          <FLink data={item} key={i} className={styles.linkItem} />
-        ))
-      }
-    </Card>
+    {
+      plugins
+    }
   </aside>
 }

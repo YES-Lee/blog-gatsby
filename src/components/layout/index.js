@@ -15,10 +15,10 @@ import 'react-tiny-fab/dist/styles.css'
 import { Plus, Sidebar } from 'react-feather'
 
 export default function Layout (props) {
-  const { children, active } = props
+  const { children, active, plugins, siderFixed } = props
   return (
     <div className={styles.layout}>
-      <Sider active={active} />
+      <Sider active={active} plugins={plugins} fixed={siderFixed} />
       <main className={styles.main}>
         {children}
         <footer className={styles.footer}>
