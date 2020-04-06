@@ -6,11 +6,11 @@
     display: block;
     margin: 2rem 0;
     padding: 1rem 1.5rem;
-    border-left: 3px solid var(--color-light-dark);
+    border-left: 3px solid var(--color-background-accent);
     border-radius: 3px;
     word-break: break-word;
     line-height: 1.8;
-    background-color: var(--color-light-gray);
+    background-color: var(--color-border);
     .item {
       .title {
         font-weight: bold;
@@ -23,13 +23,13 @@
       display: inline-block;
       margin: 0 .5rem .5rem 0;
       padding: .5rem 1rem;
-      background-color: var(--color-light-gray);
+      background-color: var(--color-border);
       border-radius: 3px;
       transition: background-color .15s, color .15s;
       line-height: 1.5;
       &:hover, &:active {
-        background-color: var(--color-light-dark);
-        color: var(--color-light-gray);
+        background-color: var(--color-background-accent);
+        color: #fff;
       }
     }
   }

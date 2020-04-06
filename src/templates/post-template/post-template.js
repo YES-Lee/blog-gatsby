@@ -95,7 +95,7 @@ export const pageQuery = graphql`
       html
       excerpt(format: HTML)
       plainExcerpt: excerpt
-      tableOfContents(absolute: false)
+      tableOfContents(absolute: false, maxDepth: 3)
       wordCount {
         words
       }

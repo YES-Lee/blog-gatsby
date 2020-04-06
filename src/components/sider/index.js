@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Mail, Rss, GitHub, Send } from 'react-feather'
+import { Mail, Rss, GitHub, Send, Moon, Sun } from 'react-feather'
 import Card from '../card/card'
 
 import styles from './sider.module.scss'
+import { switchTheme } from '../../lib/utils'
 
 export default function Sider (props) {
 
   const { plugins, fixed = true } = props
+  const [theme, setTheme] = useState('light')
+
+  useEffect(() => {
+    const themes = ['light', 'dark']
+    let localTheme = window.localStorage.getItem('__JOHNSON__THEME__')
+    localTheme = themes.includes(localTheme) ? localTheme : 'light'
+    setTheme(localTheme)
+  }, [])
 
   const { active } = props
 
@@ -47,8 +56,22 @@ export default function Sider (props) {
   categories = [...new Set(categories)]
   tags = [...new Set(tags)]
 
+  useEffect(() => {
+    switchTheme(theme)
+    window.localStorage.setItem('__JOHNSON__THEME__', theme)
+  }, [theme])
+
   return <aside className={styles.sider} style={{ position: fixed ? 'fixed' : 'absolute' }}>
     <Card className={styles.profileCard}>
+      <div className={styles.themeHandler}>
+        {
+          theme === 'dark' ? (
+            <Moon onClick={() => setTheme('light')} />
+          ) : (
+            <Sun onClick={() => setTheme('dark')}/>
+          )
+        }
+      </div>
       <div className={styles.avatarContainer}>
         <Img className={styles.avatar} imgStyle={{ borderRadius: '50%' }} fluid={avatarImage.childImageSharp.fluid} />
       </div>

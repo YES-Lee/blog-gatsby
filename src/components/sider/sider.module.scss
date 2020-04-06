@@ -9,6 +9,14 @@
   .profileCard {
     padding: $padding-2;
 
+    .themeHandler {
+      width: fit-content;
+      height: fit-content;
+      position: absolute;
+      right: $margin-2;
+      cursor: pointer;
+    }
+
     .avatarContainer {
       border: 1px solid var(--color-gray);
       padding: 2px;

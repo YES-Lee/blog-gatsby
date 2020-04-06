@@ -11,7 +11,7 @@
   .meta {
     margin: 1rem 0;
     padding: 1rem 2.15rem;
-    background-color: var(--color-background-main);
+    background-color: var(--color-background);
     .item {
       margin-right: 1rem;
     }
@@ -50,10 +50,24 @@
 .toc {
   position: sticky;
   top: $margin-4;
-  padding: $padding-2 $padding-4;
+  padding: $padding-3 $padding-4 $padding-3 $padding-2;
   margin-bottom: $margin-2;
   ul {
-    padding-left: 1rem;
+    margin: 0;
+    padding-left: $padding-2;
+    list-style: none;
+    li {
+      line-height: 1.5;
+      a {
+        position: relative;
+        &:hover, &:active {
+          border-bottom: 1px dotted var(--color-font);
+        }
+      }
+    }
+    p {
+      margin: 0;
+    }
   }
 }
 

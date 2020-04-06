@@ -36,7 +36,7 @@ $opacity-2: .63;
 $opacity-3: .5;
 
 @mixin card {
-  background-color: var(--color-background-block);
+  background-color: var(--color-foreground);
   overflow: hidden;
   height: fit-content;
   box-sizing: border-box;
