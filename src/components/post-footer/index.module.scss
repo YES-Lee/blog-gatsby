@@ -10,7 +10,7 @@
     border-radius: 3px;
     word-break: break-word;
     line-height: 1.8;
-    background-color: var(--color-border);
+    background-color: var(--color-background);
     .item {
       .title {
         font-weight: bold;
@@ -23,7 +23,7 @@
       display: inline-block;
       margin: 0 .5rem .5rem 0;
       padding: .5rem 1rem;
-      background-color: var(--color-border);
+      background-color: var(--color-background);
       border-radius: 3px;
       transition: background-color .15s, color .15s;
       line-height: 1.5;
@@ -34,8 +34,8 @@
     }
   }
   .line {
-    height: 1px;
-    background-color: var(--color-gray);
+    height: 2px;
+    background-color: var(--color-background);
     margin: 1rem 0;
   }
   .pager {

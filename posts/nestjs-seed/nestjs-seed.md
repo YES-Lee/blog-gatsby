@@ -80,7 +80,7 @@ src
 
 `Config`模块是全局模块，可以通过注入的方式使用，如在数据库模块中使用配置
 
-```typescript
+```typescript{6-11}
 {
   provide: 'SEQUELIZE',
   inject: [ConfigService, Logger],

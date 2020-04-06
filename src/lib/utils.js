@@ -9,8 +9,9 @@ export function switchTheme (theme = 'light') {
     dark: {
       '--color-font': '#fff',
       '--color-background': '#121212',
-      '--color-foreground': 'rgba(255,255,255,0.05)',
-      '--color-border': '#121212'
+      // '--color-foreground': 'rgba(255,255,255,0.05)',
+      '--color-foreground': 'rgb(30,30,30)'
+      // '--color-border': '#121212'
     }
   }
   const colors = themes[theme.toLowerCase()]

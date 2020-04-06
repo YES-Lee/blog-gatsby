@@ -10,7 +10,7 @@
     border-radius: 50%;
     margin: 0 1px;
     &:hover, &:active, &.active {
-      background-color: var(--color-light-dark);
+      background-color: var(--color-background-accent);
       color: #fff;
     }
   }

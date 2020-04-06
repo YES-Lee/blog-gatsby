@@ -37,7 +37,7 @@
           transform: scaleY(0);
           transform-origin: bottom center;
           border-radius: 3px 3px 0 0;
-          background-color: var(--color-dark);
+          background-color: var(--color-background-accent);
         }
 
         &::after {
@@ -45,7 +45,7 @@
           padding: 2px 5px;
           border-radius: 3px;
           border: 1px solid;
-          border-color: var(--color-gray);
+          border-color: var(--color-border);
           content: attr(count);
           font-size: .85rem;
           font-family: $font-family-number;

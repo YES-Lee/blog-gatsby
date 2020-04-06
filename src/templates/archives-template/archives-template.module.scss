@@ -14,7 +14,7 @@
       left: $margin-3;
       height: 100%;
       border-left: 1px solid;
-      border-color: var(--color-gray);
+      border-color: var(--color-border);
       content: "";
     }
 
@@ -24,7 +24,7 @@
     }
 
     .year {
-      background-color: #fff;
+      background-color: var(--color-foreground);
       margin: 0;
       line-height: 2.4;
       font-size: 1.8rem;
@@ -60,7 +60,7 @@
           opacity: .63;
           transition: opacity .4s;
           position: absolute;
-          background-color: var(--color-light-dark);
+          background-color: var(--color-background-accent);
         }
       }
 
