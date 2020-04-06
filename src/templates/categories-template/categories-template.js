@@ -58,7 +58,7 @@ export default function CategoryPage (props) {
             ))
           }
         </Card>
-        <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => `/categories/${categories.title}/${i === 0 ? '' : i}`} />
+        <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => `/categories/${title}/${i === 0 ? '' : i}`} />
       </div>
     </Layout>
   )
