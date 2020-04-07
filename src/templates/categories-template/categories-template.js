@@ -16,6 +16,7 @@ export default function CategoryPage (props) {
       currentPage,
       totalPage,
       categories,
+      currentList,
       title
     }
   } = props
@@ -27,7 +28,7 @@ export default function CategoryPage (props) {
         meta={[
           {
             name: 'keywords',
-            content: categories[title].map(item => item.title).join(',')
+            content: currentList.map(item => item.title).join(',')
           }
         ]}
       />
@@ -35,14 +36,14 @@ export default function CategoryPage (props) {
         <Card className={styles.header}>
           <nav className={styles.tabList}>
             {
-              Object.keys(categories).map(k => (
+              categories.map(item => (
                 <Link
-                  key={k}
-                  to={`/categories/${k}`}
-                  count={categories[k].length}
-                  className={`${styles.tabItem} ${k === title ? styles.active : ''}`}
+                  key={item.title}
+                  to={`/categories/${item.title}`}
+                  count={item.count}
+                  className={`${styles.tabItem} ${item.title === title ? styles.active : ''}`}
                 >
-                  {k}
+                  {item.title}
                 </Link>
               ))
             }
@@ -50,7 +51,7 @@ export default function CategoryPage (props) {
         </Card>
         <Card className={styles.main}>
           {
-            categories[title].map((item, i) => (
+            currentList.map((item, i) => (
               <Link className={styles.item} to={item.link} key={i}>
                 <span className={styles.date}>{moment(item.date).format('YYYY/MM/DD')}</span>
                 <span className={styles.title}>{item.title}</span>

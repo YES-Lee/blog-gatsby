@@ -191,9 +191,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: categoriesTemplate,
         context: {
           title: k,
-          categories,
+          categories: Object.keys(categories).map(ck => ({
+            title: ck,
+            count: categories[ck].length
+          })),
           totalPage: totalCatePage,
-          currentPage: i
+          currentPage: i,
+          currentList: categories[k].slice(i * 10, (i + 1) * 10)
         }
       })
     }
@@ -207,9 +211,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: tagsTemplate,
         context: {
           title: k,
-          tags,
+          tags: Object.keys(tags).map(tk => ({
+            title: tk,
+            count: tags[tk].length
+          })),
           totalPage: totalCatePage,
-          currentPage: i
+          currentPage: i,
+          currentList: tags[k].slice(i * 10, (i + 1) * 10)
         }
       })
     }

@@ -16,7 +16,8 @@ export default function CategoryPage (props) {
       currentPage,
       totalPage,
       tags,
-      title
+      title,
+      currentList
     }
   } = props
 
@@ -27,7 +28,7 @@ export default function CategoryPage (props) {
         meta={[
           {
             name: 'keywords',
-            content: tags[title].map(item => item.title).join(',')
+            content: currentList.map(item => item.title).join(',')
           }
         ]}
       />
@@ -38,7 +39,7 @@ export default function CategoryPage (props) {
           </h1>
           <section className={styles.list}>
             {
-              tags[title].map((item, i) => (
+              currentList.map((item, i) => (
                 <Link className={styles.item} to={item.link} key={i}>
                   <span className={styles.date}>{moment(item.date).format('YYYY/MM/DD')}</span>
                   <span className={styles.title}>{item.title}</span>
