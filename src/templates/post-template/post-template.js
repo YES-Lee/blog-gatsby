@@ -6,20 +6,28 @@ import PostFooter from '../../components/post-footer'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
 import Card from '../../components/card/card'
+import scrollTo from 'gatsby-plugin-smoothscroll'
+import { postHtmlFilter } from '../../lib/utils'
 
 import styles from './post-template.module.scss'
-import { postHtmlFilter } from '../../lib/utils'
 
 export default function PostTemplate (props) {
 
   const { data: { post }, pageContext } = props
+
+  const handleClickTitle = e => {
+    e.preventDefault()
+    if (e.target.hash) {
+      scrollTo(decodeURIComponent(e.target.hash))
+    }
+  }
 
   return (
     <Layout
       siderFixed={false}
       plugins={[
         <Card key='toc' className={styles.toc}>
-          <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }}></div>
+          <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
         </Card>
       ]}
     >

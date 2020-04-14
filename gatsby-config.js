@@ -175,6 +175,7 @@ module.exports = {
       options: {
         domain: 'https://johnsonlee.site/'
       }
-    }
+    },
+    'gatsby-plugin-smoothscroll'
   ]
 }
