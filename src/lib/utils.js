@@ -21,3 +21,15 @@ export function switchTheme (theme = 'light') {
     })
   }
 }
+
+/**
+ * 处理文章html
+ * @param {string} html HTML字符串
+ */
+export function postHtmlFilter (html = '') {
+  const tableReg = /<table[\s\S]*<\/table>/gi
+  const result = html.replace(tableReg, match => {
+    return `<div class="table-wrapper">${match}</div>`
+  })
+  return result
+}

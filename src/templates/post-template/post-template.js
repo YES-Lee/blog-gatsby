@@ -8,6 +8,7 @@ import Layout from '../../components/layout'
 import Card from '../../components/card/card'
 
 import styles from './post-template.module.scss'
+import { postHtmlFilter } from '../../lib/utils'
 
 export default function PostTemplate (props) {
 
@@ -76,7 +77,7 @@ export default function PostTemplate (props) {
             </header>
           )
         }
-        <article dangerouslySetInnerHTML={{ __html: post.html }} className={`${styles.content} markdown__body`}></article>
+        <article dangerouslySetInnerHTML={{ __html: postHtmlFilter(post.html) }} className={`${styles.content} markdown__body`}></article>
         <PostFooter
           tags={post.frontmatter.tags}
           prev={pageContext.prev}

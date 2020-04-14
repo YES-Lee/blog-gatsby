@@ -65,6 +65,22 @@ $line-height: 1.8;
     }
   }
 
+  div.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    table {
+      width: auto;
+      border-collapse: collapse;
+      tr {
+        word-break: keep-all;
+      }
+      th, td {
+        border: 1px solid var(--color-border);
+        padding: .5rem;
+      }
+    }
+  }
+
   p {
     >code {
       background-color: var(--color-background-accent);
