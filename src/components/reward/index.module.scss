@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.reward {
+  .tabs {
+    width: fit-content;
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .tab {
+      display: block;
+      padding: $padding-1;
+      font-size: .8rem;
+      &:not(:last-child) {
+        border-right: 1px solid var(--color-border);
+      }
+
+      .paymentIcon {
+        display: block;
+        height: 1.5rem;
+      }
+    }
+  }
+  .rewardText {
+    text-align: center;
+  }
+}
