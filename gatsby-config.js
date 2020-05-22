@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Blog',
+    title: '博客',
     description: '佛性程序员',
     author: 'Johnson',
     siteUrl: 'https://johnsonlee.site'

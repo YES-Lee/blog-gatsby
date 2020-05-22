@@ -15,7 +15,7 @@ exports.onPostBuild = async ({ graphql }, options) => {
   `)
   const pageList = result.data.allSitePage.nodes
   const urls = pageList.map(item => {
-    return path.join(domain.replace(/\/+?$/, ''), item.path)
+    return domain.replace(/\/+?$/, '') + item.path
   })
   fs.writeFileSync(path.resolve(process.cwd(), 'public/urls.txt'), urls.join('\n'), { encoding: 'utf8' })
 }
