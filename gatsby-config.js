@@ -176,6 +176,27 @@ module.exports = {
         domain: 'https://johnsonlee.site/'
       }
     },
-    'gatsby-plugin-smoothscroll'
+    'gatsby-plugin-smoothscroll',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        // host: 'https://johnsonlee.site',
+        sitemap: 'https://johnsonlee.site/sitemap.xml',
+        policy: [
+          {
+            userAgent: 'Googlebot',
+            disallow: ['/tags', '/archives', '/categories']
+          },
+          {
+            userAgent: 'Baiduspider',
+            disallow: ['/tags', '/archives', '/categories']
+          },
+          {
+            userAgent: '*',
+            allow: '/'
+          }
+        ]
+      }
+    }
   ]
 }
