@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
 
-curl -H 'Content-Type:text/plain' --data-binary @../public/urls.txt "http://data.zz.baidu.com/urls?site=https://johnsonlee.site&token=HE0564HzpCBUdXtu"
+curl -H 'Content-Type:text/plain' --data-binary @public/urls.txt "http://data.zz.baidu.com/urls?site=https://johnsonlee.site&token=HE0564HzpCBUdXtu"
