@@ -176,7 +176,7 @@ module.exports = {
         domain: 'https://johnsonlee.site/'
       }
     },
-    'gatsby-plugin-smoothscroll',
+    'gatsby-plugin-smoothscroll'
     // {
     //   resolve: 'gatsby-plugin-robots-txt',
     //   options: {
