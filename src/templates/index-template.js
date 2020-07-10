@@ -22,12 +22,12 @@ const IndexPage = (props) => {
     >
       <SEO
         title="Johnson"
-        // meta={[
-        //   {
-        //     name: 'keywords',
-        //     content: postList.rows.map(post => post.frontmatter.title).join(',')
-        //   }
-        // ]}
+        meta={[
+          {
+            name: 'keywords',
+            content: '前端,程序员,Johnson,技术,计算机,IT,信息技术'
+          }
+        ]}
       />
       {
         (postList.rows || []).map(post => (
