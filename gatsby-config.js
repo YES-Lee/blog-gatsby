@@ -3,7 +3,7 @@ module.exports = {
     title: '博客',
     description: '佛性程序员',
     author: 'Johnson',
-    siteUrl: 'https://johnsonlee.site'
+    siteUrl: 'https://johnsonlee.site/'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -180,7 +180,7 @@ module.exports = {
     // {
     //   resolve: 'gatsby-plugin-robots-txt',
     //   options: {
-    //     // host: 'https://johnsonlee.site',
+    //     // host: 'https://johnsonlee.site/',
     //     sitemap: 'https://johnsonlee.site/sitemap.xml',
     //     policy: [
     //       {

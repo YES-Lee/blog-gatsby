@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: 'slug',
-      value: `/post/${slug.split('/')[1]}`,
+      value: `/post/${slug.split('/')[1]}/`,
       trailingSlash: false
     })
   }
@@ -83,7 +83,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // 生成文章列表页面
   for (let p = 0; p < totalPage; p++) {
     createPage({
-      path: p === 0 ? '/' : '/' + p,
+      path: p === 0 ? '/' : '/' + p + '/',
       component: postListTemplate,
       context: {
         currentPage: p,
@@ -142,7 +142,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       })
     })
     createPage({
-      path: `/archives/${i === 0 ? '' : i}`,
+      path: `/archives/${i === 0 ? '' : i + '/'}`,
       component: archivesTemplate,
       context: {
         archives,
@@ -187,7 +187,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const totalCatePage = Math.ceil(cat.length / 10)
     for (let i = 0; i < totalCatePage; i++) {
       createPage({
-        path: `/categories/${k}/${i === 0 ? '' : i}`,
+        path: `/categories/${k}/${i === 0 ? '' : i + '/'}`,
         component: categoriesTemplate,
         context: {
           title: k,
@@ -207,7 +207,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const totalCatePage = Math.ceil(tag.length / 10)
     for (let i = 0; i < totalCatePage; i++) {
       createPage({
-        path: `/tags/${k}/${i === 0 ? '' : i}`,
+        path: `/tags/${k}/${i === 0 ? '' : i + '/'}`,
         component: tagsTemplate,
         context: {
           title: k,
