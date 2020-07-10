@@ -14,7 +14,12 @@
         font-weight: 400;
         text-decoration: none;
         color: var(--color-font);
-        font-size: $heading-3;
+        font-size: $heading-2;
+        transition: all .3s ease-in-out;
+
+        &:hover, &:active {
+          text-decoration: underline;
+        }
       }
     }
     .excerpt {
