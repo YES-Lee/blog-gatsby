@@ -11,7 +11,7 @@ date: 2020-02-28 12:09:40
 ---
 
 
-`CovComment`是一个基于`web compoennts`技术和`leancloud`引擎开发的免登录静态博客评论插件，`web compoennts`赋予插件极其简单的使用体验和集成。可以在任何类型的博客中轻松集成。
+`CovComment`是一个基于`web components`技术和`leancloud`引擎开发的免登录静态博客评论插件，`web components`赋予插件极其简单的使用体验和集成。可以在任何类型的博客中轻松集成。
 
 <!-- more -->
 
