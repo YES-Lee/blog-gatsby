@@ -21,7 +21,7 @@ const IndexPage = (props) => {
       ]}
     >
       <SEO
-        title="Johnson"
+        title="欢迎访问"
         meta={[
           {
             name: 'keywords',

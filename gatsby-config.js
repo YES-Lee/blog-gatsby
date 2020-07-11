@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: '博客',
-    description: '佛性程序员',
+    title: 'Johnson的博客',
+    description: '喜欢折腾，喜欢技术，不想成为咸鱼的前端程序员',
     author: 'Johnson',
     siteUrl: 'https://johnsonlee.site/'
   },

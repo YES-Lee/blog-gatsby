@@ -32,7 +32,7 @@ export default function PostTemplate (props) {
       ]}
     >
       <SEO
-        title={`${post.frontmatter.title}-Johnson`}
+        title={`${post.frontmatter.title}`}
         description={post.plainExcerpt}
         meta={[
           {
