@@ -7,7 +7,11 @@ color: '#111'
 copyright: true
 date: 2019-07-1 21:55:07
 tags:
-- git
+  - git
+keywords:
+  - git规范化
+  - git commit message
+  - git提交
 ---
 
 把项目的`git commit message`规范化，对于项目的合作开发、发布等都有很大帮助。同时还能自动生成语义化的`CHANGE-LOG`。我们可以参考具体的标准规范化自己的提交，也可以使用辅助工具进行强制性规范。

@@ -6,6 +6,11 @@ color: '#111'
 thumbnail: cover.jpg
 date: 2019-11-02 01:26:27
 tags:
+keywords:
+  - 少年的你观后感
+  - 少年的你
+  - 影评
+  - 观后感
 ---
 
 

@@ -10,6 +10,9 @@ tags:
 thumbnail: ./cover.jpeg
 color: '#111'
 date: 2020-02-15 00:57:10
+keywords:
+  - nestjs快速开始项目
+  - nestjs基础教程
 ---
 
 

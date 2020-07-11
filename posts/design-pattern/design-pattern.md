@@ -3,10 +3,18 @@ title: 设计模式六大原则
 date: 2019-09-18 15:29:49
 thumbnail: ./cover.jpeg
 categories:
-- 技术
+  - 技术
 tags:
-- 设计模式
-- 六大原则
+  - 设计模式
+  - 六大原则
+keywords:
+  - javascript设计原则
+  - 单一职责原则
+  - 里氏替换原则
+  - 接口隔离原则
+  - 依赖倒置原则
+  - 迪米特法则
+  - 开闭原则
 ---
 
 <!-- more -->

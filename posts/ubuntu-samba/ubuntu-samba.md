@@ -1,15 +1,20 @@
 ---
 title: Ubuntu Server 18.04.3 搭建Samba文件服务
 categories:
-- 技术
+  - 技术
 color: '#111'
 thumbnail: ./cover.jpeg
 date: 2019-09-20 09:48:32
 tags:
-- linux
-- ubuntu
-- samba
-- 文件服务
+  - linux
+  - ubuntu
+  - samba
+  - 文件服务
+keywords:
+  - ubuntu搭建samba文件服务
+  - Linux文件服务
+  - 文件共享
+  - 内网共享工作组
 ---
 
 最近公司在终端设备上调试软件的时候有诸多不便，看到工程师小哥哥拿着U盘到处跑。回头一看，公司还有几台闲置电脑，便想着装个文件服务，供团队开发测试使用。服务器系统使用`ubuntu server 18.04.3`，系统安装非常简单，不再赘述。

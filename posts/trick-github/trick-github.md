@@ -4,10 +4,14 @@ thumbnail: ./cover.jpeg
 color: '#111'
 date: 2018-07-20 21:53:18
 categories:
-- 技术
+  - 技术
 tags:
-- github
-- python
+  - github
+  - python
+keywords:
+  - 玩转GitHub贡献面板
+  - python
+  - javascript
 ---
 
  细心的人都会发现GitHub个人主页有一个记录每天贡献次数的面板，我暂且称之为贡献面板。就像下图那个样子。只要当天在GitHub有提交记录，对应的小格子就会变成绿色，当天提交次数越多，颜色也会越深。因此我就有了一个大胆的想法。细心的你应该也发现了，我就是要讲如何搞出这个小❤️❤️来。项目地址：[https://github.com/YES-Lee/git_painter](https://github.com/YES-Lee/git_painter)

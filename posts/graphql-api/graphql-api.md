@@ -7,9 +7,14 @@ color: '#111'
 copyright: true
 date: 2020-03-25 17:16:00
 tags:
-- graphql
-- 后端
-- nodejs
+  - graphql
+  - 后端
+  - nodejs
+keywords:
+  - graphql接口设计
+  - graphql
+  - graphql思想
+  - 如何设计graphql接口
 ---
 
 `GraphQL` 是一种为 API 接口和查询已有数据运行时环境的查询语言。它提供了一套完整的和易于理解的 API 接口数据描述，给客户端权力去精准查询他们需要的数据，而不用再去实现其他更多的代码，使 API 接口开发变得更简单高效，支持强大的开发者工具。

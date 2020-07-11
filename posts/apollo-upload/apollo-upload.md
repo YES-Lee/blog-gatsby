@@ -9,6 +9,11 @@ tags:
 - graphql
 - 前端
 - javascript
+keywords:
+  - apollo文件上传
+  - apollo
+  - 文件上传
+  - javascript
 ---
 
 使用`apollo-client`上传文件

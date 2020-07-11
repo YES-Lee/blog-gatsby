@@ -4,12 +4,16 @@ thumbnail: ./cover.jpeg
 color: '#111'
 date: 2019-6-24 21:16:25
 categories:
-- 技术
+  - 技术
 tags:
-- javascript
-- 前端
-- vue
-- vue-router
+  - javascript
+  - 前端
+  - vue
+  - vue-router
+keywords:
+  - vue中的权限控制
+  - vue-router
+  - 路由守卫
 ---
 
 在SPA（单页面应用）中，前端需要根据用户的权限来控制用户菜单以及路由表，`vue-router`提供了几个路由生命周期钩子，叫做`路由守卫`，我们可以利用路由守卫在路由以及路由元信息进行权限控制，同时搭配vuex将会更美味，**文末有完整示例地址**。

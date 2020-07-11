@@ -3,12 +3,17 @@ title: 一篇文章彻底解决图片404问题
 date: 2019-09-18 15:35:40
 thumbnail: ./cover.jpeg
 categories:
-- 技术
+  - 技术
 tags:
-- 前端
-- vue
-- http
-- webpack
+  - 前端
+  - vue
+  - http
+  - webpack
+keywords:
+  - vue图片404
+  - webpack打包图片
+  - 前端打包404
+
 ---
 
 在前端工程打包部署过程中，经常会有同学遇到图片等静态资源404的问题，这些问题都是于打包后资源路径不正确导致的。本文就从基础开始，讲解如何分析并解决此类问题。

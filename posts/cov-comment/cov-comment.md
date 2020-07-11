@@ -8,6 +8,11 @@ tags:
 thumbnail: ./cover.jpeg
 color: '#111'
 date: 2020-02-28 12:09:40
+keywords:
+  - covcomment评论插件
+  - cov-comment
+  - 博客评论插件
+  - web components评论插件
 ---
 
 

@@ -37,7 +37,7 @@ export default function PostTemplate (props) {
         meta={[
           {
             name: 'keywords',
-            content: (post.frontmatter.tags || []).concat(post.frontmatter.categories || []).join(',')
+            content: (post.frontmatter.keywords || []).join(',')
           }
         ]}
       />
@@ -116,6 +116,7 @@ export const pageQuery = graphql`
         tags
         title
         toc
+        keywords
         thumbnail {
           childImageSharp {
             fluid(maxWidth: 1920) {

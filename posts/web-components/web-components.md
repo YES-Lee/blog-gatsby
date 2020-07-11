@@ -6,11 +6,14 @@ color: '#111'
 thumbnail: ./cover.jpeg
 date: 2019-10-03 23:12:33
 tags:
-- html
-- 前端
-- javascript
-- 组件
-- web components
+  - html
+  - 前端
+  - javascript
+  - 组件
+  - web components
+keywords:
+  - web-components入门教程
+  - 如何开发web-components
 ---
 
 `web-components`是一个比较新的开发技术，但组件化思想已经实际应用了很长时间，代表性的组件话框架有`vue`, `react`等。`web-components`可以直接使用原生`HTML`和`Javascript`来封装通用的web组件，其拥有简单直接、无任何依赖等特点，是web前端开发的一个强有力的技术。

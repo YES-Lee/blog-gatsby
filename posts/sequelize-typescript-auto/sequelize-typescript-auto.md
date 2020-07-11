@@ -12,6 +12,10 @@ thumbnail: ./cover.jpeg
 color: '#111'
 toc: true
 date: 2020-02-15 22:06:10
+keywords:
+  - sequelise-typescript-auto
+  - sequelize自动生成models
+  - 从数据库自动生成models
 ---
 
 
