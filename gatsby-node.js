@@ -60,11 +60,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           fields {
             slug
           }
+          excerpt
           frontmatter {
             title
             date
             categories
             tags
+            keywords
           }
         }
         totalCount
@@ -76,6 +78,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   if (result.errors) {
     reporter.panicOnBuild('Error while running GraphQL query.')
     return
+  }
+
+  let hasError = false
+  for (let i = 0; i < result.data.allMarkdownRemark.nodes.length; i++) {
+    if (!result.data.allMarkdownRemark.nodes[i].excerpt || !result.data.allMarkdownRemark.nodes[i].frontmatter.keywords || !result.data.allMarkdownRemark.nodes[i].frontmatter.keywords.length) {
+      reporter.panicOnBuild(`文章${result.data.allMarkdownRemark.nodes[i].frontmatter.title}没有关键词或摘要`)
+      hasError = true
+    }
+  }
+  if (hasError) {
+    process.exit(1)
   }
 
   const totalPage = Math.ceil(result.data.allMarkdownRemark.totalCount / 5)

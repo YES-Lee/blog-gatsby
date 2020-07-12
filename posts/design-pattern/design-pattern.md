@@ -17,6 +17,7 @@ keywords:
   - 开闭原则
 ---
 
+软件开发过程中常用的六大设计原则
 <!-- more -->
 
 ## 单一职责原则（Single Responsibility Principle）

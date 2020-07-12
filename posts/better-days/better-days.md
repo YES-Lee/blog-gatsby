@@ -13,8 +13,7 @@ keywords:
   - 观后感
 ---
 
-
-<p style="text-align: right">——《少年的你》</p>
+《少年的你》观后感
 
 <!-- more -->
 
