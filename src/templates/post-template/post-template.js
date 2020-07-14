@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Calendar, Folder } from 'react-feather'
@@ -10,10 +10,12 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 import { postHtmlFilter } from '../../lib/utils'
 
 import styles from './post-template.module.scss'
+import Valine from 'gatsby-plugin-valine'
 
 export default function PostTemplate (props) {
 
   const { data: { post }, pageContext } = props
+  const [path, setPath] = useState()
 
   const handleClickTitle = e => {
     e.preventDefault()
@@ -21,6 +23,10 @@ export default function PostTemplate (props) {
       scrollTo(decodeURIComponent(e.target.hash))
     }
   }
+
+  useEffect(() => {
+    setPath(window.location.pathname)
+  }, [])
 
   return (
     <Layout
@@ -91,6 +97,9 @@ export default function PostTemplate (props) {
           prev={pageContext.prev}
           next={pageContext.next}
         />
+        <div className={styles.comment}>
+          <Valine path={path} placeholder='来一发吧～' visitor='true' avatar='robohash' />
+        </div>
       </Card>
     </Layout>
   )
