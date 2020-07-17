@@ -2,7 +2,7 @@
 title: 规范化Git提交日志
 categories:
   - 技术
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.png
 color: '#111'
 copyright: true
 date: 2019-07-1 21:55:07

@@ -8,7 +8,7 @@ tags:
 - 前端
 - axios
 - http
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 keywords:
   - axios请求超时处理
   - 如何处理请求超时

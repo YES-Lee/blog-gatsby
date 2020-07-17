@@ -2,7 +2,7 @@
 title: C语言编译基础知识
 categories:
   - 技术
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 color: '#111'
 date: 2019-07-1 21:59:11
 tags:

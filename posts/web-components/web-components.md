@@ -3,7 +3,7 @@ title: web-components实践
 categories:
   - 技术
 color: '#111'
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 date: 2019-10-03 23:12:33
 tags:
   - html

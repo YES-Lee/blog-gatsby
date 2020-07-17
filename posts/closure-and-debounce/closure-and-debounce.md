@@ -7,7 +7,7 @@ tags:
 - javascript
 - 前端
 
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 # 设置缩略图底色
 color: '#111'
 keywords:

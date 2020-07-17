@@ -1,7 +1,7 @@
 ---
 title: 设计模式六大原则
 date: 2019-09-18 15:29:49
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 categories:
   - 技术
 tags:

@@ -3,7 +3,7 @@ title: Ubuntu Server 18.04.3 搭建Samba文件服务
 categories:
   - 技术
 color: '#111'
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 date: 2019-09-20 09:48:32
 tags:
   - linux

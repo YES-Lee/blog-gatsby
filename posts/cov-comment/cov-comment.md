@@ -5,7 +5,7 @@ categories:
 tags:
   - web components
   - 评论插件
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 color: '#111'
 date: 2020-02-28 12:09:40
 keywords:

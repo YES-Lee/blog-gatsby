@@ -8,7 +8,7 @@ tags:
   - orm
   - nodejs
   - sequelize
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 color: '#111'
 toc: true
 date: 2020-02-15 22:06:10

@@ -3,7 +3,7 @@ title: Apollo-Client 文件上传
 categories:
   - 技术
 color: '#111'
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 date: 2019-09-19 14:14:13
 tags:
 - graphql

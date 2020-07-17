@@ -1,7 +1,7 @@
 ---
 title: 一篇文章彻底解决图片404问题
 date: 2019-09-18 15:35:40
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 categories:
   - 技术
 tags:

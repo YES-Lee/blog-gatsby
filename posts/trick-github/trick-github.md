@@ -1,6 +1,6 @@
 ---
 title: GitHub竟然还可以这样玩
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 color: '#111'
 date: 2018-07-20 21:53:18
 categories:

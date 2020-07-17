@@ -1,6 +1,6 @@
 ---
 title: vue权限控制
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 color: '#111'
 date: 2019-6-24 21:16:25
 categories:

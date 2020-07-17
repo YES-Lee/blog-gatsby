@@ -3,7 +3,7 @@ title: jQuery源码学习-构造函数
 categories:
   - 技术
 color: '#111'
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 date: 2019-10-23 17:42:56
 tags:
   - jquery

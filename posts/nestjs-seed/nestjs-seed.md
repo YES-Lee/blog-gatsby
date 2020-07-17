@@ -7,7 +7,7 @@ tags:
   - typescript
   - nodejs
   - nestjs
-thumbnail: ./cover.jpeg
+thumbnail: ./cover.jpg
 color: '#111'
 date: 2020-02-15 00:57:10
 keywords:
