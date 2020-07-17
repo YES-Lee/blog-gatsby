@@ -10,6 +10,7 @@ import btcCode from '../../images/btc_code.png'
 import ethCode from '../../images/eth_code.png'
 
 import styles from './index.module.scss'
+import AdSense from '../adsense'
 
 export default function PostFooter (props) {
 
@@ -64,6 +65,15 @@ export default function PostFooter (props) {
             <Link to={`/tags/${item}`} key={i} className={styles.item}># {item}</Link>
           ))
         }
+      </div>
+      <div className='ad'>
+        <AdSense
+          style={{ display: 'block', textAlign: 'center' }}
+          data-ad-client="ca-pub-1108685461241651"
+          data-ad-slot="3826406311"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
       </div>
       <div className={styles.line}></div>
       <div className={styles.pager}>

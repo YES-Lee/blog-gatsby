@@ -1,19 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function AdSense (props) {
 
-  const { style, client, format, layout, slot } = props
+  useEffect(() => {
+    console.log('加载广告')
+    window.adsbygoogle = window.adsbygoogle || []
+    window.adsbygoogle.push({})
+  }, [])
 
   return (
     <>
       <ins
         className="adsbygoogle"
-        style={style}
-        data-ad-format={format}
-        data-ad-layout-key={layout}
-        data-ad-client={client}
-        data-ad-slot={slot}></ins>
-      <script dangerouslySetInnerHTML={{ __html: '(adsbygoogle = window.adsbygoogle || []).push({});' }}></script>
+        {...props}></ins>
     </>
   )
 }

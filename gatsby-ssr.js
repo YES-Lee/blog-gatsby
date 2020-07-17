@@ -14,6 +14,7 @@ exports.onRenderBody = ({
   setHeadComponents
 }) => {
   setHeadComponents([
+    <script key='GOOGLE_AD' async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>,
     <script key='GOOGLE_GTAG' async src="https://www.googletagmanager.com/gtag/js?id=UA-171547937-1"></script>,
     <script key='GOOGLE_ANALYTICS' dangerouslySetInnerHTML={{
       __html: `

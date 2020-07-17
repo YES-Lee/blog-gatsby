@@ -28,7 +28,7 @@ module.exports = {
         icon: 'static/favicons/icon.png' // This path is relative to the root of the site.
       }
     },
-    'gatsby-plugin-offline',
+    'gatsby-plugin-offline', // service worker
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
@@ -43,6 +43,13 @@ module.exports = {
         excerpt_separator: '<!-- more -->',
         plugins: [
           'gatsby-remark-reading-time',
+          {
+            resolve: 'gatsby-remark-katex', // 公式
+            options: {
+              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+              strict: 'ignore'
+            }
+          },
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -63,7 +70,7 @@ module.exports = {
             }
           },
           {
-            resolve: 'gatsby-remark-vscode',
+            resolve: 'gatsby-remark-vscode', // 代码高亮
             // All options are optional. Defaults shown here.
             options: {
               theme: {
@@ -177,20 +184,6 @@ module.exports = {
       }
     },
     'gatsby-plugin-smoothscroll',
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-katex',
-            options: {
-              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: 'ignore'
-            }
-          }
-        ]
-      }
-    },
     {
       resolve: 'gatsby-plugin-valine',
       options: {
