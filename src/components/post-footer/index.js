@@ -69,10 +69,10 @@ export default function PostFooter (props) {
       <div className='ad'>
         <AdSense
           style={{ display: 'block', textAlign: 'center' }}
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
           data-ad-client="ca-pub-1108685461241651"
-          data-ad-slot="3826406311"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
+          data-ad-slot="2625182891"
         />
       </div>
       <div className={styles.line}></div>

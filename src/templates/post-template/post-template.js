@@ -11,6 +11,7 @@ import { postHtmlFilter } from '../../lib/utils'
 
 import styles from './post-template.module.scss'
 import Valine from 'gatsby-plugin-valine'
+import AdSense from '../../components/adsense'
 
 export default function PostTemplate (props) {
 
