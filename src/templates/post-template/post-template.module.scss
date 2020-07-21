@@ -25,8 +25,11 @@
     left: 0;
     right: 0;
     color: #fff;
-    padding: 2.5rem 2.15rem 1rem;
+    padding: 2.5rem $padding-4 1rem;
     background: linear-gradient(180deg,transparent,rgba(0,0,0,.75));
+    @media screen and (max-width: 960px) {
+      padding: 2.5rem $padding-2 1rem;
+    }
     .meta {
       .item {
         margin-right: 1rem;
@@ -72,9 +75,17 @@
 }
 
 .content {
-  padding: 1rem 2rem;
+  padding: $padding-4;
+
+  @media screen and (max-width: 960px) {
+    padding: $padding-2 $padding-2 $footer-height;
+  }
 }
 
 .comment {
-  padding: 2rem;
+  padding: $padding-4;
+
+  @media screen and (max-width: 960px) {
+    padding: $padding-2;
+  }
 }
