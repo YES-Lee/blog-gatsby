@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Sider from '../sider'
 import { Link } from 'gatsby'
@@ -13,6 +13,7 @@ import styles from './layout.module.scss'
 
 export default function Layout (props) {
   const { children, active, plugins, siderFixed } = props
+
   return (
     <div className={styles.layout}>
       <Sider active={active} plugins={plugins} fixed={siderFixed} />

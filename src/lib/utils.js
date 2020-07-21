@@ -1,4 +1,8 @@
-export function switchTheme (theme = 'light') {
+import axios from 'axios'
+
+let backgroundImage
+
+export async function switchTheme (theme = 'light') {
   const themes = {
     light: {
       '--color-font': '#404040',
@@ -14,6 +18,15 @@ export function switchTheme (theme = 'light') {
       // '--color-border': '#121212'
     }
   }
+  if (theme === 'light' && !backgroundImage) {
+    try {
+      const result = await axios.get('https://api.66mz8.com/api/bg.img.php?format=json')
+      backgroundImage = result.data.pic_url
+    } catch (err) {
+      console.error(err)
+    }
+  }
+  themes.light['--color-background'] = backgroundImage ? `url(${backgroundImage}) repeat` : themes.light['--color-background']
   const colors = themes[theme.toLowerCase()]
   if (colors) {
     Object.keys(colors).forEach(k => {

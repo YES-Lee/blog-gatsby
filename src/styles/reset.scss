@@ -15,7 +15,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-background);
+  background: var(--color-background);
+  background-attachment: fixed;
   font-family: $font-family;
   color: var(--color-font);
   text-rendering: optimizeLegibility;
