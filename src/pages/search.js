@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Card from '../components/card/card'
 import styles from './search.module.scss'
+import { Loader } from 'react-feather'
 
 const ALGOLIA_APPID = '46OB2XFJAE'
 const ALGOLIA_SEARCH_API_KEY = '398f0a205a139bf94d6f7ad971886228'
@@ -17,10 +18,13 @@ const SearchPage = () => {
 
   const [keywords, setKeywords] = useState('')
   const [resultList, setResultList] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const handleSearch = useDebouncedFn(() => {
+    setLoading(true)
     algoliaIndex.search(keywords).then(({ hits }) => {
       setResultList(hits)
+      setLoading(false)
     })
   }, 200)
 
@@ -37,6 +41,13 @@ const SearchPage = () => {
     >
       <SEO title="搜索" />
       <Card className={styles.searchBar}>
+        {
+          loading && (
+            <div className={styles.loaderContainer}>
+              <Loader size='1.2rem' className={styles.loader} />
+            </div>
+          )
+        }
         <input value={keywords} onChange={e => setKeywords(e.target.value)} className={styles.searchInput} placeholder='输入关键词搜索🔍' />
       </Card>
       {
