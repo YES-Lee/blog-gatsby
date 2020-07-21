@@ -1,3 +1,45 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
+const myQuery = `{
+  allMarkdownRemark {
+    nodes {
+      # try to find a unique id for each node
+      # if this field is absent, it's going to
+      # be inserted by Algolia automatically
+      # and will be less simple to update etc.
+      objectID: id
+      frontmatter {
+        title
+        keywords
+      }
+      excerpt
+      fields {
+        slug
+      }
+      rawMarkdownBody
+    }
+  }
+}`
+
+const queries = [
+  {
+    query: myQuery,
+    transformer: ({ data }) => data.allMarkdownRemark.nodes.map(node => ({
+      objectID: node.objectID,
+      title: node.frontmatter.title,
+      slug: node.fields.slug,
+      keywords: node.frontmatter.keywords,
+      excerpt: node.excerpt,
+      rawMarkdownBody: node.rawMarkdownBody
+    })), // optional
+    settings: {
+      // optional, any index settings
+    }
+  }
+]
+
 module.exports = {
   siteMetadata: {
     title: 'Johnson的博客',
@@ -213,6 +255,24 @@ module.exports = {
           tv_思考: '90cf159733e558137ed20aa04d09964436f618a1.png',
           tv_惊吓: '0d15c7e2ee58e935adc6a7193ee042388adc22af.png'
         }
+      }
+    },
+    {
+      // This plugin must be placed last in your list of plugins to ensure that it can query all the GraphQL data
+      resolve: 'gatsby-plugin-algolia',
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        // Careful, no not prefix this with GATSBY_, since that way users can change
+        // the data in the index.
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        queries,
+        chunkSize: 10000, // default: 1000
+        settings: {
+          // optional, any index settings
+        },
+        enablePartialUpdates: true, // default: false
+        matchFields: ['slug', 'modified', 'rawMarkdownBody', 'excerpt', 'keywords'] // Array<String> default: ['modified']
       }
     }
     // {

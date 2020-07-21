@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Mail, Rss, GitHub, Send, Moon, Sun } from 'react-feather'
+import { Mail, Rss, GitHub, Send, Moon, Sun, Search } from 'react-feather'
 import Card from '../card/card'
 
 import styles from './sider.module.scss'
@@ -116,6 +116,14 @@ export default function Sider (props) {
           <Link to='/tags'>
             <div className={styles.count}>{tags.length}</div>
             <div className={styles.title}>标签</div>
+          </Link>
+        </li>
+        <li className={`${styles.tabItem} ${active === '/search' ? styles.active : ''}`}>
+          <Link to='/search'>
+            <div className={styles.icon}>
+              <Search size='1rem' />
+            </div>
+            <div className={styles.title}>搜索</div>
           </Link>
         </li>
       </ul>

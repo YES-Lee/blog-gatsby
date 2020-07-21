@@ -1,0 +1,47 @@
+@import '../styles/variables.scss';
+
+.searchBar {
+  background-color: var(--color-foreground);
+  padding: $padding-2 $padding-4;
+  margin-bottom: $margin-1;
+  position: sticky;
+  top: 2rem;
+  z-index: 9;
+
+  .searchInput {
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    background: transparent;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    caret-color: var(--color-font);
+    color: var(--color-font);
+
+    &::placeholder {
+      color: var(--color-font);
+      opacity: 0.63;
+    }
+  }
+}
+
+.searchResult {
+  padding: $padding-4;
+  max-height: 66vh;
+  overflow-y: auto;
+
+  .resultItem {
+    margin-bottom: $margin-2;
+    .resultTitle {
+      font-size: $heading-2;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .resultExcerpt {
+      opacity: 0.63;
+    }
+  }
+}
