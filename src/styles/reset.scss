@@ -18,7 +18,7 @@ body {
   background-color: var(--color-background);
   font-family: $font-family;
   color: var(--color-font);
-  text-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,4 +52,6 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  word-break: break-word;
+  line-height: 1.8;
 }

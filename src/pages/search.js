@@ -22,7 +22,7 @@ const SearchPage = () => {
     algoliaIndex.search(keywords).then(({ hits }) => {
       setResultList(hits)
     })
-  }, 666)
+  }, 200)
 
   useEffect(() => {
     if (keywords.trim()) {

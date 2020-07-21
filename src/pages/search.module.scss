@@ -33,15 +33,18 @@
   overflow-y: auto;
 
   .resultItem {
-    margin-bottom: $margin-2;
+    border-bottom: 1px dashed var(--color-border);
+    padding: $padding-2 0;
     .resultTitle {
-      font-size: $heading-2;
+      font-size: $heading-3;
       &:hover {
-        text-decoration: underline;
+        border-bottom: 1px dotted var(--color-font)
       }
     }
     .resultExcerpt {
-      opacity: 0.63;
+      opacity: $opacity-2;
+      margin-top: $margin-1;
+      
     }
   }
 }

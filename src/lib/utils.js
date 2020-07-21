@@ -1,7 +1,7 @@
 export function switchTheme (theme = 'light') {
   const themes = {
     light: {
-      '--color-font': '#2f3640',
+      '--color-font': '#404040',
       '--color-background': '#f6f6f6',
       '--color-foreground': '#fff',
       '--color-border': '#dcdde1'

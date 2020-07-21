@@ -7,18 +7,17 @@
   .body {
     .title {
       margin: 0;
+      padding: $padding-2 $padding-2 0;
+      line-height: 1.5;
+      font-weight: 400;
       .text {
-        padding: $padding-2 $padding-2 0;
-        display: block;
-        line-height: 1.5;
-        font-weight: 400;
         text-decoration: none;
         color: var(--color-font);
         font-size: $heading-2;
         transition: all .3s ease-in-out;
 
         &:hover, &:active {
-          text-decoration: underline;
+          border-bottom: 1px dotted var(--color-font)
         }
       }
     }
@@ -26,10 +25,11 @@
       margin: $margin-2 0;
       padding: 0 $padding-2;
       line-height: 1.8;
+      opacity: $opacity-2;
     }
   }
   .date {
     padding: 0 $padding-2 $padding-2;
-    opacity: $opacity-1;
+    opacity: $opacity-3;
   }
 }
