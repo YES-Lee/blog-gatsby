@@ -1,6 +1,6 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+const ALGOLIA_APP_ID = '46OB2XFJAE'
+const ALGOLIA_API_KEY = '59100ca72155cd848ddabfc5ea264400'
+const ALGOLIA_INDEX_NAME = 'prod_blog'
 
 const myQuery = `{
   allMarkdownRemark {
@@ -261,11 +261,11 @@ module.exports = {
       // This plugin must be placed last in your list of plugins to ensure that it can query all the GraphQL data
       resolve: 'gatsby-plugin-algolia',
       options: {
-        appId: process.env.ALGOLIA_APP_ID,
+        appId: ALGOLIA_APP_ID,
         // Careful, no not prefix this with GATSBY_, since that way users can change
         // the data in the index.
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: process.env.ALGOLIA_INDEX_NAME, // for all queries
+        apiKey: ALGOLIA_API_KEY,
+        indexName: ALGOLIA_INDEX_NAME, // for all queries
         queries,
         chunkSize: 10000, // default: 1000
         settings: {
