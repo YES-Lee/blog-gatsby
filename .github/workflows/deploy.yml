@@ -20,10 +20,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build
-      run: |
-        npm install
-        npm run build
+    # - name: npm install, build
+    #   run: |
+    #     npm install
+    #     npm run build
         
     # - name: deploy
     #   uses: JamesIves/github-pages-deploy-action@releases/v3
