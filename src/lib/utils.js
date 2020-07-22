@@ -13,6 +13,7 @@ export async function switchTheme (theme = 'light') {
     dark: {
       '--color-font': '#fff',
       '--color-background': '#121212',
+      '--background-image': 'none',
       // '--color-foreground': 'rgba(255,255,255,0.05)',
       '--color-foreground': 'rgb(30,30,30)'
       // '--color-border': '#121212'
@@ -26,7 +27,7 @@ export async function switchTheme (theme = 'light') {
       console.error(err)
     }
   }
-  themes.light['--color-background'] = backgroundImage ? `url(${backgroundImage}) repeat` : themes.light['--color-background']
+  themes.light['--background-image'] = `url(${backgroundImage})`
   const colors = themes[theme.toLowerCase()]
   if (colors) {
     Object.keys(colors).forEach(k => {
