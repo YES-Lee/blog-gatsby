@@ -209,7 +209,22 @@ module.exports = {
         ]
       }
     },
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: [
+          '/categories/',
+          '/categories/*',
+          '/archives/',
+          '/archives/*',
+          '/tags/',
+          '/tags/*',
+          '/search/',
+          '/search/*',
+          '/about/'
+        ]
+      }
+    },
     {
       resolve: 'gatsby-plugin-page-progress',
       options: {

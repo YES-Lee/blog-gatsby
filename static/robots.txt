@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /archives/
+Disallow: /categories/
+Disallow: /tags/
+Disallow: /search/
+
+Sitemap: https://johnsonlee.site/sitemap.xml
