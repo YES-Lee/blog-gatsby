@@ -2,26 +2,28 @@
 
 /**
  * 从scaffold创建一篇文章
- * new <post|draft> <filename>
+ * new <post|draft> <title>
  */
 
 const commander = require('commander')
 const path = require('path')
 const fs = require('fs')
-const exec = require('child_process').execFileSync
+// const exec = require('child_process').execFileSync
 
 commander
   .version('0.0.1')
   .arguments('<type> <filename>')
   .description('新建一篇博客')
-  .action((type, filename) => {
-    const postDir = path.resolve(process.cwd(), `posts/${filename}`)
-    const scaffold = path.resolve(process.cwd(), `scaffold/${type}.md`)
-    const destination = path.join(postDir, `${filename}.md`)
+  .action((type, title) => {
+    const timestemp = new Date().toISOString()
+    const postDir = path.resolve(process.cwd(), `${type}s/${title}`)
+    const templatePath = path.resolve(process.cwd(), `scaffold/${type}.md`)
+    const destination = path.join(postDir, `${title}.md`)
+    const template = fs.readFileSync(templatePath, { encoding: 'utf-8' })
     if (!fs.existsSync(postDir)) {
       fs.mkdirSync(postDir)
     }
-    fs.copyFileSync(scaffold, destination)
-    exec('./unsplash-cover', ['cover', 'filename'])
+    fs.writeFileSync(destination, template.replace(/\{\{TITLE\}\}/g, title).replace(/\{\{TIMESTEMP\}\}/g, timestemp))
+    // exec('./unsplash-cover', ['cover', 'title'])
   })
   .parse(process.argv)
