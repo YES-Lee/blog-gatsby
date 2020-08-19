@@ -1,11 +1,14 @@
 ---
-title: 
-categories:
-  - category
-thumbnail: ./cover.jpeg
-date: 2020-03-25 17:16:00
-status: draft
+title: {{TITLE}}
+thumbnail: ./cover.jpg
+date: {{TIMESTEMP}}
 tags:
-  - tag
+  - 标签
+categories:
+  - 未分类
 keywords:
+  - 关键词
 ---
+
+摘要
+<!-- more -->
