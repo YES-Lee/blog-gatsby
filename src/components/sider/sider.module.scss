@@ -98,6 +98,11 @@
       }
     }
   }
+
+  .pandoraBoxCard {
+    padding: 0 $padding-2;
+    margin: $margin-2 0;
+  }
 }
 
 @media screen and (max-width: 960px) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Mail, Rss, GitHub, Send, Moon, Sun, Search } from 'react-feather'
+import { Mail, Rss, GitHub, Send, Moon, Sun, Search, Play } from 'react-feather'
 import Card from '../card/card'
 
 import styles from './sider.module.scss'
@@ -128,6 +128,9 @@ export default function Sider (props) {
         </li>
       </ul>
     </Card>
+    {/* <Card className={styles.pandoraBoxCard}>
+      TODO: 小功能菜单
+    </Card> */}
     {
       plugins
     }

@@ -14,7 +14,7 @@ import Valine from 'gatsby-plugin-valine'
 
 export default function PostTemplate (props) {
 
-  const { data: { post }, pageContext } = props
+  const { data: { post, site }, pageContext } = props
   const [path, setPath] = useState()
 
   const handleClickTitle = e => {
@@ -25,6 +25,7 @@ export default function PostTemplate (props) {
   }
 
   useEffect(() => {
+    console.log(site)
     setPath(window.location.pathname)
   }, [])
 
@@ -96,6 +97,7 @@ export default function PostTemplate (props) {
           tags={post.frontmatter.tags}
           prev={pageContext.prev}
           next={pageContext.next}
+          slug={site.siteMetadata.siteUrl + post.fields.slug}
         />
         <div className={styles.comment}>
           <Valine path={path} placeholder='来一发吧～' visitor='true' avatar='robohash' />
@@ -107,6 +109,11 @@ export default function PostTemplate (props) {
 
 export const pageQuery = graphql`
   query postInfo($slug: String!){
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     post: markdownRemark(fields: {slug: {eq: $slug}}) {
       timeToRead
       id
@@ -116,6 +123,9 @@ export const pageQuery = graphql`
       tableOfContents(absolute: false, maxDepth: 3)
       wordCount {
         words
+      }
+      fields {
+        slug
       }
       frontmatter {
         categories

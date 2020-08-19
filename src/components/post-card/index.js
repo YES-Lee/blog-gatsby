@@ -11,23 +11,27 @@ export default function PostCard (props) {
 
   return (
     <Card className={styles.postCard}>
-      {
-        thumbnail && (
-          <Img fluid={thumbnail} />
-        )
-      }
-      <div className={styles.body}>
-        <h3 className={styles.title}>
-          <Link to={url} title={title} className={styles.text}>
-            {title}
-          </Link>
-        </h3>
-        <p className={styles.excerpt}>
-          {excerpt}
-        </p>
+      <div className={styles.cover}>
+        {
+          thumbnail && (
+            <Img fluid={thumbnail} />
+          )
+        }
       </div>
-      <div className={styles.date}>
-        <Calendar size={14} /> {date}
+      <div className={styles.container}>
+        <div className={styles.body}>
+          <h3 className={styles.title}>
+            <Link to={url} title={title} className={styles.text}>
+              {title}
+            </Link>
+          </h3>
+          <p className={styles.excerpt}>
+            {excerpt}
+          </p>
+        </div>
+        <div className={styles.date}>
+          <Calendar size={14} /> {date}
+        </div>
       </div>
     </Card>
   )

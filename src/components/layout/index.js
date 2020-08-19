@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import Sider from '../sider'
 import { Link } from 'gatsby'
 import styles from './layout.module.scss'
+import TabBar from '../tab-bar'
 
 export default function Layout (props) {
   const { children, active, plugins, siderFixed } = props
@@ -35,6 +36,7 @@ export default function Layout (props) {
           </p>
         </footer>
       </main>
+      <TabBar className={styles.tabBar} />
     </div>
   )
 }

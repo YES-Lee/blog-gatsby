@@ -5,6 +5,10 @@
   margin: auto;
   position: relative;
   box-sizing: border-box;
+
+  @media screen and (max-width: 960px) {
+    padding-bottom: $tab-bar-height;
+  }
   .main {
     min-height: 100vh;
     position: relative;
@@ -49,5 +53,11 @@
         margin: $margin-1 0 0;
       }
     }
+  }
+
+  .tabBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 }

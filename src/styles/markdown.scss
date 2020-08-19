@@ -83,11 +83,13 @@ $line-height: 1.8;
 
   p {
     >code {
-      background-color: var(--color-background);
-      padding: 2px 4px;
+      background-color: #f6f8fa;
+      border: 1px solid #e1e4e8;
+      padding: 1px 2px;
+      color: #404040;
       border-radius: 4px;
-      color: var(--color-font);
       user-select: all;
+      margin: 0 .2rem;
     }
   }
 }

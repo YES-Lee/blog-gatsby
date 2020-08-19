@@ -17,7 +17,8 @@ export default function PostFooter (props) {
   const {
     tags,
     prev,
-    next
+    next,
+    slug
   } = props
 
   return (
@@ -52,7 +53,7 @@ export default function PostFooter (props) {
         </li>
         <li className={styles.item}>
           <span className={styles.title}>本文链接：</span>
-          Johnson
+          {slug}
         </li>
         <li className={styles.item}>
           <span className={styles.title}>版权声明：</span>

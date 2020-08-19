@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.tabBar {
+  display: none;
+  background-color: var(--color-background);
+  height: $tab-bar-height;
+  width: 100%;
+  box-shadow: 0 0 16px 2px rgba(0, 0, 0, .08);
+
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
+
+  .tabList {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+    .tabItem {
+      flex: auto;
+      text-align: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      >a {
+        &:active, &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+
+}
