@@ -8,6 +8,8 @@
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+const PAGE_SIZE = 6
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'MarkdownRemark') {
@@ -91,7 +93,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     process.exit(1)
   }
 
-  const totalPage = Math.ceil(result.data.allMarkdownRemark.totalCount / 5)
+  const totalPage = Math.ceil(result.data.allMarkdownRemark.totalCount / PAGE_SIZE)
 
   // 生成文章列表页面
   for (let p = 0; p < totalPage; p++) {
@@ -101,8 +103,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         currentPage: p,
         totalPage,
-        limit: 5,
-        skip: p * 5
+        limit: PAGE_SIZE,
+        skip: p * PAGE_SIZE
       } // additional data can be passed via context
     })
   }

@@ -20,7 +20,7 @@ $line-height: 1.8;
     display: block;
     margin: 2rem 0;
     padding: 1rem 1.5rem;
-    border-left: 3px solid var(--color-background-accent);
+    border-left: 6px solid var(--color-background-accent);
     border-radius: 3px;
     word-break: break-word;
     line-height: 1.8;
@@ -90,6 +90,51 @@ $line-height: 1.8;
       border-radius: 4px;
       user-select: all;
       margin: 0 .2rem;
+    }
+  }
+
+  .custom-block {
+    display: block;
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    border-left: 6px solid var(--color-background-accent);
+    border-radius: 3px;
+    word-break: break-word;
+    line-height: 1.8;
+    background-color: var(--color-background);
+    transition: border .2s ease-in-out;
+    &.danger {
+      border-left-color: #c00;
+      background-color: #ffe6e6;
+
+      .custom-block-heading {
+        color: #900;
+        font-weight: 600;
+      }
+
+      .custom-block-body {
+        color: #4d0000;
+      }
+    }
+    &.warning {
+      background-color: rgba(255,229,100,.3);
+      border-left-color: #e7c000;
+
+      .custom-block-heading {
+        color: #b29400;
+        font-weight: 600;
+      }
+
+      .custom-block-body {
+        color: #6b5900;
+      }
+    }
+    &.tip {
+      background-color: #f3f5f7;
+      border-left-color: #42b983;
+      .custom-block-heading {
+        font-weight: 600;
+      }
     }
   }
 }

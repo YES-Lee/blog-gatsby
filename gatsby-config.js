@@ -182,6 +182,25 @@ module.exports = {
               // of HTML entities and their escape value IE: { '}': '&#123;' }
               escapeEntities: {}
             }
+          },
+          {
+            resolve: 'gatsby-remark-custom-blocks',
+            options: {
+              blocks: {
+                danger: {
+                  classes: 'danger',
+                  title: 'optional'
+                },
+                warning: {
+                  classes: 'warning',
+                  title: 'optional'
+                },
+                tip: {
+                  classes: 'tip',
+                  title: 'optional'
+                }
+              }
+            }
           }
         ]
       }
