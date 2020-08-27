@@ -1,8 +1,0 @@
-#! /usr/bin/env bash
-
-npm run build
-
-rsync -avr --delete-after public/. root@116.62.4.44:/home/ci/blog
-
-# 百度主动推送链接
-# curl -H 'Content-Type:text/plain' --data-binary @public/urls.txt "http://data.zz.baidu.com/urls?site=https://johnsonlee.site&token=$BAIDU_PUSH_TOKEN"
