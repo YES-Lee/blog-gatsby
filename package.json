@@ -25,7 +25,6 @@
     "gatsby-plugin-sharp": "^2.4.3",
     "gatsby-plugin-sitemap": "^2.2.30",
     "gatsby-plugin-smoothscroll": "^1.1.0",
-    "gatsby-plugin-valine": "^1.0.2",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-autolink-headers": "^2.1.25",
     "gatsby-remark-custom-blocks": "^2.3.10",
@@ -47,13 +46,13 @@
     "react-feather": "^2.0.3",
     "react-helmet": "^5.2.1",
     "react-tiny-popover": "^4.0.0",
-    "upath": "^1.2.0"
+    "upath": "^1.2.0",
+    "valine": "^1.4.14"
   },
   "devDependencies": {
     "commander": "^5.0.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.19.0",

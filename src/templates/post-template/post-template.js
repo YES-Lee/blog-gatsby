@@ -10,7 +10,7 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 import { postHtmlFilter } from '../../lib/utils'
 
 import styles from './post-template.module.scss'
-import Valine from 'gatsby-plugin-valine'
+import Valine from '../../components/valine'
 
 export default function PostTemplate (props) {
 
@@ -100,7 +100,13 @@ export default function PostTemplate (props) {
           slug={site.siteMetadata.siteUrl + post.fields.slug}
         />
         <div className={styles.comment}>
-          <Valine path={path} placeholder='来一发吧～' visitor='true' avatar='robohash' />
+          {/* <Valine path={path} placeholder='来一发吧～' visitor='true' avatar='robohash' /> */}
+          <Valine
+            path={path}
+            placeholder='来一发吧～'
+            visitor='true'
+            avatar='robohash'
+          />
         </div>
       </Card>
     </Layout>
