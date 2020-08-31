@@ -38,6 +38,7 @@ const IndexPage = (props) => {
             excerpt={post.excerpt}
             thumbnail={post.frontmatter.thumbnail ? post.frontmatter.thumbnail.childImageSharp.fluid : ''}
             date={post.frontmatter.date}
+            timeToRead={post.timeToRead}
           />
         ))
       }
@@ -51,6 +52,7 @@ export const pageQuery = graphql`
     postList: allMarkdownRemark(limit: $limit, skip: $skip, sort: {fields: [frontmatter___date], order: [DESC]}) {
       count: totalCount
       rows: nodes {
+        timeToRead
         id
         excerpt
         fields {

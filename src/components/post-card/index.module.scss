@@ -37,9 +37,12 @@
         opacity: $opacity-2;
       }
     }
-    .date {
+    .metas {
       padding: 0 $padding-2 $padding-2;
       opacity: $opacity-3;
+      .metaItem {
+        margin-right: 1rem;
+      }
     }
   }
 }

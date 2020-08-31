@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Calendar, Folder } from 'react-feather'
+import { Calendar, Folder, Clock } from 'react-feather'
 import PostFooter from '../../components/post-footer'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
@@ -57,6 +57,9 @@ export default function PostTemplate (props) {
                 <div className={styles.meta}>
                   <span className={styles.item}>
                     <Calendar size={14} /> {post.frontmatter.date}
+                  </span>
+                  <span className={styles.item} title={`阅读时间${post.timeToRead}分钟`}>
+                    <Clock size={14} /> {post.timeToRead}‘
                   </span>
                   {
                     post.frontmatter.categories.map(c => (

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Calendar } from 'react-feather'
+import { Calendar, Clock } from 'react-feather'
 import Card from '../card/card'
 
 import styles from './index.module.scss'
 
 export default function PostCard (props) {
-  const { title, excerpt, url, thumbnail, date } = props
+  const { title, excerpt, url, thumbnail, date, timeToRead } = props
 
   return (
     <Card className={styles.postCard}>
@@ -29,8 +29,13 @@ export default function PostCard (props) {
             {excerpt}
           </p>
         </div>
-        <div className={styles.date}>
-          <Calendar size={14} /> {date}
+        <div className={styles.metas}>
+          <span className={styles.metaItem}>
+            <Calendar size={14} /> {date}
+          </span>
+          <span className={styles.metaItem} title={`阅读时间${timeToRead}分钟`}>
+            <Clock size={14} /> {timeToRead}‘
+          </span>
         </div>
       </div>
     </Card>
