@@ -24,6 +24,12 @@ export default function LinkCard () {
       motto: '',
       avatar: '//wivwiv.com/avatar.png',
       link: '//wivwiv.com/'
+    },
+    {
+      title: 'Traveling',
+      motto: '开往未知的世界',
+      avatar: '/images/traveling.svg',
+      link: '//travellings.now.sh/'
     }
   ]
 
