@@ -20,8 +20,7 @@ keywords:
 能够封装一个JavaScript库，是一名前端工程师的基本素养。我们可以将经常使用的一些业务逻辑封装成通用的函数库，通过npm包的方式使用。
 <!-- more -->
 
-[[warning | 注意]]
-| 本文适合阅读对象为入门级前端工程师，需要具有一定的typescript基础，建议先学习[typescript](https://www.tslang.cn/docs/home.html)
+*本文适合阅读对象为入门级前端工程师，需要具有一定的typescript基础，建议先学习[typescript](https://www.tslang.cn/docs/home.html)*
 
 选择typescript是因为其具有完善的类型系统，编译后也能够自动生成声明文件（.d.ts文件），为使用者提供类型提示，不用再去手写声明文件
 
@@ -82,8 +81,7 @@ yarn add -D typescript
 
 然后通过`tsc`命令来初始化一个配置文件
 
-[[warning | 注意]]
-| 这里在tsc命令前加了一个yarn，会自动从当前目录下开始查找ts包，如果直接执行`tsc --init`，会查找到全局安装的typescript
+**注意**: 这里在tsc命令前加了一个yarn，会自动从当前目录下开始查找ts包，如果直接执行`tsc --init`，会查找到全局安装的typescript
 
 ```bash
 yarn tsc --init
@@ -313,15 +311,13 @@ export default {
 
 完成代码的编写和打包，接下来就可以将它发布到npm上，让所有开发者都能使用。
 
-[[tip | 提示]]
-| 为了保证库的稳定性，通常会在发布之前进行单元测试，推荐阅读[《为你的库集成单元测试和CI/CD》](/post/test-your-library/)。
+**Tips**: 为了保证库的稳定性，通常会在发布之前进行单元测试，推荐阅读[《为你的库集成单元测试和CI/CD》](/post/test-your-library/)。
 
 发布到npm上需要先拥有一个npm账号，[npm官网](https://www.npmjs.com/)提供免费注册账号，具体注册流程不再赘述。
 
 注册好npm账号之后，需要在本地进行一下账号登陆。
 
-[[warning | 注意]]
-| 如果使用了其它npm镜像源，需要先切换为npm官方源，否则可能无法正常发布
+**注意**: 如果使用了其它npm镜像源，需要先切换为npm官方源，否则可能无法正常发布
 
 在终端中输入命令`npm login`登陆npm
 

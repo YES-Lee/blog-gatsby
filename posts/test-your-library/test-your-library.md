@@ -17,8 +17,7 @@ keywords:
 在开发库的时候，为保证代码的稳定性和健壮性，我们需要编写测试程序。同时也会使用CI/CD等工具优化工作流，提高开发效率。
 <!-- more -->
 
-[[tip | 提示]]
-| 如果你还不清楚如何开发一个js库，请阅读[《typescript开发工具库入门》](/develop-a-library-based-typescript/)
+**如果你还不清楚如何开发一个js库，请阅读[《typescript开发工具库入门》](/develop-a-library-based-typescript/)**
 
 对于一个成熟的JavaScript库，单元测试可以说是必要的。现有的JavaScript测试框架有很多，`karma`, `mocha`, `sinon`, `jasmine`, `jest`等，其中`jest`是Facebook开源的一个开箱即用的测试框架，使用起来非常简单方便。本文将为[《typescript开发工具库入门》](/develop-a-library-based-typescript/)中的示例库[natulu](https://github.com/YES-Lee/natulu)集成jest单元测试。
 
@@ -120,5 +119,4 @@ jobs:
 
 然后点击右上角绿色按钮`Start commit`，便会执行第一次workflow，在之后master分支的push和merge pull request操作都会触发自动执行action任务。
 
-[[tip | 扩展]]
-| 可以自己尝试在action中自动发布npm包
+**可以自己尝试在action中自动发布npm包**

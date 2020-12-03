@@ -46,8 +46,7 @@ Vue.use(CompositionApi)
 
 `Composition API`给vue组件增加了一个名为`setup`的生命周期函数，它要早于`befororeCreate`执行，在vue-next中是最早执行的生命周期钩子。
 
-[[warning | 注意]]
-| 和`befororeCreate`一样，`setup`实例还没创建，因此无法使用`this`。
+**注意**: 和`befororeCreate`一样，`setup`实例还没创建，因此无法使用`this`。
 
 ```html
 <template>

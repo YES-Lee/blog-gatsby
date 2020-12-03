@@ -182,25 +182,6 @@ module.exports = {
               // of HTML entities and their escape value IE: { '}': '&#123;' }
               escapeEntities: {}
             }
-          },
-          {
-            resolve: 'gatsby-remark-custom-blocks',
-            options: {
-              blocks: {
-                danger: {
-                  classes: 'danger',
-                  title: 'optional'
-                },
-                warning: {
-                  classes: 'warning',
-                  title: 'optional'
-                },
-                tip: {
-                  classes: 'tip',
-                  title: 'optional'
-                }
-              }
-            }
           }
         ]
       }
@@ -329,26 +310,5 @@ module.exports = {
         matchFields: ['slug', 'modified', 'rawMarkdownBody', 'excerpt', 'keywords'] // Array<String> default: ['modified']
       }
     }
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   options: {
-    //     // host: 'https://johnsonlee.site/',
-    //     sitemap: 'https://johnsonlee.site/sitemap.xml',
-    //     policy: [
-    //       {
-    //         userAgent: 'Googlebot',
-    //         disallow: ['/tags', '/archives', '/categories']
-    //       },
-    //       {
-    //         userAgent: 'Baiduspider',
-    //         disallow: ['/tags', '/archives', '/categories']
-    //       },
-    //       {
-    //         userAgent: '*',
-    //         allow: '/'
-    //       }
-    //     ]
-    //   }
-    // }
   ]
 }
