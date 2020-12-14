@@ -1,0 +1,14 @@
+@import 'theme/theme';
+@import 'fonts/icomoon';
+@import 'fonts/josefinsans';
+
+$light: (
+  primary-text: #363636,
+  background: #fff,
+  primary: #607d8b,
+  on-primary: #fff,
+);
+
+@include theme-core();
+
+@include theme-color($light);

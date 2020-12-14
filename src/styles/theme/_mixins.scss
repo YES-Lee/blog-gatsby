@@ -1,0 +1,57 @@
+@import 'functions';
+
+@mixin theme-core {
+  * {
+    transition: background-color .2s;
+  }
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-family: 'Josefin Sans', "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "\5FAE\8F6F\96C5\9ED1", Arial, 'sans-serif';
+    color: get-color(primary-text);
+    background-color: get-color(background);
+  }
+
+  #___gatsby {
+    height: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:hover, &:active {
+      color: get-color(primary);
+    }
+  }
+
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    word-break: break-word;
+    line-height: 1.8;
+  }
+
+  ::selection {
+    background-color: get-color(primary);
+    color: get-color(on-primary);
+  }
+}
+
+@mixin theme-color($colors, $namespace: null) {
+  $selector: ':root';
+
+  @if $namespace {
+    $selector: ':root .#{$namespace}';
+  }
+
+  #{$selector} {
+    @each $key, $value in $colors {
+      #{get-var($key)}: $value;
+    }
+  }
+}

@@ -1,5 +1,9 @@
-@import '../../styles/variables.scss';
-
 .card {
-  @include card;
+  background-color: var(--color-foreground);
+  overflow: hidden;
+  height: fit-content;
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 0px 6px rgba(0, 0, 0, .1);
+  transition: box-shadow .15s;
 }

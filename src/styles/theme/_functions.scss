@@ -1,0 +1,7 @@
+@function get-var($name) {
+  @return '--theme-color-#{$name}';
+}
+
+@function get-color($name) {
+  @return var(#{get-var($name)})
+}

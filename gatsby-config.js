@@ -277,15 +277,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-page-progress',
-      options: {
-        includePaths: [{ regex: '^/post' }],
-        height: 3,
-        prependToBody: false,
-        color: '#363636'
-      }
-    },
-    {
       resolve: 'gatsby-plugin-urls',
       options: {
         domain: 'https://johnsonlee.site/'

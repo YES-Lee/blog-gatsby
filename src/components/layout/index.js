@@ -16,28 +16,17 @@ export default function Layout (props) {
   const { children, active, plugins, siderFixed } = props
 
   return (
-    <div className={styles.layout}>
+    <>
       <Sider active={active} plugins={plugins} fixed={siderFixed} />
       <main className={styles.main}>
-        {children}
-        <footer className={styles.footer}>
-          <div className={styles.copyright}>
-            <span>©️{ new Date().getFullYear() }</span>
-            ❤️
-            <Link to='/' className={styles.author}>Johnson</Link>
+        <div className={styles.container}>
+          <div className={styles.wrapper}>
+            {children}
           </div>
-          <p className={styles.visit}>
-            <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-          </p>
-          <p className={styles.beian}>
-            <a href='http://www.beian.miit.gov.cn/' target='_blank' rel="noopener noreferrer">
-              滇ICP备16003902号
-            </a>
-          </p>
-        </footer>
+        </div>
       </main>
       <TabBar className={styles.tabBar} />
-    </div>
+    </>
   )
 }
 

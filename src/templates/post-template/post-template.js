@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Calendar, Folder, Clock } from 'react-feather'
@@ -10,12 +10,10 @@ import scrollTo from 'gatsby-plugin-smoothscroll'
 import { postHtmlFilter } from '../../lib/utils'
 
 import styles from './post-template.module.scss'
-import Valine from '../../components/valine'
 
 export default function PostTemplate (props) {
 
   const { data: { post, site }, pageContext } = props
-  const [path, setPath] = useState()
 
   const handleClickTitle = e => {
     e.preventDefault()
@@ -23,11 +21,6 @@ export default function PostTemplate (props) {
       scrollTo(decodeURIComponent(e.target.hash))
     }
   }
-
-  useEffect(() => {
-    console.log(site)
-    setPath(window.location.pathname)
-  }, [])
 
   return (
     <Layout
@@ -102,15 +95,6 @@ export default function PostTemplate (props) {
           next={pageContext.next}
           slug={site.siteMetadata.siteUrl + post.fields.slug}
         />
-        <div className={styles.comment}>
-          {/* <Valine path={path} placeholder='来一发吧～' visitor='true' avatar='robohash' /> */}
-          <Valine
-            path={path}
-            placeholder='来一发吧～'
-            visitor='true'
-            avatar='robohash'
-          />
-        </div>
       </Card>
     </Layout>
   )
