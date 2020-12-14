@@ -8,7 +8,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Sider from '../sider'
-import { Link } from 'gatsby'
 import styles from './layout.module.scss'
 import TabBar from '../tab-bar'
 

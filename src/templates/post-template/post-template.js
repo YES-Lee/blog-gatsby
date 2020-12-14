@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { Calendar, Folder, Clock } from 'react-feather'
@@ -88,7 +88,9 @@ export default function PostTemplate (props) {
             </header>
           )
         }
-        <article dangerouslySetInnerHTML={{ __html: postHtmlFilter(post.html) }} className={`${styles.content} markdown__body`}></article>
+        <div itemScope itemType='http://schema.org/Article'>
+          <article itemProp="articleBody" dangerouslySetInnerHTML={{ __html: postHtmlFilter(post.html) }} className={`${styles.content} markdown__body`}></article>
+        </div>
         <PostFooter
           tags={post.frontmatter.tags}
           prev={pageContext.prev}
