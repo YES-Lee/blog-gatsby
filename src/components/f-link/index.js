@@ -12,6 +12,7 @@ export default function FLink ({ data, className }) {
             href={data.link}
             target='_blank'
             rel='noopener noreferrer'
+            className={styles.title}
           >
             {data.title}
           </a>

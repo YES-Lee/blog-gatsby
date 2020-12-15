@@ -5,6 +5,14 @@
   box-sizing: border-box;
   padding: 16px;
   border-right: 1px solid #eee;
+  overflow-y: auto;
+
+  .container {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 80px;
+    box-sizing: border-box;
+  }
 
   .profileCard {
     padding: 16px 24px;
