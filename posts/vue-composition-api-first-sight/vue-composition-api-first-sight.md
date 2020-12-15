@@ -15,7 +15,7 @@ keywords:
   - hooks
 ---
 
-`Composition API`是vue-next中的逻辑复用解决方案，它是一组基于函数式编程的组合式API。`Composition API`与之前的逻辑复用方案`mixin`相比，使用上更灵活方便，也很大程度上降低了团队协作成本。
+`Composition API`是vue-next中的逻辑复用解决方案，它是一组基于函数式编程的组合式API。与之前的逻辑复用方案`mixin`相比，带来了更友好的类型检查，更方便的测试等优点。
 <!-- more -->
 
 `Composition API`的详细用法和API可以参考[官方文档](https://composition-api.vuejs.org/)，这里我们做一个简单的初步的上手体验。
