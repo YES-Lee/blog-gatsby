@@ -1,14 +1,11 @@
 
 
-$font-size: 14px;
-$layout-width: 960px; // 布局区宽度
-$main-width: 690px; // 主要内容区宽度
-$sider-width: $layout-width - $font-size * 2 - $main-width; // 侧边栏宽度
-$footer-height: 8rem;
+$font-size: 16px;
+
 $tab-bar-height: calc(44px + env(safe-area-inset-bottom, 0px));
 
 // 全局字体
-$font-family: -apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+$font-family: -apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
 // Johnson标题字体
 $font-family-title: 'Lobster', 'cursive', 'Josefin Sans','PingFang SC','Microsoft YaHei';
 // 数字字体
