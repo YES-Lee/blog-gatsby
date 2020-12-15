@@ -83,6 +83,7 @@ export default function Sider (props) {
               <div className={styles.icon}>
                 <Home size='1rem' />
               </div>
+              {/* <div className={styles.count}>🏠</div> */}
               <div className={styles.title}>首页</div>
             </Link>
           </li>

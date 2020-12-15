@@ -1,45 +1,3 @@
-const ALGOLIA_APP_ID = '46OB2XFJAE'
-const ALGOLIA_API_KEY = '59100ca72155cd848ddabfc5ea264400'
-const ALGOLIA_INDEX_NAME = 'prod_blog'
-
-const myQuery = `{
-  allMarkdownRemark {
-    nodes {
-      # try to find a unique id for each node
-      # if this field is absent, it's going to
-      # be inserted by Algolia automatically
-      # and will be less simple to update etc.
-      objectID: id
-      frontmatter {
-        title
-        keywords
-      }
-      excerpt
-      fields {
-        slug
-      }
-      rawMarkdownBody
-    }
-  }
-}`
-
-const queries = [
-  {
-    query: myQuery,
-    transformer: ({ data }) => data.allMarkdownRemark.nodes.map(node => ({
-      objectID: node.objectID,
-      title: node.frontmatter.title,
-      slug: node.fields.slug,
-      keywords: node.frontmatter.keywords,
-      excerpt: node.excerpt,
-      rawMarkdownBody: node.rawMarkdownBody
-    })), // optional
-    settings: {
-      // optional, any index settings
-    }
-  }
-]
-
 module.exports = {
   siteMetadata: {
     title: process.env.NODE_ENV === 'development' ? 'Johnson的博客(开发)' : 'Johnson的博客',
@@ -282,24 +240,6 @@ module.exports = {
         domain: 'https://johnsonlee.site/'
       }
     },
-    'gatsby-plugin-smoothscroll',
-    {
-      // This plugin must be placed last in your list of plugins to ensure that it can query all the GraphQL data
-      resolve: 'gatsby-plugin-algolia',
-      options: {
-        appId: ALGOLIA_APP_ID,
-        // Careful, no not prefix this with GATSBY_, since that way users can change
-        // the data in the index.
-        apiKey: ALGOLIA_API_KEY,
-        indexName: ALGOLIA_INDEX_NAME, // for all queries
-        queries,
-        chunkSize: 10000, // default: 1000
-        settings: {
-          // optional, any index settings
-        },
-        enablePartialUpdates: true, // default: false
-        matchFields: ['slug', 'modified', 'rawMarkdownBody', 'excerpt', 'keywords'] // Array<String> default: ['modified']
-      }
-    }
+    'gatsby-plugin-smoothscroll'
   ]
 }
