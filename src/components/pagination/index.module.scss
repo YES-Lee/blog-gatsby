@@ -2,6 +2,7 @@
 
 .pagination {
   text-align: center;
+  font-family: $font-family-number;
   .prev, .next, .list>.item {
     display: inline-block;
     cursor: pointer;
@@ -14,6 +15,9 @@
     &:hover, &:active, &.active {
       background-color: get-color(primary);
       color: get-color(on-primary);
+    }
+    ::after {
+      margin: 0;
     }
   }
   .list {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Calendar, Folder, Clock } from 'react-feather'
 import PostFooter from '../../components/post-footer'
 import SEO from '../../components/seo'
 import Layout from '../../components/layout'
@@ -48,17 +47,17 @@ export default function PostTemplate (props) {
               <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
               <div className={`${styles.infoPanel}`}>
                 <div className={styles.meta}>
-                  <span className={styles.item}>
-                    <Calendar size={14} /> {post.frontmatter.date}
+                  <span className={`${styles.item} icon-calendar`}>
+                    {post.frontmatter.date}
                   </span>
-                  <span className={styles.item} title={`阅读时间${post.timeToRead}分钟`}>
-                    <Clock size={14} /> {post.timeToRead}‘
+                  <span className={`${styles.item} icon-clock`} title={`阅读时间${post.timeToRead}分钟`}>
+                    {post.timeToRead}‘
                   </span>
                   {
                     post.frontmatter.categories.map(c => (
                       <Link key={c} to={`/categories/${c}`}>
-                        <span className={styles.item}>
-                          <Folder size={14} /> {c}
+                        <span className={`${styles.item} icon-folder`}>
+                          {c}
                         </span>
                       </Link>
                     ))
@@ -72,14 +71,14 @@ export default function PostTemplate (props) {
             <header className={styles.header}>
               <div className={styles.title}>{post.frontmatter.title}</div>
               <div className={styles.meta}>
-                <span className={styles.item}>
-                  <Calendar size={14} /> {post.frontmatter.date}
+                <span className={`${styles.item} icon-calendar`}>
+                  {post.frontmatter.date}
                 </span>
                 {
                   post.frontmatter.categories.map(c => (
                     <Link key={c} to={`/categories/${c}`}>
-                      <span className={styles.item}>
-                        <Folder size={14} /> {c}
+                      <span className={`${styles.item} icon-folder`}>
+                        {c}
                       </span>
                     </Link>
                   ))

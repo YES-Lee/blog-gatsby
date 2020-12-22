@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Mail, Rss, GitHub, Send, Home } from 'react-feather'
+import { Mail, Rss, GitHub, Send } from 'react-feather'
 import Card from '../card/card'
 
 import styles from './sider.module.scss'
@@ -59,9 +59,10 @@ export default function Sider (props) {
           </Link>
         </h1>
         <p className={styles.motto}>
-          行到水穷处 坐看云起时
+          行到水穷处<br/>
+          坐看云起时
         </p>
-        <div className={styles.snsList}>
+        {/* <div className={styles.snsList}>
           <a href='mailto:598465252@qq.com' target='_blank' rel="noopener noreferrer nofollow" title='598465252@qq.com' className={styles.snsItem}>
             <Mail size={20} strokeWidth={3} />
           </a>
@@ -74,59 +75,41 @@ export default function Sider (props) {
           <a href='https://t.me/JohnsonLe' target='_blank' rel="noopener noreferrer nofollow" className={styles.snsItem}>
             <Send size={20} strokeWidth={3} />
           </a>
-        </div>
+        </div> */}
       </Card>
       <Card className={styles.tabsCard}>
-        <ul className={styles.tabList}>
-          <li className={`${styles.tabItem} ${active === '/' ? styles.active : ''}`}>
-            <Link to='/'>
-              <div className={styles.icon}>
-                <Home size='1rem' />
-              </div>
-              {/* <div className={styles.count}>🏠</div> */}
-              <div className={styles.title}>首页</div>
-            </Link>
-          </li>
-          <li className={`${styles.tabItem} ${active === '/archives' ? styles.active : ''}`}>
-            <Link to='/archives'>
-              <div className={styles.count}>{siderData.totalCount}</div>
-              <div className={styles.title}>归档</div>
-            </Link>
-          </li>
-          <li className={`${styles.tabItem} ${active === '/categories' ? styles.active : ''}`}>
-            <Link to={`/categories/${categories[0]}`}>
-              <div className={styles.count}>{categories.length}</div>
-              <div className={styles.title}>分类</div>
-            </Link>
-          </li>
-          <li className={`${styles.tabItem} ${active === '/tags' ? styles.active : ''}`}>
-            <Link to='/tags'>
-              <div className={styles.count}>{tags.length}</div>
-              <div className={styles.title}>标签</div>
-            </Link>
-          </li>
-          {/* <li className={`${styles.tabItem} ${active === '/about' ? styles.active : ''}`}>
-            <Link to='/about'>
-              <div className={styles.icon}>
-                <Smile size='1rem' />
-              </div>
-              <div className={styles.title}>关于</div>
-            </Link>
-          </li> */}
-        </ul>
+        <Link to='/archives' className={`${styles.tabItem} ${active === '/archives' ? styles.active : ''}`}>
+          <span className={styles.count}>{siderData.totalCount}</span>
+          <span className={styles.title}>Archives</span>
+        </Link>
+        <Link to={`/categories/${categories[0]}`} className={`${styles.tabItem} ${active === '/categories' ? styles.active : ''}`}>
+          <span className={styles.count}>{categories.length}</span>
+          <span className={styles.title}>Categories</span>
+        </Link>
+        <Link to='/tags' className={`${styles.tabItem} ${active === '/tags' ? styles.active : ''}`}>
+          <span className={styles.count}>{tags.length}</span>
+          <span className={styles.title}>Tags</span>
+        </Link>
       </Card>
-      {/* <Card className={styles.pandoraBoxCard}>
-        TODO: 小功能菜单
-      </Card> */}
       {
         plugins
       }
       <footer className={styles.footer}>
-        <div className={styles.copyright}>
+        <p className={styles.snsList}>
+          <a href='mailto:598465252@qq.com' target='_blank' rel="noopener noreferrer nofollow" title='598465252@qq.com' className={`${styles.snsItem} icon-mail`}>
+          </a>
+          <a href='/rss.xml' target='_blank' rel="noopener noreferrer nofollow" className={`${styles.snsItem} icon-rss`}>
+          </a>
+          <a href='https://github.com/YES-Lee' target='_blank' rel="noopener noreferrer nofollow" className={`${styles.snsItem} icon-github`}>
+          </a>
+          <a href='https://t.me/JohnsonLe' target='_blank' rel="noopener noreferrer nofollow" className={`${styles.snsItem} icon-telegram`}>
+          </a>
+        </p>
+        <p className={styles.copyright}>
           <span>©️{ new Date().getFullYear() }</span>
           ❤️
           <Link to='/' className={styles.author}>Johnson</Link>
-        </div>
+        </p>
         <p className={styles.beian}>
           <a href='http://www.beian.miit.gov.cn/' target='_blank' rel="noopener noreferrer">
             滇ICP备16003902号

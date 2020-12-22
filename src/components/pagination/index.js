@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import { ChevronRight, ChevronLeft, MoreHorizontal } from 'react-feather'
 
 import styles from './index.module.scss'
 
@@ -22,7 +21,7 @@ export default function Pagination (props) {
     if (total > 5) {
       const first = <Link key={0} to={renderPath(0)} className={`${styles.item} ${current === 0 ? styles.active : ''}`}>{1}</Link>
       const last = <Link key={total - 1} to={renderPath(total - 1)} className={`${styles.item} ${current === (total - 1) ? styles.active : ''}`}>{total}</Link>
-      const more = <span key={3}><MoreHorizontal size={14} /></span>
+      const more = <span key={3} className="icon-more-horizontal"></span>
       if (current < 2) {
         for (let i = 0; i < 3; i++) {
           list.push(<Link key={i} to={renderPath(i)} className={`${styles.item} ${current === i ? styles.active : ''}`}>{i + 1}</Link>)
@@ -61,9 +60,7 @@ export default function Pagination (props) {
     <div className={`${styles.pagination} ${className}`}>
       {
         current > 0 && (
-          <Link className={styles.prev} to={renderPath(current - 1)}>
-            <ChevronLeft size={14} />
-          </Link>
+          <Link className={`${styles.prev} icon-chevron-left`} to={renderPath(current - 1)}></Link>
         )
       }
       <ul className={styles.list}>
@@ -73,9 +70,7 @@ export default function Pagination (props) {
       </ul>
       {
         (current + 1) < total && (
-          <Link className={styles.next} to={renderPath(current + 1)}>
-            <ChevronRight size={14} />
-          </Link>
+          <Link className={`${styles.next} icon-chevron-right`} to={renderPath(current + 1)}></Link>
         )
       }
     </div>

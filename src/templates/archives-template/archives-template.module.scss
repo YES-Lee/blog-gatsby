@@ -32,6 +32,7 @@
       margin-block-start: $margin-2;
       margin-block-end: $margin-2;
       position: relative;
+      font-family: $font-family-number;
     }
 
     .monthSection {
@@ -49,6 +50,7 @@
         font-weight: 600;
         line-height: 2;
         transform: translate3d(-50%,-50%,0) scale3d(.75,.75,1);
+        font-family: $font-family-number;
         &::after {
           top: 0;
           right: 0;
@@ -90,6 +92,7 @@
             letter-spacing: 1px;
             font-size: .85rem;
             opacity: .63;
+            font-family: $font-family-number;
           }
 
           .title {

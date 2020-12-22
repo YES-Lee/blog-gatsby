@@ -1,6 +1,8 @@
 @import 'theme/theme';
-@import 'fonts/icomoon';
+@import 'fonts/icomoon.scss';
 @import 'fonts/josefinsans.scss';
+@import 'fonts/sarpanch.scss';
+@import 'fonts/lobster.scss';
 
 $light: (
   primary-text : #363636,
@@ -10,8 +12,8 @@ $light: (
   primary-dark : #34515e,
   on-primary   : #ffffff,
   surface      : #ffffff,
-  sider-border : #eeeeee,
-  avatar-border: #eeeeee,
+  sider-border : #e0e0e0,
+  avatar-border: rgba(96,125,139,.4),
 );
 
 @include theme-core();

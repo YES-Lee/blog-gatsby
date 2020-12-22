@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { Calendar, Clock } from 'react-feather'
 import Card from '../card/card'
 
 import styles from './index.module.scss'
@@ -30,11 +29,11 @@ export default function PostCard (props) {
           </p>
         </div>
         <div className={styles.metas}>
-          <span className={styles.metaItem}>
-            <Calendar size={14} /> {date}
+          <span className={`${styles.metaItem} icon-calendar`}>
+            {date}
           </span>
-          <span className={styles.metaItem} title={`阅读时间${timeToRead}分钟`}>
-            <Clock size={14} /> {timeToRead}‘
+          <span className={`${styles.metaItem} icon-clock`} title={`阅读时间${timeToRead}分钟`}>
+            {timeToRead}‘
           </span>
         </div>
       </div>

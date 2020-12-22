@@ -5,7 +5,6 @@
   width: 280px;
   height: 100%;
   box-sizing: border-box;
-  padding: 16px;
   border-right: 1px solid get-color(sider-border);
   overflow-y: auto;
 
@@ -18,17 +17,20 @@
     position: relative;
     padding-bottom: 80px;
     box-sizing: border-box;
+    overflow: hidden;
   }
 
   .profileCard {
-    padding: 16px 24px;
-
+    margin: 1rem 1rem .5rem;
+    overflow: visible;
+    text-align: center;
     .avatarContainer {
+      display: inline-block;
       border: 1px solid get-color(avatar-border);
       padding: 2px;
       border-radius: 50%;
       width: fit-content;
-      margin: auto;
+      margin-top: 2.4rem;
       .avatar {
         display: block;
         width: 118px;
@@ -47,68 +49,65 @@
       text-align: center;
       line-height: 1.5;
       opacity: .63;
-    }
-
-    .snsList {
-      margin: 2rem 0 0;
-      text-align: center;
-      .snsItem {
-        margin: 0 .5rem;
-      }
+      padding: 0 1.5rem 1.5rem;
     }
   }
 
   .tabsCard {
     padding: 0 1rem;
-    margin: 1rem 0;
+    margin: 1rem;
+    display: flex;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    justify-content: space-around;
 
-    .tabList {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      align-items: center;
+    .tabItem {
+      position: relative;
+      padding: 1.25rem 0;
+      min-width: 24%;
 
-      .tabItem {
-        flex: auto;
-        text-align: center;
-        position: relative;
-        padding: 1rem 0;
-
-        &:hover, &:active, &.active {
-          color: get-color(primary);
-          &::after {
-            transform: scaleY(1);
-          }
-        }
-
+      &:hover, &:active, &.active {
+        color: get-color(primary);
         &::after {
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          margin: auto;
-          width: 62%;
-          height: .3rem;
-          content: "";
-          transition: transform .4s;
-          transform: scaleY(0);
-          transform-origin: bottom center;
-          border-radius: 3px 3px 0 0;
-          background-color: get-color(primary);
+          transform: scaleY(1);
         }
+      }
 
-        .count {
-          // font-family: $font-family-number;
-        }
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 62%;
+        height: .3rem;
+        content: "";
+        transition: transform .4s;
+        transform: scaleY(0);
+        transform-origin: bottom center;
+        border-radius: 3px 3px 0 0;
+        background-color: get-color(primary);
+      }
+
+      .count {
+        font-family: $font-family-number;
+        margin: 0 .5rem;
+        margin-bottom: .75rem;
+        font-size: 1.4rem;
+        line-height: 1;
+        display: block;
+      }
+
+      .title {
+        font-size: .95rem;
+        opacity: .63;
+        display: block;
+        line-height: 1;
       }
     }
   }
 
-  .pandoraBoxCard {
-    padding: 0 1rem;
-    margin: 1rem 0;
-  }
 }
 
 @media screen and (max-width: 960px) {
@@ -120,12 +119,19 @@
 
 .footer {
   position: absolute;
-  bottom: -1rem;
+  bottom: 0;
   left: 0;
   text-align: center;
   width: 100%;
   font-size: .8rem;
   p {
     margin: .2rem 0;
+  }
+  .snsList {
+    text-align: center;
+    .snsItem {
+      margin: 0 .2rem;
+      font-size: 1.2rem;
+    }
   }
 }

@@ -1,6 +1,7 @@
 @import '../../styles/theme/theme';
 
 .linksCard {
+  margin: 1rem;
   .linkItem {
     padding: $padding-2;
     &:not(:last-child) {
