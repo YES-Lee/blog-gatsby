@@ -7,7 +7,7 @@
 // You can delete this file if you're not using it
 import 'prismjs/themes/prism.css'
 import 'prismjs/themes/prism-okaidia.css'
-import './src/styles/global.scss'
+import './src/styles/index.scss'
 import 'katex/dist/katex.min.css'
 
 export function onRouteUpdate () {

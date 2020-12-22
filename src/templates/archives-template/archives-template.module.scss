@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/theme/theme';
 
 .archives {
   padding: $padding-4;
@@ -14,7 +14,7 @@
       left: $margin-3;
       height: 100%;
       border-left: 1px solid;
-      border-color: var(--color-border);
+      border-color: get-color(sider-border);
       content: "";
     }
 
@@ -24,7 +24,7 @@
     }
 
     .year {
-      background-color: var(--color-foreground);
+      background-color: get-color(surface);
       margin: 0;
       line-height: 2.4;
       font-size: 1.8rem;
@@ -60,7 +60,7 @@
           opacity: .63;
           transition: opacity .4s;
           position: absolute;
-          background-color: var(--color-background-accent);
+          background-color: get-color(primary);
         }
       }
 

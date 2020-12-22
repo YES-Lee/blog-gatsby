@@ -1,3 +1,5 @@
+@import '../../styles/theme/theme';
+
 .pagination {
   text-align: center;
   .prev, .next, .list>.item {
@@ -10,8 +12,8 @@
     border-radius: 50%;
     margin: 0 1px;
     &:hover, &:active, &.active {
-      background-color: var(--color-background-accent);
-      color: #fff;
+      background-color: get-color(primary);
+      color: get-color(on-primary);
     }
   }
   .list {

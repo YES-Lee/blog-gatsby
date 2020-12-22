@@ -53,11 +53,11 @@ export default function Sider (props) {
         <div className={styles.avatarContainer}>
           <Img className={styles.avatar} imgStyle={{ borderRadius: '50%' }} fluid={avatarImage.childImageSharp.fluid} />
         </div>
-        <h3 className={styles.name}>
+        <h1 className={styles.name}>
           <Link to='/' className={styles.link}>
             Johnson
           </Link>
-        </h3>
+        </h1>
         <p className={styles.motto}>
           行到水穷处 坐看云起时
         </p>

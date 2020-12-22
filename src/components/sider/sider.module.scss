@@ -1,11 +1,17 @@
+@import '../../styles/theme/theme';
+
 .sider {
   position: fixed;
   width: 280px;
   height: 100%;
   box-sizing: border-box;
   padding: 16px;
-  border-right: 1px solid #eee;
+  border-right: 1px solid get-color(sider-border);
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 
   .container {
     min-height: 100%;
@@ -18,7 +24,7 @@
     padding: 16px 24px;
 
     .avatarContainer {
-      border: 1px solid #eee;
+      border: 1px solid get-color(avatar-border);
       padding: 2px;
       border-radius: 50%;
       width: fit-content;
@@ -34,6 +40,7 @@
     .name {
       text-align: center;
       margin: 1.5rem 0;
+      font-family: $font-family-johnson;
     }
 
     .motto {
@@ -69,6 +76,7 @@
         padding: 1rem 0;
 
         &:hover, &:active, &.active {
+          color: get-color(primary);
           &::after {
             transform: scaleY(1);
           }
@@ -87,7 +95,7 @@
           transform: scaleY(0);
           transform-origin: bottom center;
           border-radius: 3px 3px 0 0;
-          background-color: var(--color-background-accent);
+          background-color: get-color(primary);
         }
 
         .count {
@@ -112,12 +120,12 @@
 
 .footer {
   position: absolute;
-  bottom: 0;
+  bottom: -1rem;
   left: 0;
   text-align: center;
   width: 100%;
   font-size: .8rem;
   p {
-    margin: .5rem 0;
+    margin: .2rem 0;
   }
 }

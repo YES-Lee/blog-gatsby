@@ -1,16 +1,24 @@
-@import '../../styles/variables.scss';
+@import '../../styles/theme/theme';
 
-.main {
+.container1 {
   margin-left: 280px;
   position: relative;
   box-sizing: border-box;
+  height: 100%;
 
-  .container {
-    margin: auto;
-    max-width: 660px;
-    overflow-y: auto;
-    .wrapper {
-      margin: 2rem auto;
+  .container2 {
+    height: 100%;
+    .container3 {
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+
+      .main {
+        position: relative;
+        display: block;
+        margin: 2rem auto;
+        max-width: 660px;
+      }
     }
   }
 }

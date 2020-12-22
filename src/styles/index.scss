@@ -1,14 +1,18 @@
 @import 'theme/theme';
 @import 'fonts/icomoon';
-@import 'fonts/josefinsans';
+@import 'fonts/josefinsans.scss';
 
 $light: (
-  primary-text: #363636,
-  background: #fff,
-  primary: #607d8b,
-  on-primary: #fff,
+  primary-text : #363636,
+  background   : #f6f6f6,
+  primary      : #607d8b,
+  primary-light: #8eacbb,
+  primary-dark : #34515e,
+  on-primary   : #ffffff,
+  surface      : #ffffff,
+  sider-border : #eeeeee,
+  avatar-border: #eeeeee,
 );
 
 @include theme-core();
-
 @include theme-color($light);

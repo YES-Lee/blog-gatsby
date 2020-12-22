@@ -2,14 +2,12 @@
 
 $font-size: 16px;
 
-$tab-bar-height: calc(44px + env(safe-area-inset-bottom, 0px));
-
 // 全局字体
-$font-family: -apple-system,BlinkMacSystemFont,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+$font-family: 'Josefin Sans', -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
 // Johnson标题字体
-$font-family-title: 'Lobster', 'cursive', 'Josefin Sans','PingFang SC','Microsoft YaHei';
+$font-family-johnson: 'Lobster', 'cursive';
 // 数字字体
-$font-family-number: 'Sarpanch', 'Josefin Sans';
+$font-family-number: 'Sarpanch';
 // 代码字体
 $font-family-code: 'Fira Code', 'Consolas', 'monospace';
 
@@ -34,7 +32,7 @@ $opacity-2: .63;
 $opacity-3: .5;
 
 @mixin card {
-  background-color: var(--color-foreground);
+  background-color: get-color(surface);
   overflow: hidden;
   height: fit-content;
   box-sizing: border-box;

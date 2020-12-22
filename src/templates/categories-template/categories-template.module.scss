@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/theme/theme';
 
 .categoriesPage {
 
@@ -37,7 +37,7 @@
           transform: scaleY(0);
           transform-origin: bottom center;
           border-radius: 3px 3px 0 0;
-          background-color: var(--color-background-accent);
+          background-color: get-color(primary);
         }
 
         &::after {
@@ -45,7 +45,7 @@
           padding: 2px 5px;
           border-radius: 3px;
           border: 1px solid;
-          border-color: var(--color-border);
+          border-color: get-color(sider-border);
           content: attr(count);
           font-size: .85rem;
           font-family: $font-family-number;

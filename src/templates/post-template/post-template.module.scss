@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/theme/theme';
 
 .header {
   padding: 2.5rem 0 1rem;
@@ -11,7 +11,7 @@
   .meta {
     margin: 1rem 0;
     padding: 1rem 2.15rem;
-    background-color: var(--color-background);
+    background-color: get-color(background);
     .item {
       margin-right: 1rem;
     }
@@ -64,7 +64,7 @@
       a {
         position: relative;
         &:hover, &:active {
-          border-bottom: 1px dotted var(--color-font);
+          border-bottom: 1px dotted get-color(primary-text);
         }
       }
     }

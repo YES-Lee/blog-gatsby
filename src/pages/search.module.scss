@@ -1,7 +1,7 @@
-@import '../styles/variables.scss';
+@import '../styles/theme/theme';
 
 .searchBar {
-  background-color: var(--color-foreground);
+  background-color: get-color(surface);
   padding: $padding-2 $padding-4;
   margin-bottom: $margin-1;
   position: sticky;
@@ -17,7 +17,7 @@
     align-items: center;
     padding: 0 .5rem;
     .loader {
-      color: var(--color-font);
+      color: get-color(primary-text);
       opacity: $opacity-2;
       animation: spin 1.5s linear infinite;
       @keyframes spin {
@@ -40,11 +40,11 @@
     display: block;
     width: 100%;
     box-sizing: border-box;
-    caret-color: var(--color-font);
-    color: var(--color-font);
+    caret-color: get-color(primary-text);
+    color: get-color(primary-text);
 
     &::placeholder {
-      color: var(--color-font);
+      color: get-color(primary-text);
       opacity: 0.63;
     }
   }
@@ -56,12 +56,12 @@
   overflow-y: auto;
 
   .resultItem {
-    border-bottom: 1px dashed var(--color-border);
+    border-bottom: 1px dashed get-color(sider-border);
     padding: $padding-2 0;
     .resultTitle {
       font-size: $heading-3;
       &:hover {
-        border-bottom: 1px dotted var(--color-font)
+        border-bottom: 1px dotted get-color(primary-text)
       }
     }
     .resultExcerpt {

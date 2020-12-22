@@ -9,7 +9,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Sider from '../sider'
 import styles from './layout.module.scss'
-import TabBar from '../tab-bar'
 
 export default function Layout (props) {
   const { children, active, plugins, siderFixed } = props
@@ -17,14 +16,15 @@ export default function Layout (props) {
   return (
     <>
       <Sider active={active} plugins={plugins} fixed={siderFixed} />
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <div className={styles.wrapper}>
-            {children}
+      <div className={styles.container1}>
+        <div className={styles.container2}>
+          <div className={styles.container3}>
+            <main className={styles.main}>
+              {children}
+            </main>
           </div>
         </div>
-      </main>
-      <TabBar className={styles.tabBar} />
+      </div>
     </>
   )
 }
