@@ -29,10 +29,10 @@ export default function PostCard (props) {
           </p>
         </div>
         <div className={styles.metas}>
-          <span className={`${styles.metaItem} icon-calendar`}>
+          <span className={`${styles.metaItem} ${styles.date}`}>
             {date}
           </span>
-          <span className={`${styles.metaItem} icon-clock`} title={`阅读时间${timeToRead}分钟`}>
+          <span className={`${styles.metaItem} ${styles.readTime}`} title={`阅读时间${timeToRead}分钟`}>
             {timeToRead}‘
           </span>
         </div>

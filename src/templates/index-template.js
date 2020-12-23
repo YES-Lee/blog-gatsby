@@ -60,7 +60,7 @@ export const pageQuery = graphql`
         }
         frontmatter {
           title
-          date(formatString: "YYYY年MM月DD日")
+          date(formatString: "ll")
           thumbnail {
             childImageSharp {
               fluid(maxWidth: 660) {
