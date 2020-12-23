@@ -47,16 +47,16 @@ export default function PostTemplate (props) {
               <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
               <div className={`${styles.infoPanel}`}>
                 <div className={styles.meta}>
-                  <span className={`${styles.item} icon-calendar`}>
+                  <span className={`${styles.item} ${styles.iconCalendar}`}>
                     {post.frontmatter.date}
                   </span>
-                  <span className={`${styles.item} icon-clock`} title={`阅读时间${post.timeToRead}分钟`}>
+                  <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
                     {post.timeToRead}‘
                   </span>
                   {
                     post.frontmatter.categories.map(c => (
                       <Link key={c} to={`/categories/${c}`}>
-                        <span className={`${styles.item} icon-folder`}>
+                        <span className={`${styles.item} ${styles.iconFolder}`}>
                           {c}
                         </span>
                       </Link>
@@ -71,13 +71,16 @@ export default function PostTemplate (props) {
             <header className={styles.header}>
               <div className={styles.title}>{post.frontmatter.title}</div>
               <div className={styles.meta}>
-                <span className={`${styles.item} icon-calendar`}>
+                <span className={`${styles.item} ${styles.iconCalendar}`}>
                   {post.frontmatter.date}
+                </span>
+                <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
+                  {post.timeToRead}‘
                 </span>
                 {
                   post.frontmatter.categories.map(c => (
                     <Link key={c} to={`/categories/${c}`}>
-                      <span className={`${styles.item} icon-folder`}>
+                      <span className={`${styles.item} ${styles.iconFolder}`}>
                         {c}
                       </span>
                     </Link>
@@ -125,7 +128,7 @@ export const pageQuery = graphql`
         categories
         color
         copyright
-        date(formatString: "YYYY-MM-DD")
+        date(formatString: "ll")
         tags
         title
         toc

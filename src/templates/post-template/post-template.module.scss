@@ -1,5 +1,17 @@
 @import '../../styles/theme/theme';
 
+.iconCalendar {
+  @include icomoon($icon-calendar);
+}
+
+.iconClock {
+  @include icomoon($icon-clock);
+}
+
+.iconFolder {
+  @include icomoon($icon-folder);
+}
+
 .header {
   padding: 2.5rem 0 1rem;
   .title {
