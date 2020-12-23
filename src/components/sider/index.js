@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { Mail, Rss, GitHub, Send } from 'react-feather'
 import Card from '../card/card'
 
 import styles from './sider.module.scss'
+import { useDebouncedFn } from 'beautiful-react-hooks'
 
 export default function Sider (props) {
 
+  const siderRef = useRef()
+  const [fixedFooter, setFixedFooter] = useState(true)
   const { plugins } = props
 
   const { active } = props
@@ -47,54 +49,65 @@ export default function Sider (props) {
   categories = [...new Set(categories)]
   tags = [...new Set(tags)]
 
-  return <aside className={styles.sider}>
-    <div className={styles.container}>
-      <Card className={styles.profileCard}>
-        <div className={styles.avatarContainer}>
-          <Img className={styles.avatar} imgStyle={{ borderRadius: '50%' }} fluid={avatarImage.childImageSharp.fluid} />
-        </div>
-        <h1 className={styles.name}>
-          <Link to='/' className={styles.link}>
-            Johnson
-          </Link>
-        </h1>
-        <p className={styles.motto}>
-          行到水穷处<br/>
-          坐看云起时
-        </p>
-        {/* <div className={styles.snsList}>
-          <a href='mailto:598465252@qq.com' target='_blank' rel="noopener noreferrer nofollow" title='598465252@qq.com' className={styles.snsItem}>
-            <Mail size={20} strokeWidth={3} />
-          </a>
-          <a href='/rss.xml' target='_blank' rel="noopener noreferrer nofollow" className={styles.snsItem}>
-            <Rss size={20} strokeWidth={3} />
-          </a>
-          <a href='https://github.com/YES-Lee' target='_blank' rel="noopener noreferrer nofollow" className={styles.snsItem}>
-            <GitHub size={20} strokeWidth={3} />
-          </a>
-          <a href='https://t.me/JohnsonLe' target='_blank' rel="noopener noreferrer nofollow" className={styles.snsItem}>
-            <Send size={20} strokeWidth={3} />
-          </a>
-        </div> */}
-      </Card>
-      <Card className={styles.tabsCard}>
-        <Link to='/archives' className={`${styles.tabItem} ${active === '/archives' ? styles.active : ''}`}>
-          <span className={styles.count}>{siderData.totalCount}</span>
-          <span className={styles.title}>Archives</span>
-        </Link>
-        <Link to={`/categories/${categories[0]}`} className={`${styles.tabItem} ${active === '/categories' ? styles.active : ''}`}>
-          <span className={styles.count}>{categories.length}</span>
-          <span className={styles.title}>Categories</span>
-        </Link>
-        <Link to='/tags' className={`${styles.tabItem} ${active === '/tags' ? styles.active : ''}`}>
-          <span className={styles.count}>{tags.length}</span>
-          <span className={styles.title}>Tags</span>
-        </Link>
-      </Card>
-      {
-        plugins
+  // 调整footer
+  const adjustFooter = useDebouncedFn(() => {
+    if (siderRef.current) {
+      const siderHeight = siderRef.current.children[0].offsetHeight + siderRef.current.children[1].offsetHeight
+      if (siderHeight < window.innerHeight) {
+        setFixedFooter(true)
+      } else {
+        setFixedFooter(false)
       }
-      <footer className={styles.footer}>
+    }
+  }, 500)
+
+  useEffect(() => {
+    adjustFooter()
+    window.addEventListener('resize', () => {
+      adjustFooter()
+    }, { passive: true })
+  }, [])
+
+  return <aside className={styles.sider}>
+    <div className={styles.container} ref={siderRef}>
+      <section className={styles.main}>
+        <Card className={styles.profileCard}>
+          <div className={styles.avatarContainer}>
+            <Img className={styles.avatar} imgStyle={{ borderRadius: '50%' }} fluid={avatarImage.childImageSharp.fluid} />
+          </div>
+          <h1 className={styles.name}>
+            <Link to='/' className={styles.link}>
+              Johnson
+            </Link>
+          </h1>
+          <p className={styles.motto}>
+            行到水穷处<br/>
+            坐看云起时
+          </p>
+        </Card>
+        <Card className={styles.tabsCard}>
+          <Link to='/archives' className={`${styles.tabItem} ${active === '/archives' ? styles.active : ''}`}>
+            <span className={styles.count}>{siderData.totalCount}</span>
+            <span className={styles.title}>Archives</span>
+          </Link>
+          <Link to={`/categories/${categories[0]}`} className={`${styles.tabItem} ${active === '/categories' ? styles.active : ''}`}>
+            <span className={styles.count}>{categories.length}</span>
+            <span className={styles.title}>Categories</span>
+          </Link>
+          <Link to='/tags' className={`${styles.tabItem} ${active === '/tags' ? styles.active : ''}`}>
+            <span className={styles.count}>{tags.length}</span>
+            <span className={styles.title}>Tags</span>
+          </Link>
+        </Card>
+        <nav className={styles.nav}>
+          <Link to="/" className={`${styles.navItem} ${active === '/' ? styles.active : ''}`}>🏠 Home</Link>
+          <Link to="/about" className={`${styles.navItem} ${active === '/about' ? styles.active : ''}`}>😊 About</Link>
+        </nav>
+        {
+          plugins
+        }
+      </section>
+      <footer className={`${styles.footer} ${fixedFooter ? styles.fixed : ''}`}>
         <p className={styles.snsList}>
           <a href='mailto:598465252@qq.com' target='_blank' rel="noopener noreferrer nofollow" title='598465252@qq.com' className={`${styles.snsItem} icon-mail`}>
           </a>
