@@ -3,9 +3,18 @@
 .linksCard {
   margin: 1rem;
   .linkItem {
-    padding: $padding-2;
-    &:not(:last-child) {
-      border-bottom: 1px solid get-color(background);
-    }
+    margin: 1.5rem 0;
+  }
+
+  // text-align: center;
+  .linkItem2 {
+    display: inline-block;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    background-color: get-color(surface);
+    font-size: .85rem;
+    margin: 4px;
   }
 }

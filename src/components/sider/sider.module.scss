@@ -130,6 +130,7 @@
     white-space: pre;
     line-height: 3rem;
     transition: all .15s;
+    font-family: $font-family-nav;
 
     &:active, &:hover, &.active {
       color: get-color(primary);

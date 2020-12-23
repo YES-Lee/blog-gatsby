@@ -4,7 +4,6 @@ import Img from 'gatsby-image'
 import Card from '../card/card'
 
 import styles from './sider.module.scss'
-import { useDebouncedFn } from 'beautiful-react-hooks'
 
 export default function Sider (props) {
 
@@ -50,7 +49,7 @@ export default function Sider (props) {
   tags = [...new Set(tags)]
 
   // 调整footer
-  const adjustFooter = useDebouncedFn(() => {
+  const adjustFooter = useCallback(() => {
     if (siderRef.current) {
       const siderHeight = siderRef.current.children[0].offsetHeight + siderRef.current.children[1].offsetHeight
       if (siderHeight < window.innerHeight) {
@@ -59,7 +58,7 @@ export default function Sider (props) {
         setFixedFooter(false)
       }
     }
-  }, 500)
+  }, [])
 
   useEffect(() => {
     adjustFooter()
@@ -100,8 +99,15 @@ export default function Sider (props) {
           </Link>
         </Card>
         <nav className={styles.nav}>
-          <Link to="/" className={`${styles.navItem} ${active === '/' ? styles.active : ''}`}>🏠 Home</Link>
-          <Link to="/about" className={`${styles.navItem} ${active === '/about' ? styles.active : ''}`}>😊 About</Link>
+          <Link to="/" className={`${styles.navItem} ${active === '/' ? styles.active : ''}`}>🏠  Home</Link>
+          <Link to="/about" className={`${styles.navItem} ${active === '/about' ? styles.active : ''}`}>😊  About</Link>
+          <a
+            href="http://lab.johnsonlee.site/?path=/story/web%E5%AE%9E%E9%AA%8C%E5%AE%A4-%F0%9F%91%8F%E6%AC%A2%E8%BF%8E%E5%8F%82%E8%A7%82%F0%9F%91%8F--page"
+            target='_blank'
+            rel='noopener noreferrer'
+            className={styles.navItem}>
+              🧪  Lab
+          </a>
         </nav>
         {
           plugins
