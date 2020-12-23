@@ -19,7 +19,7 @@ export default function LinkCard () {
       link: '//www.wyr.me/'
     },
     {
-      title: '沐马小站',
+      title: '沐码小站',
       motto: '想把代码写成诗的未知名作家',
       avatar: '//file.wintc.top/4a79f0e2f0f4468ea76ca68fa169e673',
       link: '//wintc.top/'

@@ -1,3 +1,26 @@
 @import 'variables';
 @import 'functions';
 @import 'mixins';
+@import 'highlight';
+@import 'markdown';
+@import 'reset';
+
+@mixin theme-core {
+  @include reset();
+  @include highlight(); // TODO: highlight colors
+  @include markdown();
+}
+
+@mixin theme-color($colors, $namespace: null) {
+  $selector: ':root';
+
+  @if $namespace {
+    $selector: ':root .#{$namespace}';
+  }
+
+  #{$selector} {
+    @each $key, $value in $colors {
+      #{get-var($key)}: $value;
+    }
+  }
+}

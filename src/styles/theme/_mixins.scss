@@ -1,24 +1,9 @@
-@import 'functions';
-@import 'highlight';
-@import 'markdown';
-@import 'reset';
 
-@mixin theme-core {
-  @include reset();
-  @include highlight(); // TODO: highlight colors
-  @include markdown();
-}
-
-@mixin theme-color($colors, $namespace: null) {
-  $selector: ':root';
-
-  @if $namespace {
-    $selector: ':root .#{$namespace}';
-  }
-
-  #{$selector} {
-    @each $key, $value in $colors {
-      #{get-var($key)}: $value;
-    }
+@mixin external-link() {
+  border-bottom: 1px dotted;
+  transition: color .15s,border-color .15s,opacity .15s;
+  &:hover {
+    color: get-color(primary);
+    border-bottom-style: solid;
   }
 }

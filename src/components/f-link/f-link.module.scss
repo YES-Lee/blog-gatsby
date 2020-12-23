@@ -18,7 +18,8 @@
   .content {
     margin-left: $margin-1;
     .title {
-      font-size: .8rem;
+      font-size: .9rem;
+      @include external-link();
     }
     .motto {
       opacity: $opacity-3;

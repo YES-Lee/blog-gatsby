@@ -7,16 +7,14 @@ export default function FLink ({ data, className }) {
     <div className={`${styles.fLink} ${className}`}>
       <img className={styles.avatar} src={data.avatar} />
       <div className={styles.content}>
-        <div className={styles.title}>
-          <a
-            href={data.link}
-            target='_blank'
-            rel='noopener noreferrer'
-            className={styles.title}
-          >
-            {data.title}
-          </a>
-        </div>
+        <a
+          href={data.link}
+          target='_blank'
+          rel='noopener noreferrer'
+          className={styles.title}
+        >
+          {data.title}
+        </a>
         <div className={styles.motto}>{data.motto}</div>
       </div>
     </div>
