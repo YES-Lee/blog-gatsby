@@ -1,5 +1,134 @@
+@import '../../styles/theme/theme';
+
+$fab-offset: 140%;
+$fab-size: 4.4rem;
+$fab-sub-size: 3.4rem;
+
+@mixin sub-transform($deg, $level) {
+  $v: $level * -$fab-offset;
+  transform: translate3d($v * cos($deg), $v * sin($deg), 0);
+}
+
 .fab {
   position: fixed;
-  bottom: 3rem;
-  right: 2rem;
+  right: 1rem;
+  bottom: 1.3rem;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+
+  .fabControl {
+    width: $fab-size;
+    height: $fab-size;
+    cursor: pointer;
+    &.rotating {
+      animation: 1s both;
+      animation-name: fab_ani--rotate;
+    }
+
+    // svg
+    .fabControlSvg {
+      z-index: -1;
+      display: block;
+      width: $fab-size;
+      height: $fab-size;
+    }
+    // g
+    .fabControlDot {
+      transform: translate3d($fab-size / 2, $fab-size / 2, 0);
+      circle {
+        transition: all .15s cubic-bezier(0, 0, .382, 1.618);
+        fill: #fff;
+      }
+    }
+    // text
+    .fabControlProgress {
+      font-size: 1.2rem;
+      line-height: 1;
+      transform: translateY(.382em);
+      font-family: $font-family-number;
+      fill: #fff;
+      text-anchor: middle;
+      tspan {
+        font-size: .75rem;
+        font-family: inherit;
+      }
+    }
+    // circle
+    .fabControlStroke {
+      opacity: .9;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      stroke-width: 1px;
+      fill: none;
+      stroke: get-color(primary);
+    }
+    // circle
+    .fabControlCover {
+      opacity: .8;
+      fill: get-color(primary);
+    }
+  }
+
+  .fabMenuGroup {
+    span {
+      position: absolute;
+      z-index: -1;
+      width: $fab-sub-size;
+      height: $fab-sub-size;
+      border-radius: 50%;
+      background-color: rgba(0,0,0,.8);
+      box-shadow: 0 2px 4px 1px rgba(0, 0, 0, .2);
+      font-size: 1.5rem;
+      line-height: $fab-sub-size;
+      opacity: 0;
+      cursor: pointer;
+      transition: .4s cubic-bezier(0, 0, .382, 1.618);
+      transition-property: transform, opacity;
+
+      &::before {
+        font-size: inherit;
+        margin: 0;
+      }
+      &:nth-child(3n-2) {
+        top: 0;
+        right: 0;
+      }
+      &:nth-child(3n-1) {
+        top: 0;
+        left: 0;
+      }
+      &:nth-child(3n) {
+        bottom: 0;
+        left: 0;
+      }
+    }
+    &.fabActive {
+      span {
+        opacity: 1;
+        &:nth-child(1) {
+          @include sub-transform(90deg, 1);
+        }
+        &:nth-child(2) {
+          @include sub-transform(45deg, 1);
+        }
+        &:nth-child(3) {
+          @include sub-transform(0, 1);
+        }
+        &:nth-child(4) {
+          @include sub-transform(90deg, 2);
+        }
+        &:nth-child(5) {
+          @include sub-transform(67.5deg, 2);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fab_ani--rotate {
+  to {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
 }

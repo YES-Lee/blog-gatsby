@@ -23,12 +23,19 @@ export default function PostTemplate (props) {
 
   return (
     <Layout
-      siderFixed={false}
-      plugins={[
+      showFab
+      fabToc
+      toc={
         <Card key='toc' className={styles.toc}>
           <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
         </Card>
-      ]}
+      }
+      siderFixed={false}
+      // plugins={[
+      //   <Card key='toc' className={styles.toc}>
+      //     <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
+      //   </Card>
+      // ]}
     >
       <SEO
         title={`${post.frontmatter.title}`}

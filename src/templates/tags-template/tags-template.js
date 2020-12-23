@@ -4,10 +4,8 @@ import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Card from '../../components/card/card'
 import Pagination from '../../components/pagination'
-import moment from 'moment'
 
 import styles from './tags-template.module.scss'
-moment.locale('zh_CN')
 
 export default function CategoryPage (props) {
 
@@ -41,7 +39,7 @@ export default function CategoryPage (props) {
             {
               currentList.map((item, i) => (
                 <Link className={styles.item} to={item.link} key={i}>
-                  <span className={styles.date}>{moment(item.date).format('YYYY/MM/DD')}</span>
+                  <span className={styles.date}>{item.data}</span>
                   <span className={styles.title}>{item.title}</span>
                 </Link>
               ))

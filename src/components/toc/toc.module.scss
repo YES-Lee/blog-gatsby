@@ -1,0 +1,24 @@
+@import '../../styles/theme/theme';
+
+$toc-width: 18 * $font-size;
+
+.toc {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+  padding: 1rem 0;
+  width: $toc-width;
+  transform: translate3d($toc-width, 0, 0);
+  background-color: get-color(surface);
+  transition-duration: 378ms;
+  transition-property: transform;
+
+  &.active {
+    box-shadow: -2px 0 3px rgba(0, 0, 0, .1);
+    transform: translate3d(0,0,0);
+  }
+}

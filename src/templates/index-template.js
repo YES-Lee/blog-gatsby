@@ -10,11 +10,11 @@ import styles from './index.module.scss'
 import LinkCard from '../components/link-card'
 
 const IndexPage = (props) => {
-
   const { data: { postList }, pageContext: { currentPage, totalPage } } = props
 
   return (
     <Layout
+      showFab
       active={currentPage === 0 ? '/' : ''}
       plugins={[
         <LinkCard key='links' />
