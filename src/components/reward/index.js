@@ -22,12 +22,12 @@ export function Reward (props) {
                   position={position}
                   targetRect={targetRect}
                   popoverRect={popoverRect}
-                  arrowColor={'var(--color-background)'}
+                  arrowColor={'var(--theme-color-background)'}
                   arrowSize={10}
                 >
                   <div
                     style={{
-                      backgroundColor: 'var(--color-background)',
+                      backgroundColor: 'var(--theme-color-background)',
                       borderRadius: '4px',
                       padding: '1rem',
                       textAlign: 'center'
