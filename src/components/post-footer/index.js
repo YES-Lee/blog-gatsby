@@ -24,7 +24,7 @@ export default function PostFooter (props) {
   return (
     <footer className={styles.postFooter}>
       <Reward
-        text='如果本文对你有帮助，👆可以打赏我的女朋友'
+        text='Buy me a cup of coffee ☕.'
         list={[
           {
             title: 'WeChat',
