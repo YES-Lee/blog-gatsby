@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'functions';
 
 $line-height: 1.8;
 
@@ -11,9 +12,15 @@ $line-height: 1.8;
     }
   
     a {
-      border-bottom: 1px dotted get-color(primary-text);
+      border-bottom: 1px dotted;
+      transition: color .15s,border-color .15s,opacity .15s;
+      &:hover, &:active {
+        border-bottom-style: solid;
+        color: get-color(primary);
+      }
       &.anchor {
         border: none;
+        display: none;
       }
     }
   

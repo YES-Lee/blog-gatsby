@@ -1,5 +1,6 @@
 ---
 title: {{TITLE}}
+slug: {{SLUG}}
 thumbnail: ./cover.jpg
 date: {{TIMESTEMP}}
 tags:

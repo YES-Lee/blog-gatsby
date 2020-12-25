@@ -1,0 +1,71 @@
+#! /usr/bin/env node
+
+/**
+ * 从scaffold创建一篇文章
+ * new <post|draft> <title>
+ */
+
+const commander = require('commander')
+const path = require('path')
+const fs = require('fs')
+const Inquirer = require('inquirer')
+
+commander
+  .version('0.0.2')
+
+commander
+  .command('new')
+  .description('新建文章')
+  .action(() => {
+    Inquirer.prompt([
+      {
+        type: 'input',
+        name: 'title',
+        message: '请输入文章标题:'
+      },
+      {
+        type: 'input',
+        name: 'slug',
+        message: '请输入slug'
+      }
+    ]).then(ans => {
+      const timestemp = new Date().toISOString()
+      const postDir = path.resolve(process.cwd(), `source/drafts/${ans.slug}`)
+      const templatePath = path.resolve(process.cwd(), 'scaffold/draft.md')
+      const destination = path.join(postDir, `${ans.slug}.md`)
+      const template = fs.readFileSync(templatePath, { encoding: 'utf-8' })
+      if (!fs.existsSync(postDir)) {
+        fs.mkdirSync(postDir)
+      }
+      const tpl = template
+        .replace(/\{\{TITLE\}\}/g, ans.title)
+        .replace(/\{\{TIMESTEMP\}\}/g, timestemp)
+        .replace(/\{\{SLUG\}\}/g, ans.slug)
+      fs.writeFileSync(destination, tpl)
+    })
+  })
+  .parse(process.argv)
+
+commander
+  .command('publish')
+  .description('发布文章')
+  .action(() => {
+    Inquirer.prompt([
+      {
+        type: 'list',
+        name: 'post',
+        message: '选择要发布的文章：',
+        choices: [
+          '第一篇',
+          '第二篇'
+        ]
+      }
+    ]).then(ans => {
+      console.log(ans)
+    })
+  })
+  .parse(process.argv)
+
+if (!commander.args || !commander.args.length) {
+  commander.help()
+}

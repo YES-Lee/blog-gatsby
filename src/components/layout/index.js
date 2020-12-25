@@ -18,7 +18,7 @@ export default function Layout (props) {
   const [progress, setProgress] = useState(0)
   const [tocVisible, setTocVisible] = useState(false)
   const [isTablet, setIsTablet] = useState(false)
-  const [showSider, setShowSider] = useState(false)
+  const [siderVisible, setSiderVisible] = useState(false)
 
   const handleScroll = useCallback(($e) => {
     let scale = $e.target.scrollTop / ($e.target.scrollHeight - $e.target.offsetHeight)
@@ -33,7 +33,7 @@ export default function Layout (props) {
     tablet.addEventListener('change', m => {
       setIsTablet(m.matches)
       if (!m.matches) {
-        setShowSider(false)
+        setSiderVisible(false)
       }
     })
   }, [])
@@ -56,17 +56,22 @@ export default function Layout (props) {
         setTocVisible(v => !v)
         break
       case 'sider':
-        setShowSider(v => !v)
+        setSiderVisible(v => !v)
         break
       default:
         break
     }
   }, [])
 
+  const handleClickContainer = useCallback(() => {
+    setSiderVisible(false)
+    setTocVisible(false)
+  }, [])
+
   return (
     <>
-      <Sider className={`${styles.sider} ${showSider ? styles.show : ''}`} active={active} plugins={plugins} fixed={siderFixed} />
-      <div className={`${styles.container1} ${showSider ? styles.showSider : ''}`} onClick={() => setShowSider(false)}>
+      <Sider className={`${styles.sider} ${siderVisible ? styles.show : ''}`} active={active} plugins={plugins} fixed={siderFixed} />
+      <div className={`${styles.container1} ${siderVisible ? styles.showSider : ''}`} onClick={() => handleClickContainer()}>
         <div className={styles.container2}>
           <div className={styles.container3} ref={pageRef} onScroll={handleScroll}>
             <main className={styles.main}>
@@ -78,8 +83,8 @@ export default function Layout (props) {
       {
         (isTablet || showFab) && (
           <Fab
-            fabSider={isTablet}
-            fabToc={fabToc}
+            fabSider={isTablet && !tocVisible}
+            fabToc={fabToc && !siderVisible}
             progress={progress}
             action={onFabAction}
           />

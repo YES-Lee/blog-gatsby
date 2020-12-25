@@ -11,11 +11,13 @@ export default function PostCard (props) {
   return (
     <Card className={styles.postCard}>
       <div className={styles.cover}>
-        {
-          thumbnail && (
-            <Img fluid={thumbnail} />
-          )
-        }
+        <Link to={url}>
+          {
+            thumbnail && (
+              <Img fluid={thumbnail} />
+            )
+          }
+        </Link>
       </div>
       <div className={styles.container}>
         <div className={styles.body}>

@@ -31,7 +31,7 @@
           transition: all .3s ease-in-out;
   
           &:hover, &:active {
-            border-bottom: 1px dotted get-color(primary-text)
+            color: get-color(primary);
           }
         }
       }

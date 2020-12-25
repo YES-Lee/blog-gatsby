@@ -54,6 +54,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.1",
+    "inquirer": "^7.3.3",
     "ora": "^4.0.3",
     "prettier": "^1.19.1"
   },
@@ -71,7 +72,8 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "lint": "eslint --cache --ext .js src/",
     "lint:fix": "eslint --fix --cache --ext .js src/",
-    "deploy": "scripts/deploy"
+    "blog:new": "scripts/blog new",
+    "blog:publish": "scripts/blog publish"
   },
   "repository": {
     "type": "git",
