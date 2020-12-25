@@ -9,6 +9,7 @@ const commander = require('commander')
 const path = require('path')
 const fs = require('fs')
 const Inquirer = require('inquirer')
+const exec = require('child_process').exec
 
 commander
   .version('0.0.2')
@@ -44,27 +45,80 @@ commander
       fs.writeFileSync(destination, tpl)
     })
   })
-  .parse(process.argv)
 
 commander
   .command('publish')
   .description('发布文章')
   .action(() => {
+    const postList = []
+    const slugs = fs.readdirSync(path.resolve(__dirname, '../source/drafts')).filter(s => !s.startsWith('.'))
+    if (slugs.length === 0) {
+      console.log('没有需要发布的文章')
+      return
+    }
+    for (const slug of slugs) {
+      const content = fs.readFileSync(path.resolve(__dirname, `../source/drafts/${slug}/${slug}.md`), { encoding: 'utf-8' })
+      const titleReg = /title:.*\n/
+      const titleMatch = content.match(titleReg)[0]
+      if (titleMatch) {
+        const tt = titleMatch.split(':')[1].trim()
+        postList.push({
+          name: tt,
+          value: slug
+        })
+      }
+    }
     Inquirer.prompt([
       {
         type: 'list',
         name: 'post',
         message: '选择要发布的文章：',
-        choices: [
-          '第一篇',
-          '第二篇'
-        ]
+        choices: postList
       }
     ]).then(ans => {
-      console.log(ans)
+      if (ans.post) {
+        exec(`mv ${path.resolve(__dirname, '../source/drafts/' + ans.post)} ${path.resolve(__dirname, '../source/posts/')}`)
+      }
     })
   })
-  .parse(process.argv)
+
+commander
+  .command('unpublish')
+  .description('取消发布文章')
+  .action(() => {
+    const postList = []
+    const slugs = fs.readdirSync(path.resolve(__dirname, '../source/posts')).filter(s => !s.startsWith('.'))
+    if (slugs.length === 0) {
+      console.log('没有已发布的文章')
+      return
+    }
+    for (const slug of slugs) {
+      const content = fs.readFileSync(path.resolve(__dirname, `../source/posts/${slug}/${slug}.md`), { encoding: 'utf-8' })
+      const titleReg = /title:.*\n/
+      const titleMatch = content.match(titleReg)[0]
+      if (titleMatch) {
+        const tt = titleMatch.split(':')[1].trim()
+        postList.push({
+          name: tt,
+          value: slug
+        })
+      }
+    }
+    Inquirer.prompt([
+      {
+        type: 'list',
+        name: 'post',
+        message: '选择要取消发布的文章：',
+        choices: postList
+      }
+    ]).then(ans => {
+      if (ans.post) {
+        exec(`mv ${path.resolve(__dirname, '../source/posts/' + ans.post)} ${path.resolve(__dirname, '../source/drafts/')}`)
+      }
+    })
+  })
+
+commander.parse(process.argv)
 
 if (!commander.args || !commander.args.length) {
   commander.help()
