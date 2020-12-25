@@ -1,3 +1,7 @@
-const config = require('./gatsby-config')
+const plugins = require('./plugins')
+const siteMetadata = require('./site-meta')
 
-module.exports = config
+module.exports = {
+  siteMetadata,
+  plugins
+}
