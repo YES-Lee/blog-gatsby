@@ -74,12 +74,6 @@ module.exports = {
             resolve: 'gatsby-remark-images-medium-zoom'
           },
           {
-            resolve: 'gatsby-remark-autolink-headers',
-            options: {
-              isIconAfterHeader: true
-            }
-          },
-          {
             resolve: 'gatsby-remark-prismjs',
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
