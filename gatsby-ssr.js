@@ -14,6 +14,7 @@ exports.onRenderBody = ({
   setHeadComponents
 }) => {
   setHeadComponents([
+    <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"></meta>,
     <script key='GOOGLE_AD' data-ad-client="ca-pub-1108685461241651" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>,
     <script key='GOOGLE_GTAG' async src="https://www.googletagmanager.com/gtag/js?id=UA-171547937-1"></script>,
     <script key='GOOGLE_ANALYTICS' dangerouslySetInnerHTML={{

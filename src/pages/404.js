@@ -7,8 +7,19 @@ import AdSense from '../components/adsense'
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <h1 style={{
+      margin: '10rem 0 3rem',
+      border: 0,
+      fontSize: '10rem',
+      fontFamily: 'monospace',
+      textAlign: 'center',
+      opacity: '.5'
+    }}>(;-;)</h1>
+    <p style={{
+      fontSize: '1.125rem',
+      opacity: '.5',
+      textAlign: 'center'
+    }}>Nothing here.</p>
     <AdSense
       style={{ display: 'block', textAlign: 'center' }}
       data-ad-layout="in-article"

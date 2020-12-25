@@ -13,7 +13,6 @@ export default function CategoryPage (props) {
     pageContext: {
       currentPage,
       totalPage,
-      tags,
       title,
       currentList
     }
@@ -45,7 +44,7 @@ export default function CategoryPage (props) {
               ))
             }
           </section>
-          <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => `/tags/${tags.title}/${i === 0 ? '' : i}`} />
+          <Pagination className={styles.pager} current={currentPage} total={totalPage} renderPath={i => `/tags/${title}/${i === 0 ? '' : i}`} />
         </article>
       </Card>
     </Layout>

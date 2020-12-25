@@ -54,7 +54,7 @@ export default function LinkPage () {
       <Card>
         <article className={styles.tagsPage}>
           <h1 className={styles.pageTitle}>
-            目前共计35个标签
+            {Object.keys(counter).length} tags in total
           </h1>
           <section className={styles.tagsPanel}>
             {

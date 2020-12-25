@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: process.env.NODE_ENV === 'development' ? 'Johnson的博客(开发)' : 'Johnson的博客',
@@ -11,11 +13,12 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`
+        path: path.resolve(__dirname, '../src/images')
       }
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-fastclick',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -34,14 +37,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: `${__dirname}/posts`
+        path: path.resolve(__dirname, '../posts')
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: process.env.NODE_ENV === 'development' ? `${__dirname}/drafts` : `${__dirname}/posts`
+        path: process.env.NODE_ENV === 'development' ? path.resolve(__dirname, '../drafts') : path.resolve(__dirname, '../posts')
       }
     },
     {

@@ -8,6 +8,10 @@
   left: 0;
   box-sizing: border-box;
   border-right: 1px solid get-color(sider-border);
+  @include mobile {
+    color: #fff;
+    border: 0;
+  }
 
   &::-webkit-scrollbar {
     width: 0;
@@ -29,6 +33,9 @@
     margin: 1rem 1rem .5rem;
     overflow: visible;
     text-align: center;
+    @include mobile {
+      background-color: transparent;
+    }
     .avatarContainer {
       display: inline-block;
       border: 1px solid get-color(avatar-border);
@@ -59,6 +66,9 @@
   }
 
   .tabsCard {
+    @include mobile {
+      background-color: transparent;
+    }
     padding: 0 1rem;
     margin: 1rem;
     display: flex;
@@ -77,6 +87,9 @@
         &::after {
           transform: scaleY(1);
         }
+        @include mobile {
+          color: inherit;
+        }
       }
 
       &::after {
@@ -93,6 +106,16 @@
         transform-origin: bottom center;
         border-radius: 3px 3px 0 0;
         background-color: get-color(primary);
+        @include mobile {
+          left: -.2rem;
+          right: -.2rem;
+          top: .5rem;
+          bottom: .5rem;
+          width: auto;
+          height: auto;
+          border-radius: 6px;
+          background-color: hsla(0,0%,100%,.1)!important;
+        }
       }
 
       .count {
@@ -132,10 +155,39 @@
     transition: all .15s;
     font-family: $font-family-nav;
 
+    @include mobile {
+      padding-left: 3rem;
+      text-align: left;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,hsla(0,0%,100%,.1),transparent)!important;
+        content: "";
+        transition: transform .4s;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+      }
+
+      &:hover, &:active, &.active {
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+    }
+
     &:active, &:hover, &.active {
       color: get-color(primary);
       font-size: 1.168rem;
       transition: all .15s;
+
+      @include mobile {
+        font-size: inherit;
+        color: #fff;
+      }
 
       &::after {
         background-color: get-color(primary);
@@ -154,6 +206,9 @@
       content: "";
       transform: translate(50%,-50%);
       background: #ffffff url(/images/brickwall.png);
+      @include mobile {
+        display: none;
+      }
     }
   }
 }

@@ -39,7 +39,7 @@
     color: #fff;
     padding: 2.5rem $padding-4 1rem;
     background: linear-gradient(180deg,transparent,rgba(0,0,0,.75));
-    @media screen and (max-width: 960px) {
+    @include mobile {
       padding: 2.5rem $padding-2 1rem;
     }
     .meta {

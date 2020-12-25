@@ -226,10 +226,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: tagsTemplate,
         context: {
           title: k,
-          tags: Object.keys(tags).map(tk => ({
-            title: tk,
-            count: tags[tk].length
-          })),
           totalPage: totalCatePage,
           currentPage: i,
           currentList: tags[k].slice(i * 10, (i + 1) * 10)

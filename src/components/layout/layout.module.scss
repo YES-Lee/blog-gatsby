@@ -1,10 +1,55 @@
 @import '../../styles/theme/theme';
 
+.sider {
+  transition: opacity 441ms;
+  @include tablet() {
+    opacity: 0;
+    &.show {
+      opacity: 1;
+    }
+  }
+}
+
 .container1 {
   margin-left: 280px;
   position: relative;
   box-sizing: border-box;
   height: 100%;
+
+  @include tablet() {
+    margin-left: 0;
+    transform-origin: 0 42%;
+    transition-property: transform, border-radius;
+    transition-duration: 441ms;
+    &.showSider {
+      transform: translate3d(294px, 0px, 0px);
+    }
+  }
+
+  @include mobile {
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1);
+
+    &::before {
+      position: absolute;
+      top: 1.6rem;
+      bottom: 1.6rem;
+      left: -1.6rem;
+      z-index: -1;
+      width: 100%;
+      border-radius: .85rem;
+      background-color: hsla(0,0%,100%,.2);
+      content: "";
+    }
+
+    &.showSider {
+      transform: translate3d(302px, 0px, 0px) scale3d(0.86, 0.86, 1);
+      .container3 {
+        overflow-y: hidden;
+        border-radius: .85rem;
+        transition: border-radius .4s;
+      }
+    }
+  }
 
   .container2 {
     height: 100%;
@@ -12,12 +57,18 @@
       height: 100%;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
+      @include mobile {
+        background: url(/images/brickwall.png);
+      }
 
       .main {
         position: relative;
         display: block;
-        margin: 2rem auto;
-        max-width: 660px;
+        @include desktop {
+          margin: 2rem auto;
+          max-width: 660px;
+          min-width: 640px;
+        }
       }
     }
   }

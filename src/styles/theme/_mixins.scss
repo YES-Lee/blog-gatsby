@@ -1,3 +1,4 @@
+@import 'variables';
 
 @mixin external-link() {
   border-bottom: 1px dotted;
@@ -22,5 +23,21 @@
     -moz-osx-font-smoothing: grayscale;
     margin-right: .4rem;
     content: $content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: #{$mobile-width}) {
+    @content;
   }
 }

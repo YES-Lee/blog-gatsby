@@ -9,7 +9,7 @@ export default function Sider (props) {
 
   const siderRef = useRef()
   const [fixedFooter, setFixedFooter] = useState(true)
-  const { plugins } = props
+  const { plugins, className } = props
 
   const { active } = props
 
@@ -67,7 +67,7 @@ export default function Sider (props) {
     }, { passive: true })
   }, [])
 
-  return <aside className={styles.sider}>
+  return <aside className={`${styles.sider} ${className}`}>
     <div className={styles.container} ref={siderRef}>
       <section className={styles.main}>
         <Card className={styles.profileCard}>

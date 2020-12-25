@@ -4,6 +4,7 @@
  */
 @import 'variables';
 @import 'functions';
+@import 'mixins';
 
 @mixin reset {
   * {
@@ -14,9 +15,19 @@
     font-size: $font-size;
     height: 100%;
   }
+
+  @media screen and (max-width:359px) {
+    html {
+      font-size: 12px;
+    }
+  }
   
   #___gatsby {
     height: 100%;
+    overflow: hidden;
+    @include mobile() {
+      background: get-color(primary) linear-gradient(to bottom, get-color(primary) 0%,#26323b 100%);
+    }
   }
   
   #gatsby-focus-wrapper {
@@ -82,11 +93,19 @@
     width: 8px;
     height: 6px;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background-color: rgba(96,125,139,.2);
     &:hover {
       background-color: get-color(primary);
+    }
+  }
+
+  @include mobile {
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      background: none;
     }
   }
 }

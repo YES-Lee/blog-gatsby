@@ -4,6 +4,8 @@ import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Card from '../../components/card/card'
 import Pagination from '../../components/pagination'
+import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
 
 import styles from './categories-template.module.scss'
 
@@ -51,7 +53,7 @@ export default function CategoryPage (props) {
           {
             currentList.map((item, i) => (
               <Link className={styles.item} to={item.link} key={i}>
-                <span className={styles.date}>{item.date}</span>
+                <span className={styles.date}>{dayjs(item.date).locale('zh-cn').format('DD/MM/YYYY')}</span>
                 <span className={styles.title}>{item.title}</span>
               </Link>
             ))
