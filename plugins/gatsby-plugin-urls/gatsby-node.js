@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
+// 生成站点的所有地址
 exports.onPostBuild = async ({ graphql }, options) => {
   const domain = options.domain || '/'
   const result = await graphql(`

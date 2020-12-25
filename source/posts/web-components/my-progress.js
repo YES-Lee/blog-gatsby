@@ -63,7 +63,7 @@
       if (name === 'value') {
         const root = this.shadowRoot
         const bar = root.querySelector('.bar')
-        let number = +newValue
+        const number = +newValue
         if (number > 1 || number < 0) {
           bar.style.width = 0
           throw new Error('progress value must between 0 and 1')

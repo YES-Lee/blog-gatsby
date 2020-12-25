@@ -54,12 +54,6 @@ export default function PostTemplate (props) {
               <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
               <div className={`${styles.infoPanel}`}>
                 <div className={styles.meta}>
-                  <span className={`${styles.item} ${styles.iconCalendar}`}>
-                    {post.frontmatter.date}
-                  </span>
-                  <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
-                    {post.timeToRead}‘
-                  </span>
                   {
                     post.frontmatter.categories.map(c => (
                       <Link key={c} to={`/categories/${c}`}>
@@ -69,6 +63,15 @@ export default function PostTemplate (props) {
                       </Link>
                     ))
                   }
+                  <span className={`${styles.item} ${styles.iconCalendar}`}>
+                    {post.frontmatter.date}
+                  </span>
+                  <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
+                    {post.timeToRead}‘
+                  </span>
+                  <span id="busuanzi_container_page_pv" className={`${styles.item} ${styles.iconEye}`}>
+                    <span id="busuanzi_value_page_pv"></span>
+                  </span>
                 </div>
                 <div className={styles.line}></div>
                 <div className={styles.title}>{post.frontmatter.title}</div>
@@ -78,12 +81,6 @@ export default function PostTemplate (props) {
             <header className={styles.header}>
               <div className={styles.title}>{post.frontmatter.title}</div>
               <div className={styles.meta}>
-                <span className={`${styles.item} ${styles.iconCalendar}`}>
-                  {post.frontmatter.date}
-                </span>
-                <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
-                  {post.timeToRead}‘
-                </span>
                 {
                   post.frontmatter.categories.map(c => (
                     <Link key={c} to={`/categories/${c}`}>
@@ -93,6 +90,15 @@ export default function PostTemplate (props) {
                     </Link>
                   ))
                 }
+                <span className={`${styles.item} ${styles.iconCalendar}`}>
+                  {post.frontmatter.date}
+                </span>
+                <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
+                  {post.timeToRead}‘
+                </span>
+                <span id="busuanzi_container_page_pv" className={`${styles.item} ${styles.iconEye}`}>
+                  <span id="busuanzi_value_page_pv"></span>
+                </span>
               </div>
             </header>
           )

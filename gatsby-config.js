@@ -37,14 +37,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: path.resolve(__dirname, './posts')
+        path: path.resolve(__dirname, './source/posts')
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: process.env.NODE_ENV === 'development' ? path.resolve(__dirname, './drafts') : path.resolve(__dirname, './posts')
+        path: process.env.NODE_ENV === 'development' ? path.resolve(__dirname, './source/drafts') : path.resolve(__dirname, './source/posts')
       }
     },
     {
