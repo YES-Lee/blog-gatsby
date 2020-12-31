@@ -21,8 +21,8 @@ export default function LinkCard () {
     {
       title: '沐码小站',
       motto: '想把代码写成诗的未知名作家',
-      avatar: '//file.wintc.top/4a79f0e2f0f4468ea76ca68fa169e673',
-      link: '//file.wintc.top/logo.jpeg'
+      avatar: '//file.wintc.top/logo.jpeg',
+      link: '//wintc.top/'
     },
     {
       title: 'Mind Spark',
