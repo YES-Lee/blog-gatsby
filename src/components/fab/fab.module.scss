@@ -50,7 +50,7 @@ $fab-sub-size: 3.4rem;
       font-family: $font-family-number;
       fill: #fff;
       text-anchor: middle;
-      tspan {
+      span {
         font-size: .75rem;
         font-family: inherit;
       }
@@ -98,10 +98,12 @@ $fab-sub-size: 3.4rem;
       &:nth-child(3n-1) {
         top: 0;
         left: 0;
+        transition-delay: 50ms;
       }
       &:nth-child(3n) {
         bottom: 0;
         left: 0;
+        transition-delay: 100ms;
       }
     }
     &.fabActive {
