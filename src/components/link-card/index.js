@@ -3,8 +3,7 @@ import FLink from '../f-link'
 
 import styles from './index.module.scss'
 
-export default function LinkCard () {
-
+export default function LinkCard() {
   const links = [
     // {
     //   title: 'Johnson的实验室',
@@ -16,20 +15,20 @@ export default function LinkCard () {
       title: '轶哥博客',
       motto: '妄图改变世界的全栈程序员',
       avatar: '//data.sercretcore.cn/new_avatar.jpeg',
-      link: '//www.wyr.me/'
+      link: '//www.wyr.me/',
     },
     {
       title: '沐码小站',
       motto: '想把代码写成诗的未知名作家',
       avatar: '//file.wintc.top/logo.jpeg',
-      link: '//wintc.top/'
+      link: '//wintc.top/',
     },
     {
       title: 'Mind Spark',
       motto: '',
       avatar: '//wivwiv.com/avatar.png',
-      link: '//wivwiv.com/'
-    }
+      link: '//wivwiv.com/',
+    },
     // {
     //   title: 'Traveling',
     //   motto: '开往未知的世界',
@@ -40,11 +39,9 @@ export default function LinkCard () {
 
   return (
     <div className={styles.linksCard}>
-      {
-        links.map((item, i) => (
-          <FLink data={item} key={i} className={styles.linkItem} />
-        ))
-      }
+      {links.map((item, i) => (
+        <FLink data={item} key={i} className={styles.linkItem} />
+      ))}
     </div>
   )
 }

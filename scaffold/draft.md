@@ -1,8 +1,8 @@
 ---
-title: {{TITLE}}
-slug: {{SLUG}}
+title: { { TITLE } }
+slug: { { SLUG } }
 thumbnail: ./cover.jpg
-date: {{TIMESTEMP}}
+date: { { TIMESTEMP } }
 tags:
   - 标签
 categories:
@@ -12,4 +12,5 @@ keywords:
 ---
 
 摘要
+
 <!-- more -->

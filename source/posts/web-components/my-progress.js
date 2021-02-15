@@ -1,4 +1,4 @@
-(function () {
+;(function() {
   const templateString = `
     <style>
       .bg {
@@ -42,24 +42,23 @@
    * 继承HTMLElement
    */
   class MyProgress extends HTMLElement {
-
     // 注意⚠️，attributeChangedCallback回调需要添加此方法，返回要监听变动的属性
-    static get observedAttributes () {
+    static get observedAttributes() {
       return ['value']
     }
 
-    constructor (...args) {
+    constructor(...args) {
       super(...args)
       this.init()
     }
 
-    init () {
+    init() {
       // let template = document.getElementById('my-progress-template')
       const shadow = this.attachShadow({ mode: 'open' })
       shadow.appendChild(template.content.cloneNode(true))
     }
 
-    attributeChangedCallback (name, oldValue, newValue) {
+    attributeChangedCallback(name, oldValue, newValue) {
       if (name === 'value') {
         const root = this.shadowRoot
         const bar = root.querySelector('.bar')
@@ -78,7 +77,7 @@
     console.log('注册my-progress组件')
   }
 
-  function initPlugin () {
+  function initPlugin() {
     customElements.whenDefined('my-progress').then(() => {
       const mountPoint = document.getElementById('my-progress-mount')
       if (!mountPoint) {
@@ -98,7 +97,7 @@
       // const progressText = document.getElementById('progress-text')
       myProgress.setAttribute('value', rangeInput.value)
       progressText.innerText = (+rangeInput.value * 100).toFixed(0) + '%'
-      rangeInput.addEventListener('input', (e) => {
+      rangeInput.addEventListener('input', e => {
         myProgress.setAttribute('value', e.target.value)
         progressText.innerText = (+e.target.value * 100).toFixed(0) + '%'
       })

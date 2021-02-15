@@ -17,10 +17,11 @@ keywords:
   - 内网共享工作组
 ---
 
-最近公司在终端设备上调试软件的时候有诸多不便，看到工程师小哥哥拿着U盘到处跑。回头一看，公司还有几台闲置电脑，便想着装个文件服务，供团队开发测试使用。服务器系统使用`ubuntu server 18.04.3`，系统安装非常简单，不再赘述。
+最近公司在终端设备上调试软件的时候有诸多不便，看到工程师小哥哥拿着 U 盘到处跑。回头一看，公司还有几台闲置电脑，便想着装个文件服务，供团队开发测试使用。服务器系统使用`ubuntu server 18.04.3`，系统安装非常简单，不再赘述。
+
 <!-- more -->
 
-## samba安装
+## samba 安装
 
 ```shell
 sudo apt-get install -y samba samba-common
@@ -43,7 +44,7 @@ useradd -m -g work -s /bin/bash share
 sudo smbpasswd -a share
 ```
 
-## 配置samba
+## 配置 samba
 
 `samba`配置文件路径为`/etc/samba/smb.conf`，在末尾添加配置
 

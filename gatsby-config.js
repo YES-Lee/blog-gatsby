@@ -2,10 +2,16 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    title: process.env.NODE_ENV === 'development' ? 'Johnson的博客(开发)' : 'Johnson的博客',
+    title:
+      process.env.NODE_ENV === 'development'
+        ? 'Johnson的博客(开发)'
+        : 'Johnson的博客',
     description: '喜欢折腾，喜欢技术，不想成为咸鱼的前端程序员',
     author: 'Johnson',
-    siteUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:8000/' : 'https://johnsonlee.site/'
+    siteUrl:
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:8000/'
+        : 'https://johnsonlee.site/',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -13,8 +19,8 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: path.resolve(__dirname, './src/images')
-      }
+        path: path.resolve(__dirname, './src/images'),
+      },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -28,8 +34,8 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'standalone',
-        icon: 'static/favicons/icon.png' // This path is relative to the root of the site.
-      }
+        icon: 'static/favicons/icon.png', // This path is relative to the root of the site.
+      },
     },
     'gatsby-plugin-offline', // service worker
     'gatsby-plugin-sass',
@@ -37,15 +43,18 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: path.resolve(__dirname, './source/posts')
-      }
+        path: path.resolve(__dirname, './source/posts'),
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: process.env.NODE_ENV === 'development' ? path.resolve(__dirname, './source/drafts') : path.resolve(__dirname, './source/posts')
-      }
+        path:
+          process.env.NODE_ENV === 'development'
+            ? path.resolve(__dirname, './source/drafts')
+            : path.resolve(__dirname, './source/posts'),
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -56,15 +65,15 @@ module.exports = {
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
-              isIconAfterHeader: true
-            }
+              isIconAfterHeader: true,
+            },
           },
           {
             resolve: 'gatsby-remark-katex', // 公式
             options: {
               // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
-              strict: 'ignore'
-            }
+              strict: 'ignore',
+            },
           },
           {
             resolve: 'gatsby-remark-images',
@@ -73,11 +82,11 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 1920,
-              linkImagesToOriginal: false
-            }
+              linkImagesToOriginal: false,
+            },
           },
           {
-            resolve: 'gatsby-remark-images-medium-zoom'
+            resolve: 'gatsby-remark-images-medium-zoom',
           },
           {
             resolve: 'gatsby-remark-prismjs',
@@ -92,30 +101,30 @@ module.exports = {
                   language: 'superscript',
                   extend: 'javascript',
                   definition: {
-                    superscript_types: /(SuperType)/
+                    superscript_types: /(SuperType)/,
                   },
                   insertBefore: {
                     function: {
-                      superscript_keywords: /(superif|superelse)/
-                    }
-                  }
-                }
+                      superscript_keywords: /(superif|superelse)/,
+                    },
+                  },
+                },
               ],
               // Customize the prompt used in shell output
               // Values below are default
               prompt: {
                 user: 'root',
                 host: 'localhost',
-                global: false
+                global: false,
               },
               // By default the HTML entities <>&'" are escaped.
               // Add additional HTML escapes by providing a mapping
               // of HTML entities and their escape value IE: { '}': '&#123;' }
-              escapeEntities: {}
-            }
-          }
-        ]
-      }
+              escapeEntities: {},
+            },
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-feed',
@@ -140,7 +149,7 @@ module.exports = {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   // custom_elements: [{ 'content:encoded': edge.node.html }]
                 })
               })
@@ -172,10 +181,10 @@ module.exports = {
             // if not provided or `undefined`, all pages will have feed reference inserted
             match: '^/post/',
             // optional configuration to specify external rss feed, such as feedburner
-            link: 'https://feeds.feedburner.com/gatsby/blog'
-          }
-        ]
-      }
+            link: 'https://feeds.feedburner.com/gatsby/blog',
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-sitemap',
@@ -189,16 +198,16 @@ module.exports = {
           '/tags/*',
           '/search/',
           '/search/*',
-          '/about/'
-        ]
-      }
+          '/about/',
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-urls',
       options: {
-        domain: 'https://johnsonlee.site/'
-      }
+        domain: 'https://johnsonlee.site/',
+      },
     },
-    'gatsby-plugin-smoothscroll'
-  ]
+    'gatsby-plugin-smoothscroll',
+  ],
 }

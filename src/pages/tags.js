@@ -6,8 +6,7 @@ import Card from '../components/card/card'
 
 import styles from './tags.module.scss'
 
-export default function LinkPage () {
-
+export default function LinkPage() {
   const MAX_COUNT = 20
   const MAX_SIZE = 3
 
@@ -24,14 +23,14 @@ export default function LinkPage () {
   `)
 
   const calcSize = count => {
-    const s = (count / MAX_COUNT) + 1
+    const s = count / MAX_COUNT + 1
     return s > MAX_SIZE ? MAX_SIZE : s
   }
 
   const counter = {}
 
   allMarkdownRemark.nodes.forEach(item => {
-    (item.frontmatter.tags || []).forEach(tag => {
+    ;(item.frontmatter.tags || []).forEach(tag => {
       if (counter[tag]) {
         counter[tag] = counter[tag] + 1
       } else {
@@ -41,14 +40,14 @@ export default function LinkPage () {
   })
 
   return (
-    <Layout active='/tags'>
+    <Layout active="/tags">
       <SEO
         title="标签-Johnson"
         meta={[
           {
             name: 'keywords',
-            content: Object.keys(counter).join(',')
-          }
+            content: Object.keys(counter).join(','),
+          },
         ]}
       />
       <Card>
@@ -57,19 +56,19 @@ export default function LinkPage () {
             {Object.keys(counter).length} tags in total
           </h1>
           <section className={styles.tagsPanel}>
-            {
-              Object.keys(counter).map((tag, i) => (
-                <Link
-                  to={`/tags/${tag}`}
-                  key={i}
-                  count={counter[tag]}
-                  className={styles.item}
-                  style={{
-                    fontSize: `${calcSize(counter[tag])}rem`
-                  }}
-                ># {tag}</Link>
-              ))
-            }
+            {Object.keys(counter).map((tag, i) => (
+              <Link
+                to={`/tags/${tag}`}
+                key={i}
+                count={counter[tag]}
+                className={styles.item}
+                style={{
+                  fontSize: `${calcSize(counter[tag])}rem`,
+                }}
+              >
+                # {tag}
+              </Link>
+            ))}
           </section>
         </article>
       </Card>

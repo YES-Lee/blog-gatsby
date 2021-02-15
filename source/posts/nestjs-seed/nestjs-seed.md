@@ -15,7 +15,6 @@ keywords:
   - nestjs基础教程
 ---
 
-
 整合了`nestjs`项目通用架构、常用功能集成的一个快速开发项目。
 
 <!-- more -->
@@ -24,12 +23,12 @@ keywords:
 
 ## 集成功能
 
-* [x] ORM: `sequelize`
-* [x] API: `restful api`, `graphql`
-* [x] 认证：`passport`
-* [x] 文档：`swagger`
-* [x] 安全：`helmet`
-* [x] 日志：`nest-pino`
+- [x] ORM: `sequelize`
+- [x] API: `restful api`, `graphql`
+- [x] 认证：`passport`
+- [x] 文档：`swagger`
+- [x] 安全：`helmet`
+- [x] 日志：`nest-pino`
 
 功能不断完善，将来或提供可插拔的开发体验
 
@@ -65,21 +64,21 @@ src
 
 ```typescript
 {
-  error_code: number; // 错误码，只在异常时返回
-  error_message: string; // 错误信息，只在异常时返回
-  data: any;
-  timestamp: any; // 时间戳
-  path: string; // 请求路径
+  error_code: number // 错误码，只在异常时返回
+  error_message: string // 错误信息，只在异常时返回
+  data: any
+  timestamp: any // 时间戳
+  path: string // 请求路径
 }
 ```
 
 `dtc/support`中提供了`ApiResponse`类，提供了`success`, `error`两个静态方法。
 
-## Config模块
+## Config 模块
 
 `Config`模块是提供项目配置的模块，提供全局的项目配置，以依赖注入的方式使用配置项。`src/config`目录下，配置文件以`config.{env}.ts`命名，`config.default.ts`作为项目的默认配置，默认都会加载，其它配置会自动和`config.default.ts`合并。
 
-### 使用Config
+### 使用 Config
 
 `Config`模块是全局模块，可以通过注入的方式使用，如在数据库模块中使用配置
 
@@ -118,8 +117,8 @@ LoggerModule.forRootAsync({
       useLevelLabels: configService.get('log.useLevelLabels'),
       prettyPrint: configService.get('log.prettyPrint'),
       stream: pino.destination(configService.get('log.path')),
-    };
-  }
+    }
+  },
 })
 ```
 
@@ -135,7 +134,7 @@ LoggerModule.forRootAsync({
 
 请求参数分为两种类型，一种为`args`，另一种为`input`，区别在于两种方式在请求的时候传输的参数不同，`args`类型里的字段会展开为`resolver`方法的参数列表，而`input`类型定义的是`resolver`中的一个参数，如下面的列子：（[文档（https://typegraphql.ml/docs/faq.html#is-inputtype-different-from-argstype）](https://typegraphql.ml/docs/faq.html#is-inputtype-different-from-argstype)）
 
-* `args`类型
+- `args`类型
 
   ```typescript
   @ArgsType()
@@ -158,7 +157,7 @@ LoggerModule.forRootAsync({
 
   ```
 
-* `input`类型
+- `input`类型
 
   ```typescript
   @ArgsType()
@@ -190,12 +189,12 @@ LoggerModule.forRootAsync({
 ```typescript
 @ObjectType({
   implements: IPageResult,
-  description: '用户列表'
+  description: '用户列表',
 })
 export class UserListResult implements IPageResult<User> {
-  count: number;
+  count: number
   @Field(type => [User])
-  rows: User[];
+  rows: User[]
 }
 ```
 
@@ -205,14 +204,14 @@ export class UserListResult implements IPageResult<User> {
 
 ## 相关技术
 
-* [nodejs] [https://nodejs.org/en/docs/](https://nodejs.org/en/docs/)
-* [typescript] [https://www.tslang.cn/docs/home.html](https://www.tslang.cn/docs/home.html)
-* [nestjs] [https://docs.nestjs.com/](https://docs.nestjs.com/)
-* [express] [https://expressjs.com/](https://expressjs.com/)
-* [sequelize] [https://sequelize.org/v5/](https://sequelize.org/v5/)
-* [sequelize-typescript] [https://github.com/RobinBuschmann/sequelize-typescript](https://sequelize.org/v5/)
-* [Passport.js] [http://www.passportjs.org/](http://www.passportjs.org/)
-* [GraphQl] [https://graphql.cn/](https://graphql.cn/)
-* [type-graphql] [https://typegraphql.ml/](https://typegraphql.ml/)
-* [swagger-ui-express] [https://www.npmjs.com/package/swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
-* [socket.io] [https://socket.io](https://socket.io)
+- [nodejs][https://nodejs.org/en/docs/](https://nodejs.org/en/docs/)
+- [typescript][https://www.tslang.cn/docs/home.html](https://www.tslang.cn/docs/home.html)
+- [nestjs][https://docs.nestjs.com/](https://docs.nestjs.com/)
+- [express][https://expressjs.com/](https://expressjs.com/)
+- [sequelize][https://sequelize.org/v5/](https://sequelize.org/v5/)
+- [sequelize-typescript][https://github.com/robinbuschmann/sequelize-typescript](https://sequelize.org/v5/)
+- [Passport.js][http://www.passportjs.org/](http://www.passportjs.org/)
+- [GraphQl][https://graphql.cn/](https://graphql.cn/)
+- [type-graphql][https://typegraphql.ml/](https://typegraphql.ml/)
+- [swagger-ui-express][https://www.npmjs.com/package/swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
+- [socket.io][https://socket.io](https://socket.io)

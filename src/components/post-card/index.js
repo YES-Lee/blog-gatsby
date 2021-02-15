@@ -5,19 +5,13 @@ import Card from '../card/card'
 
 import styles from './index.module.scss'
 
-export default function PostCard (props) {
+export default function PostCard(props) {
   const { title, excerpt, url, thumbnail, date, timeToRead } = props
 
   return (
     <Card className={styles.postCard}>
       <div className={styles.cover}>
-        <Link to={url}>
-          {
-            thumbnail && (
-              <Img fluid={thumbnail} />
-            )
-          }
-        </Link>
+        <Link to={url}>{thumbnail && <Img fluid={thumbnail} />}</Link>
       </div>
       <div className={styles.container}>
         <div className={styles.body}>
@@ -26,15 +20,16 @@ export default function PostCard (props) {
               {title}
             </Link>
           </h3>
-          <p className={styles.excerpt}>
-            {excerpt}
-          </p>
+          <p className={styles.excerpt}>{excerpt}</p>
         </div>
         <div className={styles.metas}>
-          <span className={`${styles.metaItem} ${styles.date}`}>
+          <span className={`${styles.metaItem} iconfont icon-calendar`}>
             {date}
           </span>
-          <span className={`${styles.metaItem} ${styles.readTime}`} title={`阅读时间${timeToRead}分钟`}>
+          <span
+            className={`${styles.metaItem} iconfont icon-clock`}
+            title={`阅读时间${timeToRead}分钟`}
+          >
             {timeToRead}‘
           </span>
         </div>

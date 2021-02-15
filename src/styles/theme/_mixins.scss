@@ -9,23 +9,6 @@
   }
 }
 
-@mixin icomoon($content) {
-  &::before {
-    font-family: 'icomoon' !important;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    margin-right: .4rem;
-    content: $content;
-  }
-}
-
 @mixin mobile {
   @media (max-width: #{$mobile-width - 1px}) {
     @content;
@@ -39,5 +22,31 @@
 @mixin desktop {
   @media (min-width: #{$mobile-width}) {
     @content;
+  }
+}
+
+@mixin iconfont {
+  @import url("//at.alicdn.com/t/font_2373720_ymbx2fd9rsd.css");
+
+  @font-face {
+    font-family: 'iconfont';  /* project id 2373720 */
+    src: url('//at.alicdn.com/t/font_2373720_ymbx2fd9rsd.eot');
+    src: url('//at.alicdn.com/t/font_2373720_ymbx2fd9rsd.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_2373720_ymbx2fd9rsd.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_2373720_ymbx2fd9rsd.woff') format('woff'),
+    url('//at.alicdn.com/t/font_2373720_ymbx2fd9rsd.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_2373720_ymbx2fd9rsd.svg#iconfont') format('svg');
+  }
+
+  .iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+
+    &::before {
+      margin-right: .4rem;
+    }
   }
 }

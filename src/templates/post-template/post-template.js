@@ -10,9 +10,11 @@ import { postHtmlFilter } from '../../lib/utils'
 
 import styles from './post-template.module.scss'
 
-export default function PostTemplate (props) {
-
-  const { data: { post, site }, pageContext } = props
+export default function PostTemplate(props) {
+  const {
+    data: { post, site },
+    pageContext
+  } = props
 
   const handleClickTitle = e => {
     e.preventDefault()
@@ -26,16 +28,19 @@ export default function PostTemplate (props) {
       showFab
       fabToc
       toc={
-        <Card key='toc' className={styles.toc}>
-          <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
+        <Card key="toc" className={styles.toc}>
+          <div
+            dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
+            onClick={handleClickTitle}
+          ></div>
         </Card>
       }
       siderFixed={false}
-      // plugins={[
-      //   <Card key='toc' className={styles.toc}>
-      //     <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
-      //   </Card>
-      // ]}
+    // plugins={[
+    //   <Card key='toc' className={styles.toc}>
+    //     <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
+    //   </Card>
+    // ]}
     >
       <SEO
         title={`${post.frontmatter.title}`}
@@ -48,63 +53,76 @@ export default function PostTemplate (props) {
         ]}
       />
       <Card>
-        {
-          post.frontmatter.thumbnail ? (
-            <header className={styles.headerWidthCover}>
-              <Img className={styles.cover} fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
-              <div className={`${styles.infoPanel}`}>
-                <div className={styles.meta}>
-                  {
-                    post.frontmatter.categories.map(c => (
-                      <Link key={c} to={`/categories/${c}`}>
-                        <span className={`${styles.item} ${styles.iconFolder}`}>
-                          {c}
-                        </span>
-                      </Link>
-                    ))
-                  }
-                  <span className={`${styles.item} ${styles.iconCalendar}`}>
-                    {post.frontmatter.date}
-                  </span>
-                  <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
-                    {post.timeToRead}‘
-                  </span>
-                  <span id="busuanzi_container_page_pv" className={`${styles.item} ${styles.iconEye}`}>
-                    <span id="busuanzi_value_page_pv"></span>
-                  </span>
-                </div>
-                <div className={styles.line}></div>
-                <div className={styles.title}>{post.frontmatter.title}</div>
+        {post.frontmatter.thumbnail ? (
+          <header className={styles.headerWidthCover}>
+            <Img
+              className={styles.cover}
+              fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
+            />
+            <div className={`${styles.infoPanel}`}>
+              <div className={styles.meta}>
+                {post.frontmatter.categories.map(c => (
+                  <Link key={c} to={`/categories/${c}`}>
+                    <span className={`${styles.item} iconfont icon-folder`}>
+                      {c}
+                    </span>
+                  </Link>
+                ))}
+                <span className={`${styles.item} iconfont icon-calendar`}>
+                  {post.frontmatter.date}
+                </span>
+                <span
+                  className={`${styles.item} iconfont icon-clock`}
+                  title={`阅读时间${post.timeToRead}分钟`}
+                >
+                  {post.timeToRead}‘
+                </span>
+                <span
+                  id="busuanzi_container_page_pv"
+                  className={`${styles.item} iconfont icon-eye`}
+                >
+                  <span id="busuanzi_value_page_pv"></span>
+                </span>
               </div>
-            </header>
-          ) : (
+              <div className={styles.line}></div>
+              <div className={styles.title}>{post.frontmatter.title}</div>
+            </div>
+          </header>
+        ) : (
             <header className={styles.header}>
               <div className={styles.title}>{post.frontmatter.title}</div>
               <div className={styles.meta}>
-                {
-                  post.frontmatter.categories.map(c => (
-                    <Link key={c} to={`/categories/${c}`}>
-                      <span className={`${styles.item} ${styles.iconFolder}`}>
-                        {c}
-                      </span>
-                    </Link>
-                  ))
-                }
-                <span className={`${styles.item} ${styles.iconCalendar}`}>
+                {post.frontmatter.categories.map(c => (
+                  <Link key={c} to={`/categories/${c}`}>
+                    <span className={`${styles.item} iconfont icon-folder`}>
+                      {c}
+                    </span>
+                  </Link>
+                ))}
+                <span className={`${styles.item} iconfont icon-calendar`}>
                   {post.frontmatter.date}
                 </span>
-                <span className={`${styles.item} ${styles.iconClock}`} title={`阅读时间${post.timeToRead}分钟`}>
+                <span
+                  className={`${styles.item} iconfont icon-clock`}
+                  title={`阅读时间${post.timeToRead}分钟`}
+                >
                   {post.timeToRead}‘
-                </span>
-                <span id="busuanzi_container_page_pv" className={`${styles.item} ${styles.iconEye}`}>
+              </span>
+                <span
+                  id="busuanzi_container_page_pv"
+                  className={`${styles.item} iconfont icon-eye`}
+                >
                   <span id="busuanzi_value_page_pv"></span>
                 </span>
               </div>
             </header>
-          )
-        }
-        <div itemScope itemType='http://schema.org/Article'>
-          <article itemProp="articleBody" dangerouslySetInnerHTML={{ __html: postHtmlFilter(post.html) }} className={`${styles.content} markdown__body`}></article>
+          )}
+        <div itemScope itemType="http://schema.org/Article">
+          <article
+            itemProp="articleBody"
+            dangerouslySetInnerHTML={{ __html: postHtmlFilter(post.html) }}
+            className={`${styles.content} markdown__body`}
+          ></article>
         </div>
         <PostFooter
           tags={post.frontmatter.tags}
@@ -118,13 +136,13 @@ export default function PostTemplate (props) {
 }
 
 export const pageQuery = graphql`
-  query postInfo($slug: String!){
+  query postInfo($slug: String!) {
     site {
       siteMetadata {
         siteUrl
       }
     }
-    post: markdownRemark(fields: {slug: {eq: $slug}}) {
+    post: markdownRemark(fields: { slug: { eq: $slug } }) {
       timeToRead
       id
       html

@@ -15,18 +15,19 @@ keywords:
   - 继承
 ---
 
-JavaScript是一个基于原型链继承的面向对象编程语言。在继承的实现上和Java的等经典面向对象编程语言有很大的区别，在ES6中也加入了`class`关键字的支持，但是本质上就是一个语法糖。基于原型链的继承让JavaScript的继承实现更加灵活，这也是JavaScript必须掌握的基础知识。
+JavaScript 是一个基于原型链继承的面向对象编程语言。在继承的实现上和 Java 的等经典面向对象编程语言有很大的区别，在 ES6 中也加入了`class`关键字的支持，但是本质上就是一个语法糖。基于原型链的继承让 JavaScript 的继承实现更加灵活，这也是 JavaScript 必须掌握的基础知识。
+
 <!-- more -->
 
 ## 原型
 
-JavaScript中每一个对象都有原型（也可以创建一个没有任何原型的对象），当使用`new`关键字实例化一个对象，该对象的原型也就指向了构造器的`prototype`属性。访问对象的属性的时候，首先会查找对象自身，如果该属性不存在，则会去查找对象的原型。这样，就可以将需要继承的属性放到原型对象中，让其所有子类都能够访问。
+JavaScript 中每一个对象都有原型（也可以创建一个没有任何原型的对象），当使用`new`关键字实例化一个对象，该对象的原型也就指向了构造器的`prototype`属性。访问对象的属性的时候，首先会查找对象自身，如果该属性不存在，则会去查找对象的原型。这样，就可以将需要继承的属性放到原型对象中，让其所有子类都能够访问。
 
 ```javascript
 function Book(name) {
   this.name = name
 }
-Book.prototype.getName = function () {
+Book.prototype.getName = function() {
   return this.name
 }
 const book = new Book('JavaScript')
@@ -36,13 +37,13 @@ book.getName()
 
 ### 显式原型和隐式原型
 
-JavaScript的原型分为显式原型和隐式原型，两者之间最直观的区别是：显式原型是函数（构造器）的原型属性`prototype`，而隐式原型是所有对象实例的原型属性`__proto__`，即`new Book().__proto__ === Book.prototype`。
+JavaScript 的原型分为显式原型和隐式原型，两者之间最直观的区别是：显式原型是函数（构造器）的原型属性`prototype`，而隐式原型是所有对象实例的原型属性`__proto__`，即`new Book().__proto__ === Book.prototype`。
 
 ## 原型链
 
 当访问对象属性的时候，首先回去查找对象自身是否包含该属性，如果没有，则会去`__proto__`中查找，如果`__proto__`中也不存在，则会继续去`__proto__.__proto__`中查找，直到访问到最顶层`__proto__`也就是`Object.prototype`。这一个过程就是通过原型链进行访问，一层一层的原型串成了一条链。
 
-`Object`的原型对象没有原型，`Object.prototype.__proto__`为null。
+`Object`的原型对象没有原型，`Object.prototype.__proto__`为 null。
 
 ## hasOwnProperty 和 in
 
@@ -58,13 +59,13 @@ book.hasOwnProperty('getName') // false
 
 ## 继承
 
-JavaScript的继承是通过原型实现的，可以通过给原型设置特定的属性，让其实例能够访问到（继承）
+JavaScript 的继承是通过原型实现的，可以通过给原型设置特定的属性，让其实例能够访问到（继承）
 
 ```javascript
 const Book = {
   getName() {
     return this.name
-  }
+  },
 }
 function JsBook(name) {
   this.name = name
@@ -75,9 +76,9 @@ const book = new JsBook('JavaScript')
 book.getName() // JavaScript
 ```
 
-**注意：JavaScript的继承是直接通过原型对象引用，并不是复制了原型对象**
+**注意：JavaScript 的继承是直接通过原型对象引用，并不是复制了原型对象**
 
-下面是几种JavaScript继承的实现方式，不要纠结具体名字。
+下面是几种 JavaScript 继承的实现方式，不要纠结具体名字。
 
 ### 原型链继承
 
@@ -127,7 +128,7 @@ function JsBook(name, author) {
   // 在子类构造函数中执行父类给构造函数
   Book.call(this, ...arguments)
   this.author = author
-  this.getAuthor = function () {
+  this.getAuthor = function() {
     return this.author
   }
 }
@@ -166,7 +167,7 @@ function JsBook(name, author) {
   // 在子类构造函数中执行父类给构造函数
   Book.call(this, ...arguments)
   this.author = author
-  this.getAuthor = function () {
+  this.getAuthor = function() {
     return this.author
   }
 }
@@ -192,7 +193,7 @@ function JsBook(name, author) {
   // 在子类构造函数中执行父类给构造函数
   Book.call(this, ...arguments)
   this.author = author
-  this.getAuthor = function () {
+  this.getAuthor = function() {
     return this.author
   }
 }
@@ -229,9 +230,9 @@ jsbook.getName() // JavaScript
 jsbook.getAuthor() // Johnson
 ```
 
-### ES6继承
+### ES6 继承
 
-ES6继使用class关键字
+ES6 继使用 class 关键字
 
 ```javascript
 class Book {

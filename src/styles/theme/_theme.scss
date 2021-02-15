@@ -6,6 +6,7 @@
 @import 'reset';
 
 @mixin theme-core {
+  @include iconfont();
   @include reset();
   @include highlight(); // TODO: highlight colors
   @include markdown();

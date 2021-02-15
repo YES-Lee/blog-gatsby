@@ -10,7 +10,7 @@ import 'prismjs/themes/prism-okaidia.css'
 import './src/styles/index.scss'
 import 'katex/dist/katex.min.css'
 
-export function onRouteUpdate () {
+export function onRouteUpdate() {
   // 谷歌统计
   if (window.gtag && typeof window.gtag === 'function') {
     window.gtag('config', 'UA-171547937-1')

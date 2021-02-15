@@ -72,7 +72,7 @@ $fab-sub-size: 3.4rem;
   }
 
   .fabMenuGroup {
-    span {
+    span.fabMenu {
       position: absolute;
       z-index: -1;
       width: $fab-sub-size;

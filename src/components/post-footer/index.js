@@ -12,38 +12,32 @@ import ethCode from '../../images/eth_code.png'
 import styles from './index.module.scss'
 import AdSense from '../adsense'
 
-export default function PostFooter (props) {
-
-  const {
-    tags,
-    prev,
-    next,
-    slug
-  } = props
+export default function PostFooter(props) {
+  const { tags, prev, next, slug } = props
 
   return (
     <footer className={styles.postFooter}>
       <Reward
-        text='Buy me a cup of coffee ☕.'
+        text="Buy me a cup of coffee ☕."
         list={[
           {
             title: 'WeChat',
             icon: wechatPayLogo,
             qrcode: wechatCode,
-            url: ''
+            url: '',
           },
           {
             title: 'BTC',
             icon: btcLogo,
             qrcode: btcCode,
-            url: '32eMuE3yPEwZxdwNpidzqYz947BF88ZnYR'
+            url: '32eMuE3yPEwZxdwNpidzqYz947BF88ZnYR',
           },
           {
             title: 'ETH',
             icon: ethLogo,
             qrcode: ethCode,
-            url: '0x0d9f1baF872471ED47fB7Ca808163D0334541Cdd'
-          }
+            url: '0x0d9f1baF872471ED47fB7Ca808163D0334541Cdd',
+          },
         ]}
       />
       <ul className={styles.copyright}>
@@ -57,17 +51,19 @@ export default function PostFooter (props) {
         </li>
         <li className={styles.item}>
           <span className={styles.title}>版权声明：</span>
-          <a href='https://creativecommons.org/licenses/by-nc-nd/4.0/'>署名-非商业性使用-禁止演绎 4.0 国际</a>
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+            署名-非商业性使用-禁止演绎 4.0 国际
+          </a>
         </li>
       </ul>
       <div className={styles.tags}>
-        {
-          (tags || []).map((item, i) => (
-            <Link to={`/tags/${item}`} key={i} className={styles.item}># {item}</Link>
-          ))
-        }
+        {(tags || []).map((item, i) => (
+          <Link to={`/tags/${item}`} key={i} className={styles.item}>
+            # {item}
+          </Link>
+        ))}
       </div>
-      <div className='ad'>
+      <div className="ad">
         <AdSense
           style={{ display: 'block', textAlign: 'center' }}
           data-ad-layout="in-article"
@@ -78,22 +74,18 @@ export default function PostFooter (props) {
       </div>
       <div className={styles.line}></div>
       <div className={styles.pager}>
-        {
-          prev && (
-            <Link className={styles.prev} to={prev.link}>
-              <ChevronLeft size={14} />
-              {`${prev.title}`}
-            </Link>
-          )
-        }
-        {
-          next && (
-            <Link className={styles.next} to={next.link}>
-              {`${next.title}`}
-              <ChevronRight size={14} />
-            </Link>
-          )
-        }
+        {prev && (
+          <Link className={styles.prev} to={prev.link}>
+            <ChevronLeft size={14} />
+            {`${prev.title}`}
+          </Link>
+        )}
+        {next && (
+          <Link className={styles.next} to={next.link}>
+            {`${next.title}`}
+            <ChevronRight size={14} />
+          </Link>
+        )}
       </div>
     </footer>
   )

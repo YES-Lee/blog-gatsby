@@ -12,7 +12,7 @@ import styles from './layout.module.scss'
 import Fab from '../fab/fab'
 import Toc from '../toc/toc'
 
-export default function Layout (props) {
+export default function Layout(props) {
   const pageRef = useRef()
   const { children, active, plugins, siderFixed, showFab, fabToc, toc } = props
   const [progress, setProgress] = useState(0)
@@ -20,8 +20,9 @@ export default function Layout (props) {
   const [isTablet, setIsTablet] = useState(false)
   const [siderVisible, setSiderVisible] = useState(false)
 
-  const handleScroll = useCallback(($e) => {
-    let scale = $e.target.scrollTop / ($e.target.scrollHeight - $e.target.offsetHeight)
+  const handleScroll = useCallback($e => {
+    let scale =
+      $e.target.scrollTop / ($e.target.scrollHeight - $e.target.offsetHeight)
     if (scale < 0) scale = 0
     if (scale > 1) scale = 1
     setProgress(Math.round(scale * 100))
@@ -38,18 +39,18 @@ export default function Layout (props) {
     })
   }, [])
 
-  const onFabAction = useCallback((type) => {
+  const onFabAction = useCallback(type => {
     switch (type) {
       case 'top':
         pageRef.current.scrollTo({
           top: 0,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
         break
       case 'bottom':
         pageRef.current.scrollTo({
           top: pageRef.current.scrollHeight - pageRef.current.offsetHeight,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
         break
       case 'toc':
@@ -70,34 +71,41 @@ export default function Layout (props) {
 
   return (
     <>
-      <Sider className={`${styles.sider} ${siderVisible ? styles.show : ''}`} active={active} plugins={plugins} fixed={siderFixed} />
-      <div className={`${styles.container1} ${siderVisible ? styles.showSider : ''}`} onClick={() => handleClickContainer()}>
+      <Sider
+        className={`${styles.sider} ${siderVisible ? styles.show : ''}`}
+        active={active}
+        plugins={plugins}
+        fixed={siderFixed}
+      />
+      <div
+        className={`${styles.container1} ${
+          siderVisible ? styles.showSider : ''
+        }`}
+        onClick={() => handleClickContainer()}
+      >
         <div className={styles.container2}>
-          <div className={styles.container3} ref={pageRef} onScroll={handleScroll}>
-            <main className={styles.main}>
-              {children}
-            </main>
+          <div
+            className={styles.container3}
+            ref={pageRef}
+            onScroll={handleScroll}
+          >
+            <main className={styles.main}>{children}</main>
           </div>
         </div>
       </div>
-      {
-        (isTablet || showFab) && (
-          <Fab
-            fabSider={isTablet && !tocVisible}
-            fabToc={fabToc && !siderVisible}
-            progress={progress}
-            action={onFabAction}
-          />
-        )
-      }
-      <Toc
-        visible={tocVisible}
-        content={toc}
-      />
+      {(isTablet || showFab) && (
+        <Fab
+          fabSider={isTablet && !tocVisible}
+          fabToc={fabToc && !siderVisible}
+          progress={progress}
+          action={onFabAction}
+        />
+      )}
+      <Toc visible={tocVisible} content={toc} />
     </>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }

@@ -1,16 +1,15 @@
 import React from 'react'
 import styles from './f-link.module.scss'
 
-export default function FLink ({ data, className }) {
-
+export default function FLink({ data, className }) {
   return (
     <div className={`${styles.fLink} ${className}`}>
       <img className={styles.avatar} src={data.avatar} />
       <div className={styles.content}>
         <a
           href={data.link}
-          target='_blank'
-          rel='noopener noreferrer'
+          target="_blank"
+          rel="noopener noreferrer"
           className={styles.title}
         >
           {data.title}

@@ -47,13 +47,6 @@
       opacity: $opacity-2;
       .metaItem {
         margin-right: 1rem;
-
-        &.date {
-          @include icomoon($icon-calendar);
-        }
-        &.readTime {
-          @include icomoon($icon-clock);
-        }
       }
     }
   }

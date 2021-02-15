@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: 'slug',
       value: `/post/${slug.split('/')[1]}/`,
-      trailingSlash: false
+      trailingSlash: false,
     })
   }
 }
@@ -27,14 +27,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const postListTemplate = path.resolve('src/templates/index-template.js')
-  const postTemplate = path.resolve('src/templates/post-template/post-template.js')
-  const archivesTemplate = path.resolve('src/templates/archives-template/archives-template.js')
-  const categoriesTemplate = path.resolve('src/templates/categories-template/categories-template.js')
-  const tagsTemplate = path.resolve('src/templates/tags-template/tags-template.js')
+  const postTemplate = path.resolve(
+    'src/templates/post-template/post-template.js'
+  )
+  const archivesTemplate = path.resolve(
+    'src/templates/archives-template/archives-template.js'
+  )
+  const categoriesTemplate = path.resolve(
+    'src/templates/categories-template/categories-template.js'
+  )
+  const tagsTemplate = path.resolve(
+    'src/templates/tags-template/tags-template.js'
+  )
 
   const result = await graphql(`
     {
-      allMarkdownRemark (sort: {fields: frontmatter___date, order: DESC}) {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           next {
             fields {
@@ -84,8 +92,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   let hasError = false
   for (let i = 0; i < result.data.allMarkdownRemark.nodes.length; i++) {
-    if (!result.data.allMarkdownRemark.nodes[i].excerpt || !result.data.allMarkdownRemark.nodes[i].frontmatter.keywords || !result.data.allMarkdownRemark.nodes[i].frontmatter.keywords.length) {
-      reporter.panicOnBuild(`文章${result.data.allMarkdownRemark.nodes[i].frontmatter.title}没有关键词或摘要`)
+    if (
+      !result.data.allMarkdownRemark.nodes[i].excerpt ||
+      !result.data.allMarkdownRemark.nodes[i].frontmatter.keywords ||
+      !result.data.allMarkdownRemark.nodes[i].frontmatter.keywords.length
+    ) {
+      reporter.panicOnBuild(
+        `文章${result.data.allMarkdownRemark.nodes[i].frontmatter.title}没有关键词或摘要`
+      )
       hasError = true
     }
   }
@@ -93,7 +107,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     process.exit(1)
   }
 
-  const totalPage = Math.ceil(result.data.allMarkdownRemark.totalCount / PAGE_SIZE)
+  const totalPage = Math.ceil(
+    result.data.allMarkdownRemark.totalCount / PAGE_SIZE
+  )
 
   // 生成文章列表页面
   for (let p = 0; p < totalPage; p++) {
@@ -104,8 +120,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         currentPage: p,
         totalPage,
         limit: PAGE_SIZE,
-        skip: p * PAGE_SIZE
-      } // additional data can be passed via context
+        skip: p * PAGE_SIZE,
+      }, // additional data can be passed via context
     })
   }
 
@@ -117,13 +133,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     if (item.previous) {
       prevAndNext.prev = {
         title: item.previous.frontmatter.title,
-        link: item.previous.fields.slug
+        link: item.previous.fields.slug,
       }
     }
     if (item.next) {
       prevAndNext.next = {
         title: item.next.frontmatter.title,
-        link: item.next.fields.slug
+        link: item.next.fields.slug,
       }
     }
     createPage({
@@ -131,8 +147,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: postTemplate,
       context: {
         slug: item.node.fields.slug,
-        ...prevAndNext
-      }
+        ...prevAndNext,
+      },
     })
   })
 
@@ -140,9 +156,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
    * 生成归档页
    */
   const archivePageSize = 10
-  const totalArchivePage = Math.ceil(result.data.allMarkdownRemark.totalCount / archivePageSize)
+  const totalArchivePage = Math.ceil(
+    result.data.allMarkdownRemark.totalCount / archivePageSize
+  )
   for (let i = 0; i < totalArchivePage; i++) {
-    const nodes = result.data.allMarkdownRemark.nodes.slice(archivePageSize * i, archivePageSize * (i + 1))
+    const nodes = result.data.allMarkdownRemark.nodes.slice(
+      archivePageSize * i,
+      archivePageSize * (i + 1)
+    )
     const archives = {}
     nodes.forEach(item => {
       const date = new Date(item.frontmatter.date)
@@ -153,7 +174,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       archives[year][month].push({
         date,
         link: item.fields.slug,
-        title: item.frontmatter.title
+        title: item.frontmatter.title,
       })
     })
     createPage({
@@ -162,8 +183,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         archives,
         totalPage: totalArchivePage,
-        currentPage: i
-      }
+        currentPage: i,
+      },
     })
   }
 
@@ -181,7 +202,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       categories[c].push({
         date: item.frontmatter.date,
         title: item.frontmatter.title,
-        link: item.fields.slug
+        link: item.fields.slug,
       })
     })
     const tagList = item.frontmatter.tags || []
@@ -192,7 +213,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       tags[t].push({
         date: item.frontmatter.date,
         title: item.frontmatter.title,
-        link: item.fields.slug
+        link: item.fields.slug,
       })
     })
   })
@@ -208,12 +229,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           title: k,
           categories: Object.keys(categories).map(ck => ({
             title: ck,
-            count: categories[ck].length
+            count: categories[ck].length,
           })),
           totalPage: totalCatePage,
           currentPage: i,
-          currentList: categories[k].slice(i * 10, (i + 1) * 10)
-        }
+          currentList: categories[k].slice(i * 10, (i + 1) * 10),
+        },
       })
     }
   })
@@ -228,8 +249,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           title: k,
           totalPage: totalCatePage,
           currentPage: i,
-          currentList: tags[k].slice(i * 10, (i + 1) * 10)
-        }
+          currentList: tags[k].slice(i * 10, (i + 1) * 10),
+        },
       })
     }
   })

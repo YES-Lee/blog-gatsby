@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 
-export default function AdSense (props) {
-
+export default function AdSense(props) {
   useEffect(() => {
     console.log('加载广告')
     window.adsbygoogle = window.adsbygoogle || []
@@ -10,9 +9,7 @@ export default function AdSense (props) {
 
   return (
     <>
-      <ins
-        className="adsbygoogle"
-        {...props}></ins>
+      <ins className="adsbygoogle" {...props}></ins>
     </>
   )
 }

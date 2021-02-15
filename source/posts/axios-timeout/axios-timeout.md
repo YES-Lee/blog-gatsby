@@ -2,12 +2,12 @@
 title: 优雅的解决axios超时
 date: 2019-09-18 15:55:47
 categories:
-- 技术
+  - 技术
 tags:
-- javascript
-- 前端
-- axios
-- http
+  - javascript
+  - 前端
+  - axios
+  - http
 thumbnail: ./cover.jpg
 keywords:
   - axios请求超时处理
@@ -15,6 +15,7 @@ keywords:
 ---
 
 在`vue`中经常使用`axios`发起网络请求，与服务器进行数据交互。在使用过程中会有许多问题存在，比如由于网络不稳定导致请求超时/失败，通常有两种解决方案，一种是提示用户重新提交请求，另一种是进行相关提示并自动重新发送请求。第二种方式用户体验明显高于第一种方式。本文就针对第二种方式设计一个解决方案。
+
 <!-- more -->
 
 > [DEMO(https://yes-lee.github.io/axios-tutorial/)](https://yes-lee.github.io/axios-tutorial/)
@@ -41,11 +42,12 @@ httpClient.interceptors.response.use(null, err => {
   // 异常处理
 
   const { config, code, message } = err
-  if (code === 'ECONNABORTED' || message === 'Network Error') { // 请求超时
-  console.warn(`请求超时，将在${defaultConfig.retryDelay / 1000}秒后重试`)
-  return new Promise(resolve => {
-    setTimeout(async _ => {
-      resolve(await httpClient.request(config))
+  if (code === 'ECONNABORTED' || message === 'Network Error') {
+    // 请求超时
+    console.warn(`请求超时，将在${defaultConfig.retryDelay / 1000}秒后重试`)
+    return new Promise(resolve => {
+      setTimeout(async _ => {
+        resolve(await httpClient.request(config))
       }, defaultConfig.retryDelay) // 设置发送间隔
     })
   }
@@ -55,7 +57,7 @@ httpClient.interceptors.response.use(null, err => {
 })
 ```
 
-经过错误代码判断，需要进行重新发送的时候，将请求的config直接传入`httpClient.request`中。这里加了一个`timeout`定时器，是为了防止请求频率过高，当网络连接异常时，请求响应时间是非常短的，如果马上进行请求就会导致进入死循环，甚至递归调用栈溢出。
+经过错误代码判断，需要进行重新发送的时候，将请求的 config 直接传入`httpClient.request`中。这里加了一个`timeout`定时器，是为了防止请求频率过高，当网络连接异常时，请求响应时间是非常短的，如果马上进行请求就会导致进入死循环，甚至递归调用栈溢出。
 
 整个过程实际上是一个递归调用请求的过程，重新发送次数过多可能会导致递归溢出问题，使用递归的原因是为了保证所有请求用的是同一个`axios`示例。当然，`config`里面几乎包含了所有的配置，也可以直接使用`axios.request`进行请求。区别就在于如果在请求拦截器中设置了一些操作可能会有一些问题。
 

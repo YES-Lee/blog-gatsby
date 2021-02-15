@@ -16,7 +16,8 @@ keywords:
   - 路由守卫
 ---
 
-在SPA（单页面应用）中，前端需要根据用户的权限来控制用户菜单以及路由表，`vue-router`提供了几个路由生命周期钩子，叫做`路由守卫`，我们可以利用路由守卫在路由以及路由元信息进行权限控制，同时搭配vuex将会更美味，**文末有完整示例地址**。
+在 SPA（单页面应用）中，前端需要根据用户的权限来控制用户菜单以及路由表，`vue-router`提供了几个路由生命周期钩子，叫做`路由守卫`，我们可以利用路由守卫在路由以及路由元信息进行权限控制，同时搭配 vuex 将会更美味，**文末有完整示例地址**。
+
 <!-- more -->
 
 ## 登录权限
@@ -30,29 +31,29 @@ keywords:
 ```javascript
 // router.js
 // 路由表元信息
-[
+;[
   {
     path: '',
-    redirect: '/home'
+    redirect: '/home',
   },
   {
     path: '/home',
     meta: {
       title: 'Home',
-      icon: 'home'
-    }
+      icon: 'home',
+    },
   },
   {
     path: '/userCenter',
     meta: {
       title: '个人中心',
-      requireAuth: true // 在需要登录的路由的meta中添加响应的权限标识
-    }
-  }
+      requireAuth: true, // 在需要登录的路由的meta中添加响应的权限标识
+    },
+  },
 ]
 
 // 在守卫中访问元信息
-function gaurd (to, from, next) {
+function gaurd(to, from, next) {
   // to.matched.some(record => record.meta.requireAuth)
   // 可在此处
 }
@@ -60,7 +61,7 @@ function gaurd (to, from, next) {
 
 ### vuex
 
-一般的，用户登录后会在本地持久化存储用户的认证信息，本文以`JWT`的`token`为例。将用户的token持久化到localStorage里，而用户信息则存在内存(store)中。这样可以在vuex中存储一个标记用户登录状态的属性`auth`，方便用语权限控制。
+一般的，用户登录后会在本地持久化存储用户的认证信息，本文以`JWT`的`token`为例。将用户的 token 持久化到 localStorage 里，而用户信息则存在内存(store)中。这样可以在 vuex 中存储一个标记用户登录状态的属性`auth`，方便用语权限控制。
 
 ```javascript
 // store.js
@@ -107,14 +108,17 @@ function gaurd (to, from, next) {
 
 ### 路由守卫
 
-写好路由表和vuex之后，给所有路由设置一个全局守卫，在进入路由之前进行权限检查，并导航到对应的路由。
+写好路由表和 vuex 之后，给所有路由设置一个全局守卫，在进入路由之前进行权限检查，并导航到对应的路由。
 
 ```javascript
 // router.js
 router.beforeEach(async (to, from, next) => {
-  if (to.matched.some(record => record.meta.requireAuth)) { // 检查是否需要登录权限
-    if (!store.state.auth) { // 检查是否已登录
-      if (store.state.token) { // 未登录，但是有token，获取用户信息
+  if (to.matched.some(record => record.meta.requireAuth)) {
+    // 检查是否需要登录权限
+    if (!store.state.auth) {
+      // 检查是否已登录
+      if (store.state.token) {
+        // 未登录，但是有token，获取用户信息
         try {
           const data = await store.dispatch('getUserInfo', store.state.token)
           if (data.code === 200) {
@@ -160,18 +164,18 @@ const dynamicRoutes = [
     path: '/manage',
     name: 'Manage',
     meta: {
-      requireAuth: true
+      requireAuth: true,
     },
-    component: () => import('./views/Manage')
+    component: () => import('./views/Manage'),
   },
   {
     path: '/userCenter',
     name: 'UserCenter',
     meta: {
-      requireAuth: true
+      requireAuth: true,
     },
-    component: () => import('./views/UserCenter')
-  }
+    component: () => import('./views/UserCenter'),
+  },
 ]
 ```
 
@@ -200,7 +204,9 @@ setUserInfo (state, userInfo) {
   <router-link to="/">主页</router-link>|
   <router-link to="/login">登录</router-link>
   <template v-for="(menu, index) of $store.state.userInfo.menus">
-    |<router-link :to="{ name: menu.name }" :key="index">{{menu.title}}</router-link>
+    |<router-link :to="{ name: menu.name }" :key="index"
+      >{{menu.title}}</router-link
+    >
   </template>
 </div>
 ```

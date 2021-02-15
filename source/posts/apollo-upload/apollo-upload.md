@@ -6,9 +6,9 @@ color: '#111'
 thumbnail: ./cover.jpg
 date: 2019-09-19 14:14:13
 tags:
-- graphql
-- 前端
-- javascript
+  - graphql
+  - 前端
+  - javascript
 keywords:
   - apollo文件上传
   - apollo
@@ -17,16 +17,17 @@ keywords:
 ---
 
 使用`apollo-client`上传文件
+
 <!-- more -->
 
-# apollo文件上传
+# apollo 文件上传
 
 ## 依赖
 
-  * apollo-client
-  * apollo-link
-  * apollo-upload-client
-  * apollo-cache-inmemory
+- apollo-client
+- apollo-link
+- apollo-upload-client
+- apollo-cache-inmemory
 
 ## 客户端创建
 
@@ -41,19 +42,19 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 const authLink = new ApolloLink((operation: Operation, forward) => {
   operation.setContext({
     headers: {
-      Authorization: getToken()
-    }
+      Authorization: getToken(),
+    },
   })
   return forward(operation)
 })
 
 const uploadLink = createUploadLink({
-  uri: `${API_URL}`
+  uri: `${API_URL}`,
 })
 
 export const apolloClient = new ApolloClient({
-  link: from([ authLink, uploadLink ]), // uploadLink一定要放最后
-  cache: new InMemoryCache()
+  link: from([authLink, uploadLink]), // uploadLink一定要放最后
+  cache: new InMemoryCache(),
 })
 ```
 
@@ -67,10 +68,10 @@ import { apolloClient } from 'apolloClient'
 
 export function uploadFile(file) {
   const query = gql`
-    mutation ($file: Upload!) {
+    mutation($file: Upload!) {
       uploadFile(file: $file) {
-        id,
-        attachname,
+        id
+        attachname
         filename
       }
     }
@@ -79,8 +80,8 @@ export function uploadFile(file) {
   return apolloClient.mutation({
     mutation,
     variables: {
-      file
-    }
+      file,
+    },
   })
 }
 ```
