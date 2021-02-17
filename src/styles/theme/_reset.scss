@@ -85,8 +85,8 @@
   }
   
   ::selection {
-    background-color: get-color(primary);
-    color: get-color(on-primary);
+    background-color: get-color(primary)!important;
+    color: get-color(on-primary)!important;
   }
 
   ::-webkit-scrollbar {

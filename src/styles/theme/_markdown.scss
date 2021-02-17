@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'functions';
+@import 'mixins';
 
 $line-height: 1.8;
 
@@ -46,28 +47,18 @@ $line-height: 1.8;
       >li.task-list-item {
         margin-left: -1rem;
         list-style: none;
+
+        // >input[type="checkbox"] {
+        //   display: none;
+        // }
+        // &.task-list-item {
+        //   list-style: none;
+        //   @include iconfont-family;
+        //   &::before {
+        //     content: '\e6ad';
+        //   }
+        // }
       }
-  
-      // >li {
-  
-      //   >input[type="checkbox"] {
-      //     display: none;
-      //   }
-      //   &.task-list-item {
-      //     list-style: none;
-      //     &::before {
-      //       content: '';
-      //       background: url(../images/check-circle.svg) no-repeat center;
-      //       background-size: 1rem;
-      //       overflow: hidden;
-      //       display: inline-block;
-      //       width: 1rem;
-      //       height: 1rem;
-      //       line-height: inherit;
-      //       margin-right: .3rem;
-      //     }
-      //   }
-      // }
     }
   
     table {
