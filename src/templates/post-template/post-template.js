@@ -13,7 +13,7 @@ import styles from './post-template.module.scss'
 export default function PostTemplate(props) {
   const {
     data: { post, site },
-    pageContext
+    pageContext,
   } = props
 
   const handleClickTitle = e => {
@@ -36,11 +36,11 @@ export default function PostTemplate(props) {
         </Card>
       }
       siderFixed={false}
-    // plugins={[
-    //   <Card key='toc' className={styles.toc}>
-    //     <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
-    //   </Card>
-    // ]}
+      // plugins={[
+      //   <Card key='toc' className={styles.toc}>
+      //     <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
+      //   </Card>
+      // ]}
     >
       <SEO
         title={`${post.frontmatter.title}`}
@@ -48,8 +48,8 @@ export default function PostTemplate(props) {
         meta={[
           {
             name: 'keywords',
-            content: (post.frontmatter.keywords || []).join(',')
-          }
+            content: (post.frontmatter.keywords || []).join(','),
+          },
         ]}
       />
       <Card>
@@ -89,34 +89,34 @@ export default function PostTemplate(props) {
             </div>
           </header>
         ) : (
-            <header className={styles.header}>
-              <div className={styles.title}>{post.frontmatter.title}</div>
-              <div className={styles.meta}>
-                {post.frontmatter.categories.map(c => (
-                  <Link key={c} to={`/categories/${c}`}>
-                    <span className={`${styles.item} iconfont icon-folder`}>
-                      {c}
-                    </span>
-                  </Link>
-                ))}
-                <span className={`${styles.item} iconfont icon-calendar`}>
-                  {post.frontmatter.date}
-                </span>
-                <span
-                  className={`${styles.item} iconfont icon-clock`}
-                  title={`阅读时间${post.timeToRead}分钟`}
-                >
-                  {post.timeToRead}‘
+          <header className={styles.header}>
+            <div className={styles.title}>{post.frontmatter.title}</div>
+            <div className={styles.meta}>
+              {post.frontmatter.categories.map(c => (
+                <Link key={c} to={`/categories/${c}`}>
+                  <span className={`${styles.item} iconfont icon-folder`}>
+                    {c}
+                  </span>
+                </Link>
+              ))}
+              <span className={`${styles.item} iconfont icon-calendar`}>
+                {post.frontmatter.date}
               </span>
-                <span
-                  id="busuanzi_container_page_pv"
-                  className={`${styles.item} iconfont icon-eye`}
-                >
-                  <span id="busuanzi_value_page_pv"></span>
-                </span>
-              </div>
-            </header>
-          )}
+              <span
+                className={`${styles.item} iconfont icon-clock`}
+                title={`阅读时间${post.timeToRead}分钟`}
+              >
+                {post.timeToRead}‘
+              </span>
+              <span
+                id="busuanzi_container_page_pv"
+                className={`${styles.item} iconfont icon-eye`}
+              >
+                <span id="busuanzi_value_page_pv"></span>
+              </span>
+            </div>
+          </header>
+        )}
         <div itemScope itemType="http://schema.org/Article">
           <article
             itemProp="articleBody"
