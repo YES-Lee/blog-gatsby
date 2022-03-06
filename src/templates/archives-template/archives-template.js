@@ -5,7 +5,7 @@ import Card from '../../components/card/card'
 import Pagination from '../../components/pagination'
 import SEO from '../../components/seo'
 
-import styles from './archives-template.module.scss'
+import * as styles from './archives-template.module.scss'
 
 const MONTH = {
   1: 'JAN',

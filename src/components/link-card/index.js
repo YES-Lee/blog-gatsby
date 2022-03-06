@@ -1,7 +1,7 @@
 import React from 'react'
 import FLink from '../f-link'
 
-import styles from './index.module.scss'
+import * as styles from './index.module.scss'
 
 export default function LinkCard() {
   const links = [

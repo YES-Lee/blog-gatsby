@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
-import styles from './index.module.scss'
+import * as styles from './index.module.scss'
 
 export default function Pagination(props) {
-  const { current, total, renderPath = () => {}, className } = props
+  const { current, total, renderPath = () => { }, className } = props
 
   if (!total || total <= 1) {
     return null
@@ -40,9 +40,8 @@ export default function Pagination(props) {
         <Link
           key={total - 1}
           to={renderPath(total - 1)}
-          className={`${styles.item} ${
-            current === total - 1 ? styles.active : ''
-          }`}
+          className={`${styles.item} ${current === total - 1 ? styles.active : ''
+            }`}
         >
           {total}
         </Link>
@@ -87,9 +86,8 @@ export default function Pagination(props) {
           <Link
             key={current - 1}
             to={renderPath(current - 1)}
-            className={`${styles.item} ${
-              current === current - 1 ? styles.active : ''
-            }`}
+            className={`${styles.item} ${current === current - 1 ? styles.active : ''
+              }`}
           >
             {current}
           </Link>
@@ -107,9 +105,8 @@ export default function Pagination(props) {
           <Link
             key={current + 1}
             to={renderPath(current + 1)}
-            className={`${styles.item} ${
-              current === current + 1 ? styles.active : ''
-            }`}
+            className={`${styles.item} ${current === current + 1 ? styles.active : ''
+              }`}
           >
             {current + 2}
           </Link>

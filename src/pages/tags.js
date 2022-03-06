@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby'
 import Layout from '../components/layout'
 import Card from '../components/card/card'
 
-import styles from './tags.module.scss'
+import * as styles from './tags.module.scss'
 
 export default function LinkPage() {
   const MAX_COUNT = 20
@@ -30,7 +30,7 @@ export default function LinkPage() {
   const counter = {}
 
   allMarkdownRemark.nodes.forEach(item => {
-    ;(item.frontmatter.tags || []).forEach(tag => {
+    ; (item.frontmatter.tags || []).forEach(tag => {
       if (counter[tag]) {
         counter[tag] = counter[tag] + 1
       } else {

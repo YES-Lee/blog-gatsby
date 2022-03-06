@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import algoliasearch from 'algoliasearch'
-import { useDebouncedFn } from 'beautiful-react-hooks'
+import { useDebouncedCallback } from 'beautiful-react-hooks'
 import { Link } from 'gatsby'
 
 import SEO from '../components/seo'
 import Layout from '../components/layout'
 import Card from '../components/card/card'
-import styles from './search.module.scss'
+import * as styles from './search.module.scss'
 import { Loader } from 'react-feather'
 
 const ALGOLIA_APPID = '46OB2XFJAE'
@@ -22,13 +22,13 @@ const SearchPage = () => {
   const [resultList, setResultList] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const handleSearch = useDebouncedFn(() => {
+  const handleSearch = useDebouncedCallback(() => {
     setLoading(true)
     algoliaIndex.search(keywords).then(({ hits }) => {
       setResultList(hits)
       setLoading(false)
     })
-  }, 200)
+  }, [], 200)
 
   useEffect(() => {
     if (keywords.trim()) {

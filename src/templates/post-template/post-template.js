@@ -8,7 +8,7 @@ import Card from '../../components/card/card'
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import { postHtmlFilter } from '../../lib/utils'
 
-import styles from './post-template.module.scss'
+import * as styles from './post-template.module.scss'
 
 export default function PostTemplate(props) {
   const {
@@ -36,11 +36,11 @@ export default function PostTemplate(props) {
         </Card>
       }
       siderFixed={false}
-      // plugins={[
-      //   <Card key='toc' className={styles.toc}>
-      //     <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
-      //   </Card>
-      // ]}
+    // plugins={[
+    //   <Card key='toc' className={styles.toc}>
+    //     <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} onClick={handleClickTitle}></div>
+    //   </Card>
+    // ]}
     >
       <SEO
         title={`${post.frontmatter.title}`}
@@ -56,7 +56,6 @@ export default function PostTemplate(props) {
         {post.frontmatter.thumbnail ? (
           <header className={styles.headerWidthCover}>
             <Img
-              className={styles.cover}
               fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
             />
             <div className={`${styles.infoPanel}`}>

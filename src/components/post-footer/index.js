@@ -9,7 +9,7 @@ import ethLogo from '../../images/ethereum.png'
 import btcCode from '../../images/btc_code.png'
 import ethCode from '../../images/eth_code.png'
 
-import styles from './index.module.scss'
+import * as styles from './index.module.scss'
 import AdSense from '../adsense'
 
 export default function PostFooter(props) {

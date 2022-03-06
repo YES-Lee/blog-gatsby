@@ -5,7 +5,7 @@ import Layout from '../../components/layout'
 import Card from '../../components/card/card'
 import Pagination from '../../components/pagination'
 
-import styles from './tags-template.module.scss'
+import * as styles from './tags-template.module.scss'
 
 export default function CategoryPage(props) {
   const {

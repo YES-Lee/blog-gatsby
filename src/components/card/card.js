@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './card.module.scss'
+import * as styles from './card.module.scss'
 import PropTypes from 'prop-types'
 
 export default function Card(props) {

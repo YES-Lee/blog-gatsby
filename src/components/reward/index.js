@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Popover, { ArrowContainer } from 'react-tiny-popover'
 
-import styles from './index.module.scss'
+import * as styles from './index.module.scss'
 
 export function Reward(props) {
   const { list = [], text } = props

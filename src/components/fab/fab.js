@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import styles from './fab.module.scss'
+import * as styles from './fab.module.scss'
 
 export default function Fab(props) {
   const { progress = 0, action, fabSider, fabToc } = props

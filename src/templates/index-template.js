@@ -6,7 +6,7 @@ import PostCard from '../components/post-card'
 import Layout from '../components/layout'
 import Pagination from '../components/pagination'
 
-import styles from './index.module.scss'
+import * as styles from './index.module.scss'
 import LinkCard from '../components/link-card'
 
 const IndexPage = props => {

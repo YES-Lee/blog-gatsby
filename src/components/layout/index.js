@@ -8,7 +8,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import Sider from '../sider'
-import styles from './layout.module.scss'
+import * as styles from './layout.module.scss'
 import Fab from '../fab/fab'
 import Toc from '../toc/toc'
 
@@ -78,9 +78,8 @@ export default function Layout(props) {
         fixed={siderFixed}
       />
       <div
-        className={`${styles.container1} ${
-          siderVisible ? styles.showSider : ''
-        }`}
+        className={`${styles.container1} ${siderVisible ? styles.showSider : ''
+          }`}
         onClick={() => handleClickContainer()}
       >
         <div className={styles.container2}>

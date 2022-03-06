@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import Card from '../card/card'
 
-import styles from './sider.module.scss'
+import * as styles from './sider.module.scss'
 
 export default function Sider(props) {
   const siderRef = useRef()
@@ -75,7 +75,7 @@ export default function Sider(props) {
   return (
     <aside className={`${styles.sider} ${className}`}>
       <div className={styles.container} ref={siderRef}>
-        <section className={styles.main}>
+        <section>
           <Card className={styles.profileCard}>
             <div className={styles.avatarContainer}>
               <Img
@@ -85,7 +85,7 @@ export default function Sider(props) {
               />
             </div>
             <h1 className={styles.name}>
-              <Link to="/" className={styles.link}>
+              <Link to="/">
                 Johnson
               </Link>
             </h1>
@@ -98,27 +98,24 @@ export default function Sider(props) {
           <Card className={styles.tabsCard}>
             <Link
               to="/archives"
-              className={`${styles.tabItem} ${
-                active === '/archives' ? styles.active : ''
-              }`}
+              className={`${styles.tabItem} ${active === '/archives' ? styles.active : ''
+                }`}
             >
               <span className={styles.count}>{siderData.totalCount}</span>
               <span className={styles.title}>Archives</span>
             </Link>
             <Link
               to={`/categories/${categories[0]}`}
-              className={`${styles.tabItem} ${
-                active === '/categories' ? styles.active : ''
-              }`}
+              className={`${styles.tabItem} ${active === '/categories' ? styles.active : ''
+                }`}
             >
               <span className={styles.count}>{categories.length}</span>
               <span className={styles.title}>Categories</span>
             </Link>
             <Link
               to="/tags"
-              className={`${styles.tabItem} ${
-                active === '/tags' ? styles.active : ''
-              }`}
+              className={`${styles.tabItem} ${active === '/tags' ? styles.active : ''
+                }`}
             >
               <span className={styles.count}>{tags.length}</span>
               <span className={styles.title}>Tags</span>
@@ -127,17 +124,15 @@ export default function Sider(props) {
           <nav className={styles.nav}>
             <Link
               to="/"
-              className={`${styles.navItem} ${
-                active === '/' ? styles.active : ''
-              }`}
+              className={`${styles.navItem} ${active === '/' ? styles.active : ''
+                }`}
             >
               🏠 Home
             </Link>
             <Link
               to="/about"
-              className={`${styles.navItem} ${
-                active === '/about' ? styles.active : ''
-              }`}
+              className={`${styles.navItem} ${active === '/about' ? styles.active : ''
+                }`}
             >
               😊 About
             </Link>
@@ -182,14 +177,14 @@ export default function Sider(props) {
               className={`${styles.snsItem} iconfont icon-telegram`}
             ></a>
           </p>
-          <p className={styles.copyright}>
+          <p >
             <span>©️{new Date().getFullYear()}</span>
             ❤️
-            <Link to="/" className={styles.author}>
+            <Link to="/" >
               Johnson
             </Link>
           </p>
-          <p className={styles.beian}>
+          <p >
             <a
               href="http://www.beian.miit.gov.cn/"
               target="_blank"

@@ -7,7 +7,7 @@ import Pagination from '../../components/pagination'
 import dayjs from 'dayjs'
 import 'dayjs/locale/zh-cn'
 
-import styles from './categories-template.module.scss'
+import * as styles from './categories-template.module.scss'
 
 export default function CategoryPage(props) {
   const {
@@ -33,9 +33,8 @@ export default function CategoryPage(props) {
                 key={item.title}
                 to={`/categories/${item.title}`}
                 count={item.count}
-                className={`${styles.tabItem} ${
-                  item.title === title ? styles.active : ''
-                }`}
+                className={`${styles.tabItem} ${item.title === title ? styles.active : ''
+                  }`}
               >
                 {item.title}
               </Link>
